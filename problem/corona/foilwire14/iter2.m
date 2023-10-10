@@ -1,0 +1,64 @@
+
+
+nu=1e-3;
+ds = loginc(linspace(0.1,1,500)*4,1);
+tetaw = linspace(t1,t2,20); 
+x1 = cos(tetaw)*rw+xw;
+y1 = sin(tetaw)*rw+yw;
+
+app.arg = {1,nu,eps0,kappa,xw,yw,t1,t2,Wind,tau};
+app.bcs = [Vw 0;0 0;Va 0];
+[UDG,UH] = hdg_solve(master,mesh,app,UDG,UH,[]);
+VDG(:,1,:) = UDG(:,3,:)+Wind*mesh.dgnodes(:,3,:);
+VDG(:,2,:) = UDG(:,5,:)+Wind*mesh.dgnodes(:,4,:);
+[x,y,s,Ex,Ey,in,out] = fieldlines(mesh, VDG, x1, y1, ds, 1);
+
+if ~isempty(out)
+    Va1 = Va;
+end
+while ~isempty(out)
+    Va = Va*1.1;
+    app.bcs = [Vw 0;0 0;Va 0];    
+    [UDG,UH] = hdg_solve(master,mesh,app,UDG,UH,[]);
+    VDG(:,1,:) = UDG(:,3,:)+Wind*mesh.dgnodes(:,3,:);
+    VDG(:,2,:) = UDG(:,5,:)+Wind*mesh.dgnodes(:,4,:);    
+    [x,y,s,Ex,Ey,in,out] = fieldlines(mesh, VDG, x1, y1, ds, 1);
+    Va2 = Va;
+end
+
+if isempty(out)
+    Va2 = Va;
+end
+while isempty(out)
+    Va = Va/1.1;    
+    app.bcs = [Vw 0;0 0;Va 0];    
+    [UDG,UH] = hdg_solve(master,mesh,app,UDG,UH,[]);
+    VDG(:,1,:) = UDG(:,3,:)+Wind*mesh.dgnodes(:,3,:);
+    VDG(:,2,:) = UDG(:,5,:)+Wind*mesh.dgnodes(:,4,:);    
+    [x,y,s,Ex,Ey,in,out] = fieldlines(mesh, VDG, x1, y1, ds, 1);
+    Va1 = Va;
+end
+
+while (1)
+    if abs(Va2-Va1)<1e-2 && isempty(out)
+        break;
+    end    
+    Va = (Va1+Va2)/2;    
+    app.bcs = [Vw 0;0 0;Va 0];    
+    [UDG,UH] = hdg_solve(master,mesh,app,UDG,UH,[]);
+    VDG(:,1,:) = UDG(:,3,:)+Wind*mesh.dgnodes(:,3,:);
+    VDG(:,2,:) = UDG(:,5,:)+Wind*mesh.dgnodes(:,4,:);    
+    [x,y,s,Ex,Ey,in,out] = fieldlines(mesh, VDG, x1, y1, ds, 1);    
+    if ~isempty(out)
+        Va1 = Va;
+    else
+        Va2 = Va;
+    end
+    [Va1 Va2 Va]
+end
+
+
+
+
+
+

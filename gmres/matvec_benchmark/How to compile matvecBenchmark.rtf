@@ -1,0 +1,61 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red45\green101\blue22;\red0\green0\blue117;\red83\green85\blue2;
+\red26\green26\blue26;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+
+\b Marvin ACML:
+\b0 \
+\
+\pard\pardeftab720\sl220\partightenfactor0
+\cf0 \expnd0\expndtw0\kerning0
+g++-4.6 matvecBenchmark.cpp -L/opt/acml5.3.1/gfortran64/lib /opt/acml5.3.1/gfortran64/lib/libacml.so -lm -ldl -lpthread -lgfortran -I/usr/lib/openmpi/include -I/usr/lib/openmpi/include/openmpi -pthread -L/usr/lib/openmpi/lib -lmpi_cxx -lmpi -lopen-rte -lopen-pal -ldl -Wl,--export-dynamic -lnsl -lutil -lm -ldl -O2 -o matvecBenchmark\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 export LD_LIBRARY_PATH=/opt/acml5.3.1/gfortran64/lib\kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 Engaging ATLAS:
+\b0 \
+\
+\pard\pardeftab720\sl300\partightenfactor0
+\cf0 \expnd0\expndtw0\kerning0
+module add openmpi/gcc/64/1.8.1\
+module add lapack/gcc/64/3.5.0\kerning1\expnd0\expndtw0 \
+\expnd0\expndtw0\kerning0
+mpic++ matvecBenchmark.cpp -o matvecBenchmark -O2 -L/usr/lib64/atlas -llapack\kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 Engaging MKL:
+\b0 \
+\
+\pard\pardeftab720\sl300\partightenfactor0
+\cf0 \expnd0\expndtw0\kerning0
+module add openmpi/gcc/64/1.8.1\
+module add lapack/gcc/64/3.5.0\
+\pard\pardeftab720\sl220\partightenfactor0
+\cf0 mpic++ -DMKL_ILP64 -m64 -L/home/pablof/DIGASO/blas/mkl/lib/intel64 -I/home/pablof/DIGASO/blas/mkl/include matvecBenchmark.cpp\'a0/home/pablof/DIGASO/blas/mkl/lib/intel64/libmkl_intel_ilp64.so\'a0/home/pablof/DIGASO/blas/mkl/lib/intel64/libmkl_core.so \'a0/home/pablof/DIGASO/blas/mkl/lib/intel64/libmkl_sequential.so\'a0-ldl -lpthread -lm\'a0-O2 -o matvecBenchmark\kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 Titan Cray compiler / Cray BLAS:
+\b0 \
+\
+\pard\pardeftab720\sl300\partightenfactor0
+\cf0 \expnd0\expndtw0\kerning0
+module unload PrgEnv-pgi\
+module unload acml\
+module load PrgEnv-cray\
+module load cray-libsci\
+\
+\pard\pardeftab720\sl320\partightenfactor0
+\cf0 CC matvecBenchmark.cpp -o matvecBenchmark -O2\
+}

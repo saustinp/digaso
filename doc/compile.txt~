@@ -1,0 +1,15 @@
+Go to DIGASO1.0/main folder
+
+Serial C++ code
+g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+
+Run code:
+digasoser inputFile outputFile
+
+Parallel C++ code
+mpic++ digasopar.cpp -o digasopar -O2 -lblas -llapack -lm -ldl
+
+Run parallel code:
+mpirun -np 4 digasopar inputFile outputFile
+
+

@@ -1,0 +1,8 @@
+FLAGS = -Wall -Wextra
+CC = gcc $(FLAGS)
+
+all: matvecBenchmark.cpp matvec1.cpp matvec2.cpp matvec3.cpp matvec4.cpp
+	g++ matvecBenchmark.cpp matvec1.cpp matvec2.cpp matvec3.cpp matvec4.cpp -o matvecBenchmark -L/opt/acml5.3.1/gfortran64/lib /opt/acml5.3.1/gfortran64/lib/libacml.a -lm -ldl -lpthread -lgfortran -I/usr/lib/openmpi/include -I/usr/lib/openmpi/include/openmpi -pthread -L/usr/lib/openmpi/lib -lmpi_cxx -lmpi -lopen-rte -lopen-pal -ldl -Wl,--export-dynamic -lnsl -lutil -lm -ldl -g -O2
+
+run: all
+	./matvecBenchmark

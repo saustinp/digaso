@@ -1,0 +1,8 @@
+FLAGS = -Wall -Wextra
+CC = gcc $(FLAGS)
+
+all: matvecBenchmark.cpp matvec1.cpp matvec2.cpp matvec3.cpp matvec4.cpp
+	g++ matvecBenchmark.cpp matvec1.cpp matvec2.cpp matvec3.cpp matvec4.cpp -o matvecBenchmark -lblas -llapack -g -O2
+
+run: all
+	./matvecBenchmark
