@@ -4,7 +4,7 @@ setapplicationpath('FM/poi');
 fileName = 'poi2d';
 
 porder = 4;
-ngrid  = 50;
+ngrid  = 100;
 elemtype = 1;
 nodetype = 1;
 nstage = 0;
@@ -97,8 +97,6 @@ max(abs(u(:)-v(:)))
  
 % serial preprocessing
 nproc = 1;
-app.gmrestol = 1e-9;
-app.newtontol = 1e-9;
 appser = digasopre(app,'poiser',mesh.p,mesh.t'-1,mesh.dgnodes,UDG0,UH0,[],elementtype,bndexpr,[],nproc,0,check);
 appser.fileout = 'poiseroutsol';
 
