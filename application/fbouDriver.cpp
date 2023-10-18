@@ -5,6 +5,7 @@
 #include "FM/nsNew/fbou_nsNEW.c"
 #include "FM/ransSAnew/fbou_ransSANEW.c"
 #include "FM/poi/fbou_poisson.c"
+#include "FM/axispoi/fbou_axispoisson.c"
 #include "SM/LE_uq/fbou_leuq.c"
 #include "SM/ledisp/fbou_ledisp.c"
 
@@ -248,6 +249,9 @@ void fbouDriver(double *fh, double *fhn_U, double *fhn_UH, double *pg, double *U
             break;
         case 5:
             fbou_ledisp(fh, fhn_u, fhn_uh, pg, udg, uhg, odg, nl, ui, mesh, master, app, sol, temp, ib, ife, ie, quadchoice, computeJacobian, numPoints);
+            break;
+        case 7:
+            fbou_axispoisson(fh, fhn_u, fhn_uh, pg, udg, uhg, odg, nl, ui, mesh, master, app, sol, temp, ib, ife, ie, quadchoice, computeJacobian, numPoints);
             break;
         default: {
             printf("Application not implemented (appname = %d)\n",app.appname);

@@ -6,6 +6,7 @@
 #include "FM/nsNew/source_nsNEW.c"
 #include "FM/ransSAnew/source_ransSANEW.c"
 #include "FM/poi/source_poisson.c"
+#include "FM/axispoi/source_axispoisson.c"
 #include "SM/LE_uq/source_leuq.c"
 #include "SM/ledisp/source_ledisp.c"
 #include "../utilities/UDG2udg.cpp"
@@ -221,6 +222,9 @@ void sourceDriver(double * s,double * s_UDG, double * pg, double * UDG, double *
         case 5:
             source_ledisp(s, s_udg, pg, udg, odg, app, param, time, numPoints, nc, ncu, nd, ncd, computeJacobian);
             break;        
+        case 7:
+            source_axispoisson(s, s_udg, pg, udg, odg, app, param, time, numPoints, nc, ncu, nd, ncd, computeJacobian);
+            break;    
         default:
             printf("Application not implemented (appname = %d)\n",app.appname);
             exit(-1);

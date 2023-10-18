@@ -4,6 +4,7 @@
 //#include "fluxDriver.cpp"
 #include "FM/stabilizationTensor.cpp"
 #include "FM/poi/fhat_poisson.c"
+#include "FM/axispoi/fhat_axispoisson.c"
 #include "SM/LE_uq/fhat_leuq.c"
 #include "SM/ledisp/fhat_ledisp.c"
 
@@ -198,6 +199,9 @@ void fhatDriver(double * fhn, double * fhn_UDG, double * fhn_UH, double * pg, do
     
     if (app.appname == 2) {
         fhat_poisson(fhn, fhn_UDG, fhn_UH, pg, UDG, ODG, UH, NL, mesh, master, app, param, time, numPoints, nc, ncu, nd, ncd, computeJacobian);
+    }
+    else if (app.appname == 7) {
+        fhat_axispoisson(fhn, fhn_UDG, fhn_UH, pg, UDG, ODG, UH, NL, mesh, master, app, param, time, numPoints, nc, ncu, nd, ncd, computeJacobian);
     }
     else if (app.appname <= 3) {
         double *UDG_aux = new double[numPoints * nc];

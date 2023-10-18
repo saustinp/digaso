@@ -1,10 +1,10 @@
-setapplicationpath('FM/poi');
+setapplicationpath('FM/axispoi');
 
 % nproc = 1;
 fileName = 'poi2d';
 
 porder = 4;
-ngrid  = 100;
+ngrid  = 50;
 elemtype = 1;
 nodetype = 1;
 nstage = 0;
@@ -45,7 +45,7 @@ app.alpha = 0;
 app.ns   = 1;  
 app.adjoint = 0;
 app.linear = 1;
-app.appname = 'poisson';
+app.appname = 'aixspoisson';
 app.linearSolver = 1;
 app.jacobianStep = 0;
 app.orderingStep = 0;
@@ -58,7 +58,7 @@ master = mkmaster(mesh,2*porder);
 
 % preprocessing for c++ code
 app.linearproblem = 1;
-app.appname='poisson';
+app.appname='axispoisson';
 app.overlappinglevel=1;
 app.preconditioner=0;
 app.morder = [porder porder];
@@ -97,6 +97,8 @@ max(abs(u(:)-v(:)))
  
 % serial preprocessing
 nproc = 1;
+app.gmrestol = 1e-9;
+app.newtontol = 1e-9;
 appser = digasopre(app,'poiser',mesh.p,mesh.t'-1,mesh.dgnodes,UDG0,UH0,[],elementtype,bndexpr,[],nproc,0,check);
 appser.fileout = 'poiseroutsol';
 

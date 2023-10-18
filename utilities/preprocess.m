@@ -200,7 +200,9 @@ if nargin>=3 && nargout>=3
     elseif strcmp(app.appname,'poisson')
         appname = 2;   
     elseif strcmp(app.appname,'ransSA')
-        appname = 3;  
+        appname = 3; 
+    elseif strcmp(app.appname,'axispoisson')
+        appname = 7;    
     else
         error('app.appname not implemented');
     end
