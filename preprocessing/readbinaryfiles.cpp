@@ -36,8 +36,15 @@ void readappstruct(string filename, appstruct &app)
         readdarray(in, app.factor, app.ndims[14]);       
         readiarrayfromdouble(in, app.problem, app.ndims[15]);
         readdarray(in, app.physicsparam, app.ndims[16]);       
-        readdarray(in, app.solversparam, app.ndims[17]);        
-        
+        readdarray(in, app.solversparam, app.ndims[17]);
+
+        if (app.ndims[28] > 0)
+            readdarray(in, app.fcu_vector, app.ndims[28]);
+        else
+            app.fcu_vector.resize(app.ndims[23]);
+            for (int i=0; i<app.ndims[23]; i++)
+                app.fcu_vector[i] = 1.0;
+
         app.nproc = app.ndims[18];
         app.nfile = app.ndims[19];
         app.nd    = app.ndims[20];

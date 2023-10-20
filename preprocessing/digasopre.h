@@ -90,6 +90,9 @@ struct appstruct {
     Int convStabMethod;     // Flag for convective stabilization tensor. 0: Constant tau, 1: Lax-Friedrichs; 2: Roe.
     Int diffStabMethod;     // Flag for diffusive stabilization tensor. 0: No diffusive stabilization.
     Int rotatingFrame;      // Flag for rotating frame. Options: 0: Velocities are respect to a non-rotating frame. 1: Velocities are respect to a rotating frame.
+
+    Int axisymmetry;        // Axisymmetry flag
+    vector<double> fcu_vector; // Vector for specifying which equations are time dependent or not
 };
 
 

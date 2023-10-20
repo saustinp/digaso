@@ -501,13 +501,19 @@ end
 if isfield(app,'solversparam') == 0
     app.solversparam = [];         
 end
+if isfield(app,'fcu_vector') == 0
+    app.fcu_vector = [];
+end
+if isfield(app,'axisymmetry') == 0
+    app.axisymmetry = 0;
+end
 
 app.flag   = [app.tdep app.wave app.alag app.adjoint app.linearproblem app.flg_q app.flg_p app.flg_g... 
               app.debugmode app.overlappinglevel app.reuseOrdering app.reuseJacobian app.reuseResidual...
               app.jacobianStep app.orderingStep app.quasiNewton app.preconditionertype ...
               app.preconditionerside app.quasiNewtonAccuracy app.orthogMethod app.reorderMethod...
               app.schurImplementation app.matvecImplementation app.precSolveImplementation...
-              app.precPrecision app.matvecPrecision app.orthogPrecision app.adaptiveGMREStol app.flag];
+              app.precPrecision app.matvecPrecision app.orthogPrecision app.adaptiveGMREStol app.axisymmetry app.flag];
 app.factor = [app.fc_u app.fc_q app.fc_p app.time app.dtfc app.alpha app.factor];
 app.problem = [hybridn appname app.temporalscheme app.torder app.nstage app.convStabMethod...
                app.diffStabMethod app.rotatingFrame app.viscosityModel app.SGSmodel app.ALE app.AV...
@@ -544,6 +550,7 @@ ndims(25) = app.nch;
 ndims(26) = app.ncq;
 ndims(27) = app.ncp;
 ndims(28) = app.nco;
+ndims(29) = length(app.fcu_vector(:)); % number of solver parameters
 app.ndims = ndims;
 
 fileID = fopen(filename,'w');
@@ -566,6 +573,7 @@ fwrite(fileID,app.factor(:),'double',endian);
 fwrite(fileID,app.problem(:),'double',endian);
 fwrite(fileID,app.physicsparam(:),'double',endian);
 fwrite(fileID,app.solversparam(:),'double',endian);
+fwrite(fileID,app.fcu_vector(:),'double',endian);
 fclose(fileID);
 
 function writemaster(master,fileID,endian)

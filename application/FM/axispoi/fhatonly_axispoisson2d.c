@@ -13,7 +13,7 @@ void fhatonly_axispoisson2d(double *fh, double *pg, double *udg, double *uh, dou
 		double nl1 = nl[0*ng+i];
 		double nl2 = nl[1*ng+i];
 
-		double t0 = param2*(u1-uh1)+nl1*param1*u2*x1+nl2*param1*u3*x1;
+		double t0 = x1*param2*(u1-uh1)+nl1*param1*u2*x1+nl2*param1*u3*x1;
 
 	}
 }

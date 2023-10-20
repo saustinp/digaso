@@ -104,6 +104,7 @@ void initializeStructs(meshstruct &mesh, vector< masterstruct > &master, appstru
     app.jacobianStep = app.flag[13];  /* reuse Jacobian for every jacovianStep time steps */
     app.orderingStep = app.flag[14];  /* reuse Ordering for every jacovianStep time steps */    
     app.quasiNewton = app.flag[15];    
+    app.axisymmetry = app.flag[28];
     
     app.fc_u = app.factor[0];           /* factor when discretizing the time derivative of the U equation */
     app.fc_q = app.factor[1];           /* factor when discretizing the time derivative of the Q equation */

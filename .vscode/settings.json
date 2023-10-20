@@ -3,6 +3,7 @@
         "flux_poisson.c": "cpp",
         "source_poisson.c": "cpp",
         "fbou_axispoisson.c": "cpp",
-        "fbou_axispoisson2d.c": "cpp"
+        "fbou_axispoisson2d.c": "cpp",
+        "ios": "cpp"
     }
 }

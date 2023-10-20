@@ -292,15 +292,41 @@ void elementflux(meshstruct &mesh, masterstruct &master, appstruct &app, solstru
                 
     if (app.tdep==1) {
         /* Compute time source at Gauss points */
+
+        for (j=0; j<ncu; j++) {         // Accounts for eqns that are time dep or not
+            for (i=0; i<ngv; i++)
+                sh[j*ngv+i] *= app.fcu_vector[j];
+        }
+
+        if (app.axisymmetry==1) {
+            for (j=0; j<ncu; j++) {
+                for (i=0; i<ngv; i++)
+                    sh[j*ngv+i] *= pg[i];  // First component == 0*ngv+i
+            }
+        }
+
         DGEMM(&chn, &chn, &ngv, &ncu, &npv, &one, shapvt, &ngv, sh,
                     &npv, &one, s, &ngv);
 
-        for (j=0; j<ncu; j++)
-            for (i=0; i<ngv; i++) {
-                s[j*ngv+i] -= udgg[j*ngv+i]*app.fc_u;
-                if (computeJacobian == 1)
-                    s_udg[(j*ncu+j)*ngv+i] -= app.fc_u;
+        if (app.axisymmetry==1) {
+            for (j=0; j<ncu; j++) {
+                for (i=0; i<ngv; i++) {
+                    s[j*ngv+i] -= udgg[j*ngv+i]*app.fc_u*pg[i]*app.fcu_vector[j];     // Axisymmetric, *r
+                    if (computeJacobian == 1)
+                        s_udg[(j*ncu+j)*ngv+i] -= app.fc_u*pg[i]*app.fcu_vector[j];     // Axisymmetric, *r
+                }
             }
+        }
+        else {
+            for (j=0; j<ncu; j++) {
+                for (i=0; i<ngv; i++) {
+                    s[j*ngv+i] -= udgg[j*ngv+i]*app.fc_u*app.fcu_vector[j];
+                    if (computeJacobian == 1)
+                        s_udg[(j*ncu+j)*ngv+i] -= app.fc_u*app.fcu_vector[j];
+                }
+            }
+        }
+
     }
 }
 

@@ -21,6 +21,8 @@ nd = nq;
 
 kappa = param{1};
 tau   = param{end};
+r = p(:,1);
+tau = r.*tau;   % Changed for axisymmetric
 
 if nd==2
     u = udg(:,1);
@@ -28,12 +30,12 @@ if nd==2
     qy = udg(:,3);
 
     % ng x nch
-    fh = kappa.*(qx.*nl(:,1)+qy.*nl(:,2)) + tau.*(u-uh);
+    fh = r.*kappa.*(qx.*nl(:,1)+qy.*nl(:,2)) + tau.*(u-uh);
 
     fh_udg = zeros(ng,nch,nc);
     fh_udg(:,1,1) = tau;
-    fh_udg(:,1,2) = kappa*nl(:,1);
-    fh_udg(:,1,3) = kappa*nl(:,2);
+    fh_udg(:,1,2) = r.*kappa.*nl(:,1);
+    fh_udg(:,1,3) = r.*kappa.*nl(:,2);
 else
     u = udg(:,1);
     qx = udg(:,2);
@@ -41,13 +43,13 @@ else
     qz = udg(:,4);
 
     % ng x nch
-    fh = kappa.*(qx.*nl(:,1)+qy.*nl(:,2)+qz.*nl(:,3)) + tau.*(u-uh);
+    fh = r.*kappa.*(qx.*nl(:,1)+qy.*nl(:,2)+qz.*nl(:,3)) + tau.*(u-uh);
 
     fh_udg = zeros(ng,nch,nc);
     fh_udg(:,1,1) = tau;
-    fh_udg(:,1,2) = kappa*nl(:,1);
-    fh_udg(:,1,3) = kappa*nl(:,2);    
-    fh_udg(:,1,4) = kappa*nl(:,3);    
+    fh_udg(:,1,2) = r.*kappa*nl(:,1);
+    fh_udg(:,1,3) = r.*kappa*nl(:,2);    
+    fh_udg(:,1,4) = r.*kappa*nl(:,3);    
 end
 
 fh_uh = zeros(ng,nch,nch);

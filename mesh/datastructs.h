@@ -508,6 +508,8 @@ struct appstruct {
     Int diffStabMethod;     // Flag for diffusive stabilization tensor. 0: No diffusive stabilization.
 
     Int rotatingFrame;      // Flag for rotating frame. Options: 0: Velocities are respect to a non-rotating frame. 1: Velocities are respect to a rotating frame.
+    
+    vector<double> fcu_vector; // Vector for specifying which equations are time dependent or not
 };
 
 struct tempstruct {

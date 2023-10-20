@@ -5,7 +5,7 @@ fileName = 'poi2d';
 
 porder = 4;
 ngrid  = 50;
-elemtype = 1;
+elemtype = 0;
 nodetype = 1;
 nstage = 0;
 torder = 0;
@@ -45,7 +45,7 @@ app.alpha = 0;
 app.ns   = 1;  
 app.adjoint = 0;
 app.linear = 1;
-app.appname = 'aixspoisson';
+app.appname = 'axispoisson';
 app.linearSolver = 1;
 app.jacobianStep = 0;
 app.orderingStep = 0;
@@ -81,11 +81,13 @@ UDG0 = initu(mesh,{0;0;0});
 UH0 = inituhat(master,mesh.elcon,UDG0,1);
 
 [UDG,UH] = hdg_solve(master,mesh,app,UDG0,UH0,0*UDG0);
-x = (mesh.dgnodes(:,1,:));
+r = (mesh.dgnodes(:,1,:));
 y = (mesh.dgnodes(:,2,:));
-u = sin(pi*x).*sin(pi*y);
+% u = sin(pi*x).*sin(pi*y); % Change this for the axis-symmetry case
+u = exp(-y).*cos(r);
 v = UDG(:,1,:);
 max(abs(u(:)-v(:)))
+% return;
 
 % % parallel preprocessing
 % nproc = 4;
@@ -97,8 +99,8 @@ max(abs(u(:)-v(:)))
  
 % serial preprocessing
 nproc = 1;
-app.gmrestol = 1e-9;
-app.newtontol = 1e-9;
+app.gmrestol = 1e-12;
+app.newtontol = 1e-12;
 appser = digasopre(app,'poiser',mesh.p,mesh.t'-1,mesh.dgnodes,UDG0,UH0,[],elementtype,bndexpr,[],nproc,0,check);
 appser.fileout = 'poiseroutsol';
 
@@ -113,6 +115,7 @@ UDGser = reshape(UDGser,size(UDG));
 
 v = UDGser(:,1,:);
 max(abs(u(:)-v(:)))
+scaplot(mesh,UDGser(:,1,:),[],0,0); axis equal; axis tight;
 
 % deformed configuration
 % mesh1=mesh;

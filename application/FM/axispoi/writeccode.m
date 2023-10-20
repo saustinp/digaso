@@ -28,7 +28,8 @@ nc = length(udg);
 nch = ncu;
 
 kappa  = param(1);
-tau  = param(2);
+tau  = param(2).*pg(1);
+
 if nd==2                                               
     u    = udg(1);
     qx   = udg(2);
