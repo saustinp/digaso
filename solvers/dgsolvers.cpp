@@ -266,7 +266,7 @@ void solveUnsteadyProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
     sys.C_MR.resize(sza*sza);
     sys.Clocal_MR.resize(sza*sza);
     
-    Int saveSolFreq = 500;                       // Every how many time-steps the solution is saved to a file
+    Int saveSolFreq = 1;                       // Every how many time-steps the solution is saved to a file
     Int recomputeOrderingFreq = 20;        // Every how many time-steps the ordering is recomputed
     Int writeQflag = 1;                         // 0: Only u is written to a binary file. 1: Both u and q are written to a binary file
     Int writeAvgSolution = 1;                   // 0: The time average solution is NOT saved to a file. 1: The time average solution is saved to a file

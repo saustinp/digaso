@@ -7,6 +7,9 @@ nstage = 2;
 torder = 2;
 hybrid = 'hdg';
 app.porder=porder;
+app.torder=torder;
+app.nstage=nstage;
+
 % Physics params
 % De = 0.12; % m^2/s
 % vd = 1.7e5; % m/s

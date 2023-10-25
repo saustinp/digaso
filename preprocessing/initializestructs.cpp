@@ -196,7 +196,7 @@ void initializeStructs(meshstruct &mesh, vector< masterstruct > &master, appstru
     sys.orthogMethod = app.flag[19];           // Orthogonalization method in GMRES. 0: MGS, 1: ICGS, 2: IMGS (only MGS and ICGS are available in MPI code), 3: ICGS without convergence guarantee
     sys.reorderMethod = app.flag[20];          // 0: No reordering. 1: Approximate (inexact) MDF. 2: Exact MDF. 3: Approximate (inexact) MDF with constraints (only valid for parallel BJ preconditioner). 4: Exact MDF with constraints (only valid for parallel BJ preconditioner)    
     
-    sys.print = 2;                      // 0: No info is printed. 1: Summary of CPU-time breakdown is printed. 2: Detailed CPU-time breakdown is printed. 3: GMRES residual is also printed.
+    sys.print = 0;                      // 0: No info is printed. 1: Summary of CPU-time breakdown is printed. 2: Detailed CPU-time breakdown is printed. 3: GMRES residual is also printed.
     sys.schurImplementation = app.flag[21];        // Implementation flag for Schur complement. Options: 0 and 1
     sys.matvecImplementation = app.flag[22];       // Implementation flag for matrix-vector product. Options: 0, 1, 2 (finite differences for Gateaux derivative)
     sys.precSolveImplementation = app.flag[23];    // Implementation flag for BILU(0) solve. Only valid for RAS and subdomain-wise BJ. Options: 0 and 1
@@ -617,6 +617,8 @@ void initializeStructs(meshstruct &mesh, vector< masterstruct > &master, appstru
     temps.f_udg = &sys.v[start];
     start += nge*ncu*nd*nc;
     temps.s = &sys.v[start];
+    start += nge*ncu;
+    temps.stg = &sys.v[start];
     start += nge*ncu;
     temps.s_udg = &sys.v[start];
     start += nge*ncu*nc;
