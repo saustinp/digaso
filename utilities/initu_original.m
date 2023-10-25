@@ -1,4 +1,4 @@
-function UDG = initu(mesh,param, physparam)
+function UDG = initu(mesh,param)
 %INITQ Initialize vector of unknowns
 %    Q=INITU(MESH,APP,PARAM)
 %
@@ -14,9 +14,9 @@ function UDG = initu(mesh,param, physparam)
 param = reshape(param',numel(param),[]);
 UDG = zeros(size(mesh.dgnodes,1),length(param),size(mesh.dgnodes,3));
 for i=1:length(param)
-    if isa(param{i},'double') 
+    if isa(param{i},'double')
         UDG(:,i,:) = param{i};
     else
-        UDG(:,i,:) = param{i}(mesh.dgnodes, physparam);
+        UDG(:,i,:) = param{i}(mesh.dgnodes);
     end
 end

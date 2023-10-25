@@ -12,6 +12,8 @@
 #include "SM/ledisp/flux_ledisp.c"
 #include "../utilities/UDG2udg.cpp"
 
+#include "FM/ehd_tof/flux_ehd_tof.c"
+
 // Written by: C. Nguyen & P. Fernandez
 
 void chainRuleJacobianFlux(double * f_UDG, double * f_udg, double * pg, appstruct &app, int numPoints, int ncu, int ncq, int nc, int nd)
@@ -390,11 +392,18 @@ void fluxDriver(double * f,double * f_UDG, double * pg, double * UDG, double * O
         case 7:
             flux_axispoisson(f, f_udg, pg, udg, odg, mesh, master, app, param, time, numPoints, nc, ncu, nd, ncd, computeJacobian);
             break;   
+        case 8:
+            flux_ehd_tof(f, f_udg, pg, udg, odg, mesh, master, app, param, time, numPoints, nc, ncu, nd, ncd, computeJacobian);
+            break;   
         default: {
             printf("Application not implemented (appname = %d)\n",app.appname);
             exit(-1);
         }
     }
+
+    // print2darray(f, numPoints, nd);
+    // print3darray(f_udg, numPoints, nd, nc);    
+    // exit(-1);
 
     /* 3. Chain rule for the Jacobian from (u,q) to (U, gradX U) */
     if ((ALEflag == 2 || ALEflag == 3) && computeJacobian == 1) {

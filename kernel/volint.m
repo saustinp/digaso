@@ -81,6 +81,17 @@ end
 [f, f_udg] = flux( pg, udgg, arg, time);
 [s, s_udg] = source( pg, udgg, arg, time); 
 f     = reshape(f,[ngv ne ncu nd]);
+
+% f_udg = reshape(f_udg,[ngv ne ncu nd nc]);
+% squeeze(f(:,1,:,:))
+% squeeze(f_udg(:,1,:,:,:))
+% ngv
+% pause
+
+% squeeze(s(1:ngv,:))
+% squeeze(s_udg(1:ngv,:,:))
+% pause
+
 f_udg = permute(reshape(f_udg,[ngv ne ncu nd nc]),[1 2 3 5 4]); 
 s     = reshape(s(:,1:ncu),[ngv*ne ncu]);
 s_udg = reshape(s_udg(:,1:ncu,1:nc),[ngv*ne ncu nc]);

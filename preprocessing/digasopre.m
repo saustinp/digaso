@@ -324,6 +324,8 @@ elseif strcmp(app.appname,'mhd')
     appname = 6;
 elseif strcmp(app.appname,'axispoisson')
     appname = 7;
+elseif strcmp(app.appname,'ehd_tof')
+    appname = 8;
 else
     error('app.appname not implemented');
 end

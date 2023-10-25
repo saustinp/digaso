@@ -58,8 +58,6 @@ app.linearSolver = 1;
 app.jacobianStep = 0;
 app.orderingStep = 0;
 app.dt = 0;
-% app.torder = torder;
-% app.nstage = nstage;
 
 % mesh   = mkmesh_square(ngrid,ngrid,porder,0,1,1,elemtype,nodetype);
 mesh = mkmesh_rect(100,100,porder,0,[0 125 0 125],0,1);

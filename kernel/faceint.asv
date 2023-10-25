@@ -74,17 +74,15 @@ uhg = reshape(uhg,[ngf*nfe*ne nch]);
 % squeeze(uhg)
 % squeeze(FH)
 % pause
-% tm = reshape(FH, [ngf nfe ne nch]);
-% tm = reshape(tm(:,:,1,:),[ngf*nfe nch]);
-% tn = reshape(FH_udg, [ngf nfe ne nch nc]);
-% tn = reshape(tn(:,:,1,:,:),[ngf*nfe nch nc]);
-% tp = reshape(FH_uh, [ngf nfe ne nch nch]);
-% tp = reshape(tp(:,:,1,:,:),[ngf*nfe nch nch]);
-% tm(:)
-% squeeze(tn)
-% [squeeze(tp) squeeze(pg(1:ngf*nfe,:))]
-% arg{end}
-% pause
+tm = reshape(FH, [ngf nfe ne nch]);
+tm = tm(:,:,1,:);
+tn = reshape(FH_udg, [ngf nfe ne nch nc]);
+tn = tn(:,:,1,:,:);
+tp = reshape(FH_uh, [ngf nfe ne nch nch]);
+tp = tp(:,:,1,:,:);
+tm(:)
+squeeze(tn)
+pause
 
 % compute boundary fluxes
 % fbou   = str2func(app.fbou);

@@ -8,6 +8,8 @@
 #include "SM/LE_uq/fhat_leuq.c"
 #include "SM/ledisp/fhat_ledisp.c"
 
+#include "FM/ehd_tof/fhat_ehd_tof.c"
+
 // Written by: C. Nguyen & P. Fernandez
 
 void UDG_2_UDG4fh(double *UDG_aux, double * UDG, double * UH, Int fhatExpression, int numPoints, int ncu, int ncq, int nc)
@@ -229,10 +231,18 @@ void fhatDriver(double * fhn, double * fhn_UDG, double * fhn_UH, double * pg, do
     else if (app.appname == 5) {
         fhat_ledisp(fhn, fhn_UDG, fhn_UH, pg, UDG, ODG, UH, NL, mesh, master, app, param, time, numPoints, nc, ncu, nd, ncd, computeJacobian);
     }
+    else if (app.appname == 8) {
+        fhat_ehd_tof(fhn, fhn_UDG, fhn_UH, pg, UDG, ODG, UH, NL, mesh, master, app, param, time, numPoints, nc, ncu, nd, ncd, computeJacobian);
+    }
     else {
         printf("Application not implemented (appname = %d)\n",app.appname);
         exit(-1);            
     }
+
+    // print2darray(fhn, numPoints, ncu);
+    // print2darray(fhn_UDG, numPoints, nc);    
+    // print2darray(fhn_UH, numPoints, ncu);    
+    // exit(-1);
 }
 
 #endif

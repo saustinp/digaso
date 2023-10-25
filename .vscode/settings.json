@@ -4,6 +4,9 @@
         "source_poisson.c": "cpp",
         "fbou_axispoisson.c": "cpp",
         "fbou_axispoisson2d.c": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "flux_ehd_tof.c": "cpp",
+        "fhat_ehd_tof.c": "cpp",
+        "flux_ehd_tof2d.c": "cpp"
     }
 }
