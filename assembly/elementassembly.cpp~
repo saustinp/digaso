@@ -253,7 +253,7 @@ void elementflux(meshstruct &mesh, masterstruct &master, appstruct &app, solstru
     Int ncd = app.ncd;
     Int nco = app.nco;
 
-    double *shapvt, *s, *stg, *f, *s_udg, *f_udg, *pg, *udg, *odg, *udgg, *odgg, *sh;
+    double *shapvt, *s, *f, *s_udg, *f_udg, *pg, *udg, *odg, *udgg, *odgg, *sh;
     shapvt = &master.shapvt[0];
     s = &temp.s[0];
     stg = &temp.stg[0];
@@ -333,16 +333,15 @@ void elementflux(meshstruct &mesh, masterstruct &master, appstruct &app, solstru
             // s = s + app.fc_u*(stg - udgg)
             for (j=0; j<ncu; j++) {
                 for (i=0; i<ngv; i++) {
-                    s[j*ngv+i] += (stg[j*ngv+i]-udgg[j*ngv+i]*app.fc_u)*app.fcu_vector[j];
+                    s[j*ngv+i] += (stg[j*ngv+i] udgg[j*ngv+i]*app.fc_u*app.fcu_vector[j];
                     if (computeJacobian == 1)
                         s_udg[(j*ncu+j)*ngv+i] -= app.fc_u*app.fcu_vector[j];
                 }
             }
         }
 
-//    cout<<"fc_u: "<<app.fc_u<<endl;    
-//     print2darray(s, ngv, ncu);
-//     exit(-1);
+    print2darray(s, ngv, ncu);
+    exit(-1);
         
     }
 }

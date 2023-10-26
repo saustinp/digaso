@@ -479,6 +479,7 @@ struct tempstruct {
     double* f;
     double* f_udg;
     double* s;
+    double* stg;
     double* s_udg;
     
     double* udggR;

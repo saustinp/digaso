@@ -135,7 +135,7 @@ if tdep
 %     s = s + Stg - udgg(:,1:ncu)*fc_u;    
     % axis symmetry
     %fc_u
-    
+        
     fcu_vector = isfield(app,'fcu_vector');
     if fcu_vector
         dtcoef = dtcoef.*app.fcu_vector;
