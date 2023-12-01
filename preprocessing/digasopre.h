@@ -37,6 +37,9 @@ struct appstruct {
     vector<Int> problem;
     vector<double> physicsparam;
     vector<double> solversparam;
+    //vector<std::ofstream> outfiles;
+    vector<std::shared_ptr<ofstream> > streams;
+
     
     string filein;          // Name of binary file with input data
     string fileout;         // Name of binary file to write the solution

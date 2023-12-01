@@ -12,7 +12,7 @@ app.nstage=nstage;
 
 % Physics params
 app.arg = init_phys_param();     % Physics param loaded in a separate script
-app.arg{end+1} = tau;
+app.arg{end+1} = 1;
 
 app.appname = 'ehd_tof';
 app.axisymmetry = 1;
@@ -107,3 +107,7 @@ else  % serial preprocessing
     appser.fileout = 'ehd_tof';
     return;
 end
+
+return;
+
+

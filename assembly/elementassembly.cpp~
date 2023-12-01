@@ -253,7 +253,7 @@ void elementflux(meshstruct &mesh, masterstruct &master, appstruct &app, solstru
     Int ncd = app.ncd;
     Int nco = app.nco;
 
-    double *shapvt, *s, *f, *s_udg, *f_udg, *pg, *udg, *odg, *udgg, *odgg, *sh;
+    double *shapvt, *s, *stg, *f, *s_udg, *f_udg, *pg, *udg, *odg, *udgg, *odgg, *sh;
     shapvt = &master.shapvt[0];
     s = &temp.s[0];
     stg = &temp.stg[0];
@@ -333,15 +333,16 @@ void elementflux(meshstruct &mesh, masterstruct &master, appstruct &app, solstru
             // s = s + app.fc_u*(stg - udgg)
             for (j=0; j<ncu; j++) {
                 for (i=0; i<ngv; i++) {
-                    s[j*ngv+i] += (stg[j*ngv+i] udgg[j*ngv+i]*app.fc_u*app.fcu_vector[j];
+                    s[j*ngv+i] += (stg[j*ngv+i]-udgg[j*ngv+i]*app.fc_u)*app.fcu_vector[j];
                     if (computeJacobian == 1)
                         s_udg[(j*ncu+j)*ngv+i] -= app.fc_u*app.fcu_vector[j];
                 }
             }
         }
 
-    print2darray(s, ngv, ncu);
-    exit(-1);
+//    cout<<"fc_u: "<<app.fc_u<<endl;    
+//     print2darray(s, ngv, ncu);
+//     exit(-1);
         
     }
 }
@@ -363,9 +364,9 @@ void elementint(elemstruct &elem, meshstruct &mesh, masterstruct &master, appstr
      * prob:
      * FLAGS: Array of inteters with different flags.
      * NDIMS: Array of integers with information about the element and mesh.
-     * /*
+    
 
-    /* AT OUTPUT:
+     AT OUTPUT:
      * Ru (npv / ncu): Residual of u.
      * BD (npv / npv / ncu / nc): Jacobian of residual of u w.r.t. to u (D) and q (B).
      * */
@@ -605,6 +606,9 @@ void elementint(elemstruct &elem, meshstruct &mesh, masterstruct &master, appstr
     }
 
     /* Compute the matrix D */
+    // shapvg [npv * ngv] 
+    // wrlshap (ngv*nd1*ncu*npv*ncu);
+    // npv * nc * npv * ncu
     t = clock();
     sz[3] = ncu*npv*ncu;
     sz[0] = ngv*nd1;
@@ -781,10 +785,9 @@ void faceint(elemstruct &elem, meshstruct &mesh, masterstruct &master, appstruct
      * time:
      * prob:
      * FLAGS: Array of inteters with different flags.
-     * NDIMS: Array of integers with information about the element and mesh.
-     * /*
+     * NDIMS: Array of integers with information about the element and mesh.     
 
-    /* AT OUTPUT:
+     AT OUTPUT:
      * Ru (npv / ncu): Residuals of u.
      * BD (npv / ncu / ncu / npv / (1+nd) [uq solver] OR npv / ncu / ncu / npv  [u solver]): Jacobian of residual of u w.r.t. to u (D) and q (B).
      * F (npv / ncu / nch / ndf): Jacobian of residual of u w.r.t. to uh.
@@ -1525,11 +1528,33 @@ void assembleElementMatrixVector(elemstruct &elem, meshstruct &mesh, masterstruc
 {
     clock_t t;
     int computeJacobian = 1;
-    
+        
     t = clock();
     if (app.flag_q==1) 
         qint(elem, mesh, master, app, temp, ie);     // About 10 times faster than elementint for 2D triangles (this result applies for different p's)      
     elemtimes[0] += clock() - t;
+    
+    /* Get dimensions */    
+    Int npv, ngv, ncd, nc, ncu, ncq, nch, nd, nd1, ndf;
+    nd = master.nd;        
+    npv = master.npv;    
+    ngv = master.ngv;
+    ndf = master.ndf;
+    ncd = app.ncd;
+    nc  = app.nc;
+    ncu = app.ncu;
+    nch = app.nch;    
+    ncq = app.ncq;
+    nd1 = nd+1;    
+
+//     double *M  = &elem.M[0];
+//     double *C  = &elem.C[0];
+//     double *E  = &elem.E[0];
+    
+    if (app.debugmode==1) {
+      app.streams[0]->write(reinterpret_cast<char*>(&temp.pg[0] ), sizeof(double) * ngv*nd );
+      app.streams[1]->write(reinterpret_cast<char*>(&elem.M[0] ), sizeof(double) * npv*npv );
+    }
     
     t = clock();
     elementint(elem, mesh, master, app, sol, temp, &elemtimes[0], ie, computeJacobian);
