@@ -371,4 +371,21 @@ void writeScalarField2File(string filename, double* field, Int ne, Int* ndims)
     out.close();
 }
 
+void writeArrayData2File(string filename, double* arry, Int ne)
+{
+    
+    ofstream out(filename.c_str(), ios::out | ios::binary);
+    if (!out)
+        cout <<"Unable to open file" << filename << endl;
+    else if (out) {
+        out.write( reinterpret_cast<char*>( &arry[0] ), sizeof(double) *ne );
+    }
+    out.close();
+}
+
+void writeArrayData2Ofstream(ofstream &out, double* arry, Int ne)
+{   
+    out.write( reinterpret_cast<char*>( &arry[0] ), sizeof(double) *ne );
+}
+
 #endif

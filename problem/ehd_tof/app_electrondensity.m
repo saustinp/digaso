@@ -88,6 +88,6 @@ for itime = 1:ntime
     time = time + dt(itime);
 
     UDG_history(:,:,:,itime+1+itime_restart) = UDG;
-    figure(1); clf; scaplot(mesh,UDG(:,1,:),[],1,1); axis equal; axis tight; axis on;  
+    % figure(1); clf; scaplot(mesh,UDG(:,1,:),[],1,1); axis equal; axis tight; axis on;  
     
 end

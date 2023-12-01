@@ -460,7 +460,7 @@ void solveProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, masterstr
     app.reuseResidual = 0;
     sys.linearSolvesClocks = 0;         // Time spent in linear solves since the Jacobian matrix was computed the last time (only applies for quasi-Newton)
     
-    /* Compute Q to make Rq = 0 */
+    // Compute Q to make Rq = 0     This step is not taken in the Matlab code
     if (app.flag_q == 1) {
 // // //         #pragma omp parallel num_threads(sys.noThreads)
 // // //         {

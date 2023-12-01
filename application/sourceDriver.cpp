@@ -11,6 +11,7 @@
 #include "SM/ledisp/source_ledisp.c"
 #include "../utilities/UDG2udg.cpp"
 #include "FM/ehd_tof/source_ehd_tof.c"
+#include "FM/streamer/source_streamer.c"
 
 // Written by: C. Nguyen & P. Fernandez
 
@@ -228,6 +229,9 @@ void sourceDriver(double * s,double * s_UDG, double * pg, double * UDG, double *
             break;    
         case 8:
             source_ehd_tof(s, s_udg, pg, udg, odg, app, param, time, numPoints, nc, ncu, nd, ncd, computeJacobian);
+            break;    
+        case 9:
+            source_streamer(s, s_udg, pg, udg, odg, app, param, time, numPoints, nc, ncu, nd, ncd, computeJacobian);
             break;    
         default:
             printf("Application not implemented (appname = %d)\n",app.appname);

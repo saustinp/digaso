@@ -9,6 +9,7 @@
 #include "SM/ledisp/fhat_ledisp.c"
 
 #include "FM/ehd_tof/fhat_ehd_tof.c"
+#include "FM/streamer/fhat_streamer.c"
 
 // Written by: C. Nguyen & P. Fernandez
 
@@ -233,6 +234,9 @@ void fhatDriver(double * fhn, double * fhn_UDG, double * fhn_UH, double * pg, do
     }
     else if (app.appname == 8) {
         fhat_ehd_tof(fhn, fhn_UDG, fhn_UH, pg, UDG, ODG, UH, NL, mesh, master, app, param, time, numPoints, nc, ncu, nd, ncd, computeJacobian);
+    }
+    else if (app.appname == 9) {
+        fhat_streamer(fhn, fhn_UDG, fhn_UH, pg, UDG, ODG, UH, NL, mesh, master, app, param, time, numPoints, nc, ncu, nd, ncd, computeJacobian);
     }
     else {
         printf("Application not implemented (appname = %d)\n",app.appname);

@@ -42,8 +42,8 @@ void elementgeom(meshstruct &mesh, masterstruct &master, appstruct &app, tempstr
     pg = &temp.pg[0];
     Jg = &temp.Jg[0];
     jac = &temp.jacg[0];
-    Xx = &temp.Xxg[0];                        
-    
+    Xx = &temp.Xxg[0];         
+
     DGEMM(&chn, &chn, &ngv, &ncd, &npv, &one, shapvt, &ngv, pn,
           &npv, &zero, pg, &ngv);
     /* shapvt: ngv / npv / (1+nd) (z.r) (we only use ngv / npv here) */
@@ -319,6 +319,7 @@ void elementflux(meshstruct &mesh, masterstruct &master, appstruct &app, solstru
         DGEMM(&chn, &chn, &ngv, &ncu, &npv, &one, shapvt, &ngv, sh,
                     &npv, &zero, stg, &ngv);
                 
+        // print2darray(&app.fcu_vector[0], ncu, ncu/ncu);          
         if (app.axisymmetry==1) {
             // s = s + app.fc_u*(stg - udgg)*pg
             for (j=0; j<ncu; j++) {
@@ -344,7 +345,17 @@ void elementflux(meshstruct &mesh, masterstruct &master, appstruct &app, solstru
 //     print2darray(s, ngv, ncu);
 //     exit(-1);
         
-    }
+    }  
+
+    // writeArrayData2Ofstream(out19, f, ncu*ngv*app.nd);
+    // writeArrayData2Ofstream(out20, f_udg, ncu*ngv*2*nc);
+    // writeArrayData2Ofstream(out21, s, ngv*ncu);
+    // writeArrayData2Ofstream(out22, s_udg, ngv*ncu*nc);
+    // writeArrayData2File("f.bin", f, ncu*ngv*app.nd);
+    // writeArrayData2File("f_udg.bin", f_udg, ncu*ngv*2*nc);
+    // writeArrayData2File("s.bin", s, ngv*ncu);
+    // writeArrayData2File("s_udg.bin", s_udg, ngv*ncu*nc);
+
 }
 
 void elementint(elemstruct &elem, meshstruct &mesh, masterstruct &master, appstruct &app,
@@ -1523,6 +1534,10 @@ void getQ(elemstruct &elem, meshstruct &mesh, masterstruct &master, appstruct &a
 
 void assembleElementMatrixVector(elemstruct &elem, meshstruct &mesh, masterstruct &master, appstruct &app,
                 solstruct &sol, tempstruct &temp, Int ie, double* elemtimes)
+                // ofstream &out1, ofstream &out2, ofstream &out3, ofstream &out4, ofstream &out5, ofstream &out6,
+                // ofstream &out7, ofstream &out8, ofstream &out9, ofstream &out10, ofstream &out11, ofstream &out12,
+                // ofstream &out16, ofstream &out17, ofstream &out18, ofstream &out19, ofstream &out20, ofstream &out21,
+                // ofstream &out22, ofstream &out23, ofstream &out24, ofstream &out25)
 {
     clock_t t;
     int computeJacobian = 1;
@@ -1535,6 +1550,27 @@ void assembleElementMatrixVector(elemstruct &elem, meshstruct &mesh, masterstruc
     t = clock();
     elementint(elem, mesh, master, app, sol, temp, &elemtimes[0], ie, computeJacobian);
     elemtimes[1] += clock() - t;        
+
+    // /* Get dimensions */    
+    // Int npv, ngv, ncd, nc, ncu, ncq, nch, nd, nd1, ndf;
+    // nd = master.nd;        
+    // npv = master.npv;    
+    // ngv = master.ngv;
+    // ndf = master.ndf;
+    // ncd = app.ncd;
+    // nc  = app.nc;
+    // ncu = app.ncu;
+    // nch = app.nch;    
+    // ncq = app.ncq;
+    // nd1 = nd+1;    
+
+    // writeArrayData2File("mass_mat.bin", elem.M, npv*npv);
+    // writeArrayData2File("C_mat.bin", elem.C, npv*npv*nd);
+    // writeArrayData2File("Ru.bin", elem.Ru, npv*ncu);
+    // writeArrayData2File("Rq.bin", elem.Rq, npv*ncu*nd);
+    // writeArrayData2File("BD_mat.bin", elem.BD, npv*npv*ncu*nc);
+    // writeArrayData2File("dgnodes.bin", &mesh.dgnodes[0], npv*nd);
+    // exit(-1);
     
     t = clock();
     faceint(elem, mesh, master, app, sol, temp, &elemtimes[0], ie, computeJacobian);

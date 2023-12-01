@@ -13,6 +13,8 @@
 #include "../utilities/UDG2udg.cpp"
 
 #include "FM/ehd_tof/flux_ehd_tof.c"
+#include "FM/streamer/flux_streamer.c"
+
 
 // Written by: C. Nguyen & P. Fernandez
 
@@ -394,6 +396,9 @@ void fluxDriver(double * f,double * f_UDG, double * pg, double * UDG, double * O
             break;   
         case 8:
             flux_ehd_tof(f, f_udg, pg, udg, odg, mesh, master, app, param, time, numPoints, nc, ncu, nd, ncd, computeJacobian);
+            break;   
+        case 9:
+            flux_streamer(f, f_udg, pg, udg, odg, mesh, master, app, param, time, numPoints, nc, ncu, nd, ncd, computeJacobian);
             break;   
         default: {
             printf("Application not implemented (appname = %d)\n",app.appname);

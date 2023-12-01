@@ -1,0 +1,2281 @@
+Read data files...
+End reading data files...
+Allocate memory...
+Timestep :  1 ||  Time :   0 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing ordering...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 3.73325e-14
+Old residual: 1.38223,   New residual: 2.43568e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 1: 99.988 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 3.67512e-14
+Old residual: 3.33635,   New residual: 5.11981e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 1: 94.471 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 1: 195.317 ms
+
+Timestep :  2 ||  Time :   0.01 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 3.74895e-14
+Old residual: 1.39818,   New residual: 3.44605e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 2: 91.064 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 3.77756e-14
+Old residual: 3.37657,   New residual: 5.74781e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 2: 94.536 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 2: 186.617 ms
+
+Timestep :  3 ||  Time :   0.02 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 3.86606e-14
+Old residual: 1.41494,   New residual: 3.06968e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 3: 92.781 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 3.90598e-14
+Old residual: 3.41659,   New residual: 4.88549e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 3: 93.321 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 3: 187.141 ms
+
+Timestep :  4 ||  Time :   0.03 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 4.00268e-14
+Old residual: 1.43108,   New residual: 2.30153e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 4: 93.814 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 4.0386e-14
+Old residual: 3.45551,   New residual: 6.9794e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 4: 92.689 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 4: 187.437 ms
+
+Timestep :  5 ||  Time :   0.04 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 4.12093e-14
+Old residual: 1.44749,   New residual: 3.30599e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 5: 92.659 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 4.15223e-14
+Old residual: 3.4959,   New residual: 5.64992e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 5: 91.747 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 5: 185.335 ms
+
+Timestep :  6 ||  Time :   0.05 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 4.22826e-14
+Old residual: 1.46511,   New residual: 3.55758e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 6: 92.761 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 4.26025e-14
+Old residual: 3.53939,   New residual: 6.00614e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 6: 92.865 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 6: 186.626 ms
+
+Timestep :  7 ||  Time :   0.06 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 4.34533e-14
+Old residual: 1.48386,   New residual: 2.59948e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 7: 92.617 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 4.38452e-14
+Old residual: 3.58505,   New residual: 6.02851e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 7: 91.38 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 7: 184.906 ms
+
+Timestep :  8 ||  Time :   0.07 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 4.48859e-14
+Old residual: 1.50288,   New residual: 2.43126e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 8: 91.185 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 4.53401e-14
+Old residual: 3.6308,   New residual: 5.15885e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 8: 93.221 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 8: 185.389 ms
+
+Timestep :  9 ||  Time :   0.08 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 4.64573e-14
+Old residual: 1.52167,   New residual: 3.66553e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 9: 93.845 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 4.69021e-14
+Old residual: 3.67622,   New residual: 6.9899e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 9: 91.806 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 9: 186.603 ms
+
+Timestep :  10 ||  Time :   0.09 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 4.79387e-14
+Old residual: 1.54075,   New residual: 2.11633e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 10: 90.779 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 4.83476e-14
+Old residual: 3.72286,   New residual: 6.51233e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 10: 90.038 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 10: 181.655 ms
+
+Timestep :  11 ||  Time :   0.1 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 4.93151e-14
+Old residual: 1.56079,   New residual: 4.21008e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 11: 91.581 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 4.97231e-14
+Old residual: 3.77204,   New residual: 6.80601e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 11: 92.685 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 11: 185.228 ms
+
+Timestep :  12 ||  Time :   0.11 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 5.07435e-14
+Old residual: 1.58183,   New residual: 3.03046e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 12: 93.143 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 5.12012e-14
+Old residual: 3.82325,   New residual: 5.11423e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 12: 91.071 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 12: 185.19 ms
+
+Timestep :  13 ||  Time :   0.12 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 5.23633e-14
+Old residual: 1.60328,   New residual: 3.48363e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 13: 91.85 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 5.28748e-14
+Old residual: 3.87508,   New residual: 6.59213e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 13: 92.62 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 13: 185.443 ms
+
+Timestep :  14 ||  Time :   0.13 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 5.41207e-14
+Old residual: 1.62479,   New residual: 2.61215e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 14: 94.643 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 5.46383e-14
+Old residual: 3.92714,   New residual: 6.04276e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 14: 93.439 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 14: 189.119 ms
+
+Timestep :  15 ||  Time :   0.14 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 5.5851e-14
+Old residual: 1.64664,   New residual: 2.07063e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 15: 94.386 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 5.63443e-14
+Old residual: 3.98039,   New residual: 7.05269e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 15: 93.886 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 15: 189.253 ms
+
+Timestep :  16 ||  Time :   0.15 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 5.7502e-14
+Old residual: 1.66932,   New residual: 3.13123e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 16: 92.352 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 5.79902e-14
+Old residual: 4.0358,   New residual: 4.68244e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 16: 91.213 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 16: 184.702 ms
+
+Timestep :  17 ||  Time :   0.16 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 5.91757e-14
+Old residual: 1.69289,   New residual: 4.89361e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 17: 93.242 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 5.96976e-14
+Old residual: 4.09313,   New residual: 6.24975e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 17: 92.879 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 17: 187.128 ms
+
+Timestep :  18 ||  Time :   0.17 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 6.09862e-14
+Old residual: 1.71698,   New residual: 2.94123e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 18: 93.229 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 6.15538e-14
+Old residual: 4.15148,   New residual: 6.64046e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 18: 92.407 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 18: 186.552 ms
+
+Timestep :  19 ||  Time :   0.18 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 6.29241e-14
+Old residual: 1.74134,   New residual: 3.676e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 19: 92.935 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 6.35069e-14
+Old residual: 4.21049,   New residual: 3.78839e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 19: 92.774 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 19: 186.7 ms
+
+Timestep :  20 ||  Time :   0.19 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 6.48705e-14
+Old residual: 1.76612,   New residual: 2.75945e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 20: 93.754 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 6.54399e-14
+Old residual: 4.27078,   New residual: 3.22207e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 20: 92.525 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 20: 187.308 ms
+
+Timestep :  21 ||  Time :   0.2 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing ordering...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 6.67641e-14
+Old residual: 1.79166,   New residual: 4.55381e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 21: 97.475 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 6.73264e-14
+Old residual: 4.33301,   New residual: 5.75975e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 21: 94.123 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 21: 192.442 ms
+
+Timestep :  22 ||  Time :   0.21 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 6.86671e-14
+Old residual: 1.81803,   New residual: 2.58251e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 22: 93.863 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 6.92557e-14
+Old residual: 4.39712,   New residual: 6.37357e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 22: 91.204 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 22: 185.944 ms
+
+Timestep :  23 ||  Time :   0.22 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.06746e-14
+Old residual: 1.845,   New residual: 3.85818e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 23: 92.922 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.12984e-14
+Old residual: 4.46253,   New residual: 5.96677e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 23: 91.617 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 23: 185.473 ms
+
+Timestep :  24 ||  Time :   0.23 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.27913e-14
+Old residual: 1.87241,   New residual: 2.9896e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 24: 92.409 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.3434e-14
+Old residual: 4.52897,   New residual: 6.27468e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 24: 94.872 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 24: 188.274 ms
+
+Timestep :  25 ||  Time :   0.24 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.49391e-14
+Old residual: 1.90032,   New residual: 3.11703e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 25: 92.682 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.55739e-14
+Old residual: 4.5968,   New residual: 4.76461e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 25: 91.018 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 25: 184.916 ms
+
+Timestep :  26 ||  Time :   0.25 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.70558e-14
+Old residual: 1.92897,   New residual: 3.5583e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 26: 94.045 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.76888e-14
+Old residual: 4.66651,   New residual: 8.12986e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 26: 92.483 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 26: 187.544 ms
+
+Timestep :  27 ||  Time :   0.26 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.9181e-14
+Old residual: 1.95844,   New residual: 2.73447e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 27: 93.497 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.98332e-14
+Old residual: 4.73811,   New residual: 4.05618e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 27: 92.427 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 27: 187.024 ms
+
+Timestep :  28 ||  Time :   0.27 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 8.13875e-14
+Old residual: 1.98858,   New residual: 2.27515e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 28: 92.959 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 8.20714e-14
+Old residual: 4.81124,   New residual: 4.18441e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 28: 92.279 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 28: 186.139 ms
+
+Timestep :  29 ||  Time :   0.28 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 8.36909e-14
+Old residual: 2.01928,   New residual: 3.89022e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 29: 92.552 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 8.43934e-14
+Old residual: 4.8857,   New residual: 3.38605e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 29: 93.062 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 29: 186.664 ms
+
+Timestep :  30 ||  Time :   0.29 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 8.60345e-14
+Old residual: 2.05058,   New residual: 3.16279e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 30: 93.206 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 8.67378e-14
+Old residual: 4.96171,   New residual: 5.88165e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 30: 91.644 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 30: 185.934 ms
+
+Timestep :  31 ||  Time :   0.3 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 8.83718e-14
+Old residual: 2.08263,   New residual: 4.18377e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 31: 93.105 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 8.90754e-14
+Old residual: 5.03963,   New residual: 4.34543e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 31: 93.364 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 31: 187.486 ms
+
+Timestep :  32 ||  Time :   0.31 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 9.07218e-14
+Old residual: 2.11551,   New residual: 3.94558e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 32: 93.244 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 9.1442e-14
+Old residual: 5.1195,   New residual: 4.02846e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 32: 93.524 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 32: 187.744 ms
+
+Timestep :  33 ||  Time :   0.32 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 9.31393e-14
+Old residual: 2.14914,   New residual: 4.94531e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 33: 93.728 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 9.38869e-14
+Old residual: 5.2011,   New residual: 3.66175e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 33: 93.702 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 33: 188.486 ms
+
+Timestep :  34 ||  Time :   0.33 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 9.56411e-14
+Old residual: 2.18343,   New residual: 3.94769e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 34: 90.755 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 9.64067e-14
+Old residual: 5.28431,   New residual: 2.35517e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 34: 91.265 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 34: 183.069 ms
+
+Timestep :  35 ||  Time :   0.34 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 9.81907e-14
+Old residual: 2.21842,   New residual: 4.5159e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 35: 92.37 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 9.89624e-14
+Old residual: 5.36926,   New residual: 4.61095e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 35: 90.312 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 35: 183.621 ms
+
+Timestep :  36 ||  Time :   0.35 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.00753e-13
+Old residual: 2.25421,   New residual: 4.90967e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 36: 92.996 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.01528e-13
+Old residual: 5.45619,   New residual: 6.13364e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 36: 92.067 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 36: 185.993 ms
+
+Timestep :  37 ||  Time :   0.36 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.03334e-13
+Old residual: 2.29086,   New residual: 5.09935e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 37: 91.644 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.04124e-13
+Old residual: 5.54519,   New residual: 3.68782e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 37: 92.667 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 37: 185.325 ms
+
+Timestep :  38 ||  Time :   0.37 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.05975e-13
+Old residual: 2.32833,   New residual: 2.97161e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 38: 93.704 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.06789e-13
+Old residual: 5.63613,   New residual: 4.89163e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 38: 93.748 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 38: 188.434 ms
+
+Timestep :  39 ||  Time :   0.38 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.08692e-13
+Old residual: 2.36658,   New residual: 3.56549e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 39: 93.08 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.09526e-13
+Old residual: 5.72893,   New residual: 5.45264e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 39: 93.626 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 39: 187.656 ms
+
+Timestep :  40 ||  Time :   0.39 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.11463e-13
+Old residual: 2.40561,   New residual: 4.28867e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 40: 92.672 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.12305e-13
+Old residual: 5.82369,   New residual: 2.25766e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 40: 91.14 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 40: 184.731 ms
+
+Timestep :  41 ||  Time :   0.4 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing ordering...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.14259e-13
+Old residual: 2.44551,   New residual: 2.45182e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 41: 98.469 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.15108e-13
+Old residual: 5.92057,   New residual: 2.52269e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 41: 91.764 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 41: 191.281 ms
+
+Timestep :  42 ||  Time :   0.41 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.17082e-13
+Old residual: 2.48632,   New residual: 2.64372e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 42: 92.316 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.17946e-13
+Old residual: 6.01967,   New residual: 4.43785e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 42: 92.402 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 42: 185.601 ms
+
+Timestep :  43 ||  Time :   0.42 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.1996e-13
+Old residual: 2.52804,   New residual: 5.01148e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 43: 91.37 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.20846e-13
+Old residual: 6.12092,   New residual: 2.99462e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 43: 92.359 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 43: 184.658 ms
+
+Timestep :  44 ||  Time :   0.43 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.22908e-13
+Old residual: 2.57064,   New residual: 3.71283e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 44: 93.39 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.23812e-13
+Old residual: 6.22428,   New residual: 5.03609e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 44: 92.521 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 44: 186.881 ms
+
+Timestep :  45 ||  Time :   0.44 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.25912e-13
+Old residual: 2.61412,   New residual: 3.52048e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 45: 92.318 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.26828e-13
+Old residual: 6.32983,   New residual: 6.81143e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 45: 91.981 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 45: 185.262 ms
+
+Timestep :  46 ||  Time :   0.45 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.2895e-13
+Old residual: 2.65856,   New residual: 4.70963e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 46: 93.356 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.29876e-13
+Old residual: 6.4377,   New residual: 2.92865e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 46: 92.444 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 46: 186.792 ms
+
+Timestep :  47 ||  Time :   0.46 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.32022e-13
+Old residual: 2.70398,   New residual: 5.50659e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 47: 92.36 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.32961e-13
+Old residual: 6.54798,   New residual: 5.58494e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 47: 92.723 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 47: 186.041 ms
+
+Timestep :  48 ||  Time :   0.47 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.35146e-13
+Old residual: 2.7504,   New residual: 4.36894e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 48: 93.296 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.36104e-13
+Old residual: 6.66064,   New residual: 6.3026e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 48: 91.751 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 48: 185.985 ms
+
+Timestep :  49 ||  Time :   0.48 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.38333e-13
+Old residual: 2.7978,   New residual: 4.93599e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 49: 93.355 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.39309e-13
+Old residual: 6.77567,   New residual: 6.24713e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 49: 91.397 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 49: 185.64 ms
+
+Timestep :  50 ||  Time :   0.49 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.41576e-13
+Old residual: 2.84621,   New residual: 5.99618e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 50: 91.985 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.42565e-13
+Old residual: 6.89315,   New residual: 7.28222e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 50: 92.064 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 50: 185.094 ms
+
+Timestep :  51 ||  Time :   0.5 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.44859e-13
+Old residual: 2.89565,   New residual: 6.43536e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 51: 91.535 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.45858e-13
+Old residual: 7.01318,   New residual: 5.49412e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 51: 90.87 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 51: 183.264 ms
+
+Timestep :  52 ||  Time :   0.51 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.48177e-13
+Old residual: 2.94618,   New residual: 3.78974e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 52: 91 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.4919e-13
+Old residual: 7.13583,   New residual: 8.80636e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 52: 89.396 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 52: 181.444 ms
+
+Timestep :  53 ||  Time :   0.52 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.51545e-13
+Old residual: 2.99781,   New residual: 5.29075e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 53: 90.863 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.52575e-13
+Old residual: 7.26113,   New residual: 1.10671e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.81846e-13
+Old residual: 1.10671e-08,   New residual: 5.92221e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 53: 183.805 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 53: 275.562 ms
+
+Timestep :  54 ||  Time :   0.53 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.5497e-13
+Old residual: 3.05054,   New residual: 4.97732e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 54: 94.14 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.56016e-13
+Old residual: 7.3891,   New residual: 9.60999e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 54: 90.047 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 54: 185.263 ms
+
+Timestep :  55 ||  Time :   0.54 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.58447e-13
+Old residual: 3.10438,   New residual: 6.16196e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 55: 89.307 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.59505e-13
+Old residual: 7.51978,   New residual: 1.34091e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.71832e-13
+Old residual: 1.34091e-08,   New residual: 3.94951e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 55: 181.226 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 55: 271.306 ms
+
+Timestep :  56 ||  Time :   0.55 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.61963e-13
+Old residual: 3.15938,   New residual: 5.67025e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 56: 89.205 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.63033e-13
+Old residual: 7.65327,   New residual: 1.13545e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.69396e-13
+Old residual: 1.13545e-08,   New residual: 2.77184e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 56: 181.933 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 56: 271.974 ms
+
+Timestep :  57 ||  Time :   0.56 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.65517e-13
+Old residual: 3.21557,   New residual: 6.79102e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 57: 92.389 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.66599e-13
+Old residual: 7.78966,   New residual: 1.33665e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.70438e-13
+Old residual: 1.33665e-08,   New residual: 4.49538e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 57: 182.523 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 57: 275.854 ms
+
+Timestep :  58 ||  Time :   0.57 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.69114e-13
+Old residual: 3.27298,   New residual: 9.9914e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 58: 93.945 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.70209e-13
+Old residual: 7.92899,   New residual: 1.47724e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.65874e-13
+Old residual: 1.47724e-08,   New residual: 5.22481e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 58: 186.571 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 58: 281.659 ms
+
+Timestep :  59 ||  Time :   0.58 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.7276e-13
+Old residual: 3.33161,   New residual: 7.41922e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 59: 93.726 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.7387e-13
+Old residual: 8.07128,   New residual: 1.52226e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.63619e-13
+Old residual: 1.52226e-08,   New residual: 3.01308e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 59: 184.535 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 59: 279.226 ms
+
+Timestep :  60 ||  Time :   0.59 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.76451e-13
+Old residual: 3.39149,   New residual: 9.57957e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 60: 94.581 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.77572e-13
+Old residual: 8.2166,   New residual: 2.15771e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.60321e-13
+Old residual: 2.15771e-08,   New residual: 5.545e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 60: 184.94 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 60: 280.544 ms
+
+Timestep :  61 ||  Time :   0.6 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing ordering...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.8018e-13
+Old residual: 3.45265,   New residual: 7.23485e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 61: 98.527 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.8131e-13
+Old residual: 8.36504,   New residual: 1.76065e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.6078e-13
+Old residual: 1.76065e-08,   New residual: 4.14748e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 61: 185.257 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 61: 284.755 ms
+
+Timestep :  62 ||  Time :   0.61 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.83941e-13
+Old residual: 3.51513,   New residual: 8.75711e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 62: 94.578 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.85082e-13
+Old residual: 8.51669,   New residual: 2.04953e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.58661e-13
+Old residual: 2.04953e-08,   New residual: 5.98788e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 62: 187.956 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 62: 283.505 ms
+
+Timestep :  63 ||  Time :   0.62 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.87739e-13
+Old residual: 3.57895,   New residual: 9.37494e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 63: 94.109 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.88891e-13
+Old residual: 8.67158,   New residual: 2.25868e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.59027e-13
+Old residual: 2.25868e-08,   New residual: 5.44717e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 63: 184.645 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 63: 279.817 ms
+
+Timestep :  64 ||  Time :   0.63 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.91576e-13
+Old residual: 3.64414,   New residual: 1.46419e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.62399e-13
+Old residual: 1.46419e-08,   New residual: 5.50054e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 64: 188.654 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.92739e-13
+Old residual: 8.82979,   New residual: 2.93264e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.58757e-13
+Old residual: 2.93264e-08,   New residual: 4.74895e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 64: 186.988 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 64: 376.661 ms
+
+Timestep :  65 ||  Time :   0.64 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.9545e-13
+Old residual: 3.71071,   New residual: 1.09533e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.56151e-13
+Old residual: 1.09533e-08,   New residual: 4.82612e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 65: 187.037 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.96621e-13
+Old residual: 8.99137,   New residual: 2.54852e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.60995e-13
+Old residual: 2.54852e-08,   New residual: 6.22444e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 65: 186.937 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 65: 375.078 ms
+
+Timestep :  66 ||  Time :   0.65 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 1.99354e-13
+Old residual: 3.77872,   New residual: 1.32443e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.67245e-13
+Old residual: 1.32443e-08,   New residual: 4.08581e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 66: 184.806 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 2.00533e-13
+Old residual: 9.15641,   New residual: 3.14905e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.63656e-13
+Old residual: 3.14905e-08,   New residual: 4.19678e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 66: 189.857 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 66: 375.662 ms
+
+Timestep :  67 ||  Time :   0.66 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 2.03284e-13
+Old residual: 3.84818,   New residual: 1.3928e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.62519e-13
+Old residual: 1.3928e-08,   New residual: 5.95021e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 67: 187.795 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 2.0447e-13
+Old residual: 9.325,   New residual: 2.99696e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.64891e-13
+Old residual: 2.99696e-08,   New residual: 5.49976e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 67: 185.481 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 67: 374.248 ms
+
+Timestep :  68 ||  Time :   0.67 ||  dt :   0.01 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 2.07241e-13
+Old residual: 3.91913,   New residual: 1.23607e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.65759e-13
+Old residual: 1.23607e-08,   New residual: 2.87407e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 68: 184.742 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 2.08435e-13
+Old residual: 9.4972,   New residual: 3.40786e-08    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(200) converges at iteration 8 to a solution with relative residual 7.68613e-13
+Old residual: 3.40786e-08,   New residual: 3.97615e-09    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 68: 186.976 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 68: 372.696 ms
+
+
+
+
+*************************************************
+******** TOTAL SIMULATION TIME: 14 s ********
+*************************************************

@@ -1,0 +1,2176 @@
+    1  softwareupdate --install-rosetta
+    2  python
+    3  brew install python
+    4  brew
+    5  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    6  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    7  (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/saustin/.zprofile
+    8  eval "$(/opt/homebrew/bin/brew shellenv)"
+    9  brew help
+   10  gmsh
+   11  pip
+   12  brew install python
+   13  python --version
+   14  python
+   15  python3
+   16  python3 --version
+   17  ter is no longer included with this formula, but it is available separately:\n  brew install python-tk@pip install gmsh
+   18  python3
+   19  pip install gmsh
+   20  python3 get-pip.py
+   21  pip3 --version
+   22  pip3 install gmsh
+   23  /Library/Developer/CommandLineTools/usr/bin/python3 -m pip install --upgrade pip
+   24  pip3 --version
+   25  python3
+   26  python3
+   27  git --version
+   28  git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+   29  nano
+   30  nano ~/.zshrc
+   31  source ~/.zshrc
+   32  
+   33  ls
+   34  code
+   35  nano ~/.zshrc
+   36  git
+   37  cd Documents
+   38  brew doctor
+   39  brew install git
+   40  ssh-keygen -t rsa
+   41  cat ~/.ssh/id_rsa.pub
+   42  git clone git@github.com:saustinp/HDG.git
+   43  git clone git@github.com:saustinp/3D-CG.git
+   44  /Volumes/BACKUP/PARTITION 1/Users/samau/OneDrive/Documents/rocketry_notebook
+   45  cd /Volumes/BACKUP/PARTITION 1/Users/samau/OneDrive/Documents/rocketry_notebook
+   46  pwd
+   47  cd /Volumes/BACKUP/PARTITION\ 1/Users/samau/OneDrive/Documents/rocketry_notebook
+   48  pwd
+   49  cd
+   50  cd Documents
+   51  cd HDG
+   52  code
+   53  cd problem/ionicwind/electrondensity
+   54  pwd
+   55  htop
+   56  brew update
+   57  brew install htop
+   58  sudo htop
+   59  ls
+   60  defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+   61  git --version
+   62  brew search neovim
+   63  brew install neovim
+   64  neovim
+   65  vim
+   66  vi
+   67  code .
+   68  homebrew --verion
+   69  brew --version
+   70  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/[username]/.zprofile
+   71  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/saustin/.zprofile
+   72  eval "$(/opt/homebrew/bin/brew shellenv)"
+   73  brew --version
+   74  brew install --cask iterm2
+   75  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   76  ls
+   77  cd
+   78  cd --
+   79  cd -
+   80  cd /
+   81  ls
+   82  cd home
+   83  cd Users
+   84  ls
+   85  cd ../
+   86  cd Users
+   87  lls
+   88  ll
+   89  cd saustin
+   90  p10k configure
+   91  cd
+   92  ls
+   93  la
+   94  nano .p10k.zsh
+   95  cd ../
+   96  cd HDG
+   97  cd problem
+   98  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+   99  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  100  code
+  101  code .
+  102  neovim
+  103  nvim --version
+  104  I think thisis 
+  105  cd
+  106  cd ..
+  107  code ~/.zshrc
+  108  source ~/.zshrc
+  109  google hi
+  110  cd Documents
+  111  cd ../
+  112  cd
+  113  cd Documents
+  114  google mac iterm2 keyboard shortcuts
+  115  hi
+  116  cd Documents_imp
+  117  cd Documents
+  118  ll
+  119  cd 3D-CG
+  120  ll
+  121  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autos
+  122  ls
+  123  brew install xclip
+  124  code ~/.zshrc
+  125  python3
+  126  brew install ffmpeg
+  127  python3
+  128  cd
+  129  cd Documents
+  130  pwd
+  131  open .
+  132  cd 3D-CG
+  133  open .
+  134  open "google.com"
+  135  open "http://google.com"
+  136  arduino
+  137  ll
+  138  h
+  139  nf
+  140  cpw
+  141  pwd|pbcopy
+  142  /Users/saustin\n
+  143  cd Documents
+  144  gpw
+  145  sb
+  146  source ~/.zshrc
+  147  sb
+  148  cpw
+  149  /Users/saustin\n
+  150  pp
+  151  ll
+  152  man ls
+  153  brew install coreutils
+  154  glsgls -Flh --group-directories-first
+  155  gls -Flh --group-directories-first
+  156  sb
+  157  ll
+  158  sb
+  159  ll
+  160  ls
+  161  ll
+  162  ls
+  163  cd Documents/3D-CG
+  164  ll
+  165  ls
+  166  ll
+  167  ls
+  168  command ls
+  169  dircolors
+  170  file log_start.py
+  171  ls
+  172  ll
+  173  sb
+  174  ll
+  175  ls
+  176  ll
+  177  sb
+  178  ll
+  179  ls
+  180  sb
+  181  ll
+  182  sb
+  183  ll
+  184  scp
+  185  rsync
+  186  ffmpeg
+  187  d
+  188  cd ../
+  189  d0
+  190  d 0
+  191  d
+  192  sb
+  193  d
+  194  cd GitHub
+  195  ll
+  196  cd custom_tools_setup
+  197  ll
+  198  python
+  199  brew info --json=v1 texlive
+  200  brew install texlive
+  201  mt
+  202  matlab
+  203  cd 
+  204  cd Applications
+  205  ll
+  206  cd ../
+  207  ll
+  208  cd Applications
+  209  ll
+  210  cd /
+  211  cd Applications
+  212  ll
+  213  cpw
+  214  code ~/.zshrc
+  215  sb
+  216  mt
+  217  sb
+  218  mt
+  219  sb
+  220  mt
+  221  /Applications/MATLAB_R2023a.app/bin/matlab ; exit;
+  222  sb
+  223  mt
+  224  sb
+  225  mt
+  226  cd /
+  227  ll
+  228  cd Volumes
+  229  ll
+  230  cd BACKUP
+  231  ll
+  232  cd Documents_From\ _Windows_10......
+  233  cd dell\ xps_backup_7.7.23
+  234  cd exasim_new/Exasim/Applications/ionic_wind
+  235  l
+  236  ll
+  237  cd Documents/HDG/problem
+  238  cd ionicwind
+  239  ll
+  240  cpw
+  241  cp -r writeup /Users/saustin/Documents/HDG/problem/ionicwind\n
+  242  ll
+  243  cd writeup
+  244  ll
+  245  d
+  246  dd
+  247  d
+  248  cde
+  249  code .
+  250  cp -r writeup /Users/saustin/Documents/HDG/problem/ionicwind\n
+  251  ppp
+  252  pp
+  253  python
+  254  brew install itsycal
+  255  brew istall alt-tab
+  256  brew install alt-tab
+  257  brew install rectangle
+  258  code .
+  259  brew istall stats
+  260  brew install stats
+  261  code ~/.zshrc
+  262  sb
+  263  brew install pyenv
+  264  pyenv
+  265  pyenv versions
+  266  cat ~/.ssh/id_rsa.pub
+  267  cat /Users/saustin/.pyenv/version
+  268  pyenv install --list
+  269  python --version
+  270  brew uninstall python3
+  271  brew uninstall --ignore-dependencies python3
+  272  python
+  273  pyenv install 3.11.4
+  274  pyenv versions
+  275  pythno
+  276  python
+  277  pyenv global 3.11.4
+  278  pyenv rehash
+  279  pyenv versions
+  280  python
+  281  pyenv
+  282  pyenv versions
+  283  python
+  284  python3
+  285  d
+  286  sb
+  287  d
+  288  cd HDG/problem/ionicwind
+  289  ll
+  290  cd /Users/saustin/Downloads/minimum_example
+  291  cde
+  292  c
+  293  python --version
+  294  python
+  295  python3
+  296  python3 --version
+  297  echo 'eval "$(pyenv init -)"' >> ~/.zsh_profile
+  298  code ~/.zshrc
+  299  pyenv init
+  300  code ~/.zprofile
+  301  code ~/.zsh_profile
+  302  sb
+  303  pyenv install --list
+  304  pyenv version
+  305  python
+  306  pyenv
+  307  python3
+  308  code ~/.zshrc
+  309  pyenv versions
+  310  pyenv global system
+  311  pyenv versions
+  312  pyenv global 3.11.4
+  313  pyenv versions
+  314  pyenv version
+  315  pyenv versions
+  316  pip --version
+  317  pip freeze
+  318  pip list
+  319  pip install virtualenv
+  320  pip install numpy
+  321  pip install matplotlib
+  322  pip install virtualenvwrapper
+  323  pip freeze
+  324  pyenv global system
+  325  pip freeze
+  326  python
+  327  python --version
+  328  pyenv global 3.11.4
+  329  pip install scipy matplotlib ipython jupyter pandas sympy nose
+  330  pip uninstall virtualenvwrapper
+  331  pip
+  332  man pip
+  333  pip freeze
+  334  history
+  335  cat ~/.ssh/id_rsa.pub
+  336  sc
+  337  sj
+  338  cd /
+  339  ls
+  340  cd System/Library/PrivateFrameworks
+  341  ls
+  342  grep CoreEmoji.framework
+  343  code CoreEmoji.framework
+  344  cd CoreEmoji.framework/
+  345  ls
+  346  cd Versions
+  347  ls
+  348  cd A
+  349  ls
+  350  cd Resources
+  351  ls
+  352  cd en.lproj
+  353  ls
+  354  brew tap Serpentiel/betterglobekey https://github.com/Serpentiel/betterglobekey.git\nbrew install betterglobekey
+  355  brew services start betterglobekey
+  356  brew uninstall betterglobekey
+  357  d
+  358  mkdir ionicwind2
+  359  cd ionicwind2
+  360  cd ../ionicwind
+  361  ll
+  362  \tmt
+  363  d
+  364  cpw
+  365  cd /Users/saustin/Documents/HDG/problem/ionicwind\n
+  366  ll
+  367  ls mes
+  368  ls mesh
+  369  ll mesh
+  370  cd mesh
+  371  ll
+  372  d
+  373  cp -r mesh ../ionicwind2
+  374  ll
+  375  cd poisson
+  376  ll
+  377  d
+  378  cpw
+  379  cd /Users/saustin/Documents/HDG/problem/ionicwind\n
+  380  ll
+  381  cp -r poisson poissonsolution_11k.mat ../ionicwind2
+  382  cp -r writeup ../ionicwind2
+  383  cp -r electrondensity ../ionicwind
+  384  cp -r electrondensity ../ionicwind2
+  385  cd ../ionicwind2
+  386  mkdir swarm_param
+  387  ls electrondensity
+  388  cd electrondensity
+  389  mv bolsig_data* poly_reg_test.py swarm* ../swarm_param
+  390  ll
+  391  d
+  392  mv swarm_param swarm
+  393  ls swarm
+  394  cd ../ionicwind2
+  395  cd swarm
+  396  python bolsig_data_processing.py
+  397  python
+  398  pyenv global 3.11.4
+  399  pyenv versions
+  400  python
+  401  python3
+  402  python
+  403  sb
+  404  python bolsig_data_processing.py
+  405  mkdir old
+  406  mv poly_reg_test.py old
+  407  mkdir readme.md
+  408  rm -rf readme.md
+  409  code -r readme.md
+  410  python bolsig_data_processing.py
+  411  code -r readme.md
+  412  python bolsig_data_processing.py
+  413  python swarm_params.py
+  414  pyenv shell 3.11.4
+  415  cd problem/ionicwind2/swarm
+  416  code -r mue.m
+  417  code -r get_diffusion.m
+  418  code -r get_alpha.m
+  419  code -r get_eta.m
+  420  code -r get_mu.m
+  421  mt
+  422  pyenv shell 3.11.4
+  423  cd ~/Downloads
+  424  ll | grep flux
+  425  copw
+  426  cpw
+  427  cp fluxgen.m /Users/saustin/Documents/HDG/problem/ionicwind2/swarm\n
+  428  mv fluxgen.m ../
+  429  d
+  430  mv fluxgen.m electrondensity
+  431  cd electrondensity
+  432  cp fluxgen.m sourcegen.m
+  433  code -r flux2d.m
+  434  mv fluxgen.m fluxgen_template.m
+  435  cp fluxgen_template.m fluxgen_electrondensity.m
+  436  cd ../../ionicwind
+  437  cd electrondensity
+  438  cp initq_func_r.m initq_func_z.m initu_func.m ../../ionicwind2/electrondensity
+  439  code -r flux2d.m
+  440  mkdir old
+  441  rm -rf old
+  442  d
+  443  mkdir old
+  444  mv ionicwind old
+  445  cd ionicwind2
+  446  grep -Iinr get_mue
+  447  grep -Iinr get_diffusion
+  448  grep -Iinr get_alpha
+  449  grep -Iinr get_eta
+  450  grep -Iinr get_alpha
+  451  grep -Iinr get_diffusion
+  452  grep -Iinr get_mue
+  453  python
+  454  d
+  455  gs
+  456  grep -Iinr get_mue
+  457  grep -Iinr get_diffusion
+  458  grep -Iinr get_alpha
+  459  grep -Iinr get_eta
+  460  grep -Iinr get_diffusion
+  461  grep -Iinr get_mue
+  462  cd electrondensity
+  463  open .
+  464  grep -Iinr get_mue
+  465  sc
+  466  code .
+  467  cd ../
+  468  code .
+  469  d
+  470  rsync -r HDG saustin@txe-login.mit.edu:/home/gridsan/saustin/
+  471  rsync -r HDG saustin@txe1-login.mit.edu:/home/gridsan/saustin/
+  472  rsync -raxvh HDG saustin@txe1-login.mit.edu:/home/gridsan/saustin/
+  473  man rsync
+  474  rsync
+  475  rsync -raxvh --info=progress2 --info=name0 HDG saustin@txe1-login.mit.edu:/home/gridsan/saustin/
+  476  rsync -raxvh --info=progress2 HDG saustin@txe1-login.mit.edu:/home/gridsan/saustin/
+  477  rsync -raxvh HDG saustin@txe1-login.mit.edu:/home/gridsan/saustin/
+  478  rsync
+  479  cd HDG/problem/
+  480  cd ionicwind2
+  481  mv electrondensity discharge_model
+  482  mv discharge_model electrondensity
+  483  git stash
+  484  git status
+  485  cd electrondensity
+  486  ls
+  487  ll
+  488  cd HDG
+  489  c
+  490  mt
+  491  grep -Iinr get_mue
+  492  grep -Iinr get_alpha
+  493  grep -Iinr get_eta
+  494  grep -Iinr get_diffusion
+  495  grep -Iinr get_eta
+  496  grep -Iinr get_alpha
+  497  grep -Iinr get_mue
+  498  sc
+  499  d
+  500  rsync -raxvh HDG saustin@txe1-login.mit.edu:/home/gridsan/saustin/
+  501  cd HDG/problem
+  502  cd electrondensity
+  503  cd ionicwind2/electrondensity
+  504  scp saustin@txe1-login.mit.edu:/home/gridsan/saustin/HDG/problem/ionicwind2/electrondensity/UDG_history.mat .
+  505  ll
+  506  stat UDG_history.mat
+  507  sc
+  508  scp saustin@txe1-login.mit.edu:/home/gridsan/saustin/HDG/problem/ionicwind2/electrondensity/hist.mat .
+  509  pp
+  510  c
+  511  code -r link.txt
+  512  doc
+  513  cd HDG
+  514  mt
+  515  cd problem/ionicwind2/writeup
+  516  open chen_simulation_setup.pdf
+  517  d
+  518  cd electrondensity
+  519  grep -Iinr get_mue
+  520  grep -Iinr get_alpha
+  521  grep -Iinr get_diffusion_e
+  522  mt
+  523  d
+  524  cd writeup
+  525  open chen_simulation_setup.pdf
+  526  d
+  527  cd mesh
+  528  c
+  529  pyenv shell 3.11.4
+  530  python chen_geom_half.py
+  531  pip install gmsh
+  532  python chen_geom_half.py
+  533  d
+  534  c
+  535  cd ../
+  536  mkdir ionicwind_dimensional
+  537  cd problem/ionicwind_dimensional
+  538  ll
+  539  cd problem/ionicwind2
+  540  ll
+  541  cp -r poissonsolution_1* poisson writeup swarm mesh ../ionicwind_dimensional
+  542  ll
+  543  rm -rf writeup
+  544  cd electrondensity
+  545  mkdir mkdir discharge_model
+  546  cd discharge_model
+  547  ll
+  548  cp app_electrondensity.m checkflux.m checksource.m fbou_electrondensity.m fhat_electrondensity.m fluxgen_electrondensity.m sourcegen_electrondensity.m init_phys_param.m initu_func.m initq_func_* ../../ionicwind_dimensional/discharge_model
+  549  ll
+  550  cd ionicwind_nondimensional
+  551  cd ionicwind_dimensional
+  552  ll
+  553  rm -rf mkdir
+  554  d
+  555  c
+  556  mt
+  557  cp ../ionicwind2/electrondensity/source2d.m source2d_nondim.m
+  558  cp ../ionicwind2/electrondensity/source2d.m ./source2d_nondim.m
+  559  cd problem/ionicwind_dimensional
+  560  ll
+  561  cd discharge_model
+  562  l
+  563  ll
+  564  diff source2d.m source2d_nondim.m
+  565  cp ../ionicwind2/electrondensity/flx2d.m ./flux2d_nondim.m
+  566  cp ../ionicwind2/electrondensity/flux2d.m ./flux2d_nondim.m
+  567  cp ../../ionicwind2/electrondensity/flux2d.m ./flux2d_nondim.m
+  568  diff source2d.m source2d_nondim.m
+  569  rm source2d.m flux2d.m
+  570  cp ../ionicwind2/electrondensity/flux2d.m ./flux2d_nondim.m
+  571  cp ../ionicwind2/electrondensity/source2d.m ./source2d_nondim.m
+  572  cp ../../ionicwind2/electrondensity/source2d.m ./source2d_nondim.m
+  573  cd discharge_model
+  574  ll
+  575  cp ../../ionicwind2/electrondensity/flux2d.m ./flux2d_nondim.m
+  576  diff source2d.m source2d_nondim.m
+  577  code -r gen_flux_source.m
+  578  diff source2d.m source2d_nondim.m
+  579  diff flux2d.m flux2d_nondim.m
+  580  tar -xvf sam_home_backup.tar.gz
+  581  d
+  582  mt
+  583  pp
+  584  git stash
+  585  d
+  586  mt
+  587  python
+  588  pp
+  589  python
+  590  cd problem/ionicwind2
+  591  cd electrondensity
+  592  rm data_analysis.asv dt001_noclip.mat error_log.txt fbou_electrondensity.asv
+  593  cd ../writeup
+  594  cd ../swarm
+  595  python bolsig_data_processing.py
+  596  c
+  597  d
+  598  cd writeup
+  599  c
+  600  d
+  601  c
+  602  cd problem/ionicwind2/writeup
+  603  open chen_simulation_setup.pdf
+  604  d
+  605  mt
+  606  cd problem/ionicwind2/writeup
+  607  o0
+  608  open chen_simulation_setup.pdf
+  609  s
+  610  d
+  611  cp -r ionicwind2 total_density_test
+  612  cd total_density_test
+  613  cd ../ionicwind2
+  614  git diff stash@{0}^1 stash@{0} -- /Users/saustin/Documents/HDG/problem/ionicwind2/electrondensity/data_analysis.m
+  615  git show stash@{0}:git show /Users/saustin/Documents/HDG/problem/ionicwind2/electrondensity/data_analysis.m  >  /Users/saustin/Documents/HDG/problem/ionicwind2/electrondensity/data_analysis2.m
+  616  git show stash@{0}:/Users/saustin/Documents/HDG/problem/ionicwind2/electrondensity/data_analysis.m  >  /Users/saustin/Documents/HDG/problem/ionicwind2/electrondensity/data_analysis3.m
+  617  git diff stash@{0}^1 stash@{0} -- <filename>
+  618  git diff stash@{0}^1 stash@{0} -- /Users/saustin/Documents/HDG/problem/ionicwind2/electrondensity/data_analysis.m
+  619  cd electrondensity
+  620  git show stash@{0}:./data_analysis.m > data_analysis2.m
+  621  sc
+  622  d
+  623  cd 3D-CG
+  624  c
+  625  pyenv shell 3.11.4
+  626  open .
+  627  python
+  628  d
+  629  sc
+  630  python
+  631  cd ../writeup
+  632  open chen_simulation_setup.pdf
+  633  open .
+  634  mt
+  635  cd ../mesh
+  636  gmsh chen_18k.msh3
+  637  python chen_geom_half.py
+  638  gmsh chen_18k.msh3
+  639  python chen_geom_half.py
+  640  ll
+  641  mv chen_tmp.msh3 chen_19k.msh
+  642  pp
+  643  python
+  644  sc
+  645  cd Documents
+  646  rsync -raxvh HDG saustin@txe1-login.mit.edu:/home/gridsan/saustin/
+  647  sc
+  648  cd HDG/problem/ionicwind2/electrondensity
+  649  diff source2d.m source2d_orig_alpha.m
+  650  d
+  651  rsync -raxvh HDG saustin@txe1-login.mit.edu:/home/gridsan/saustin/
+  652  sc
+  653  q
+  654  sc
+  655  cd 3D-CG
+  656  c
+  657  d
+  658  ll
+  659  sc
+  660  cd 3D-CG
+  661  cd Documents/3D-CG
+  662  cd cases
+  663  l
+  664  mkdir 777_test
+  665  cd 777_test
+  666  rsync -raxvh HDG saustin@txe1-login.mit.edu:/home/gridsan/saustin/research/3D-CG/cases/777_test/out/Phi/777_test_Phi.vtu
+  667  rsync -raxvh saustin@txe1-login.mit.edu:/home/gridsan/saustin/research/3D-CG/cases/777_test/out/Phi/777_test_Phi.vtu ./
+  668  ll
+  669  rsync -raxvh saustin@txe1-login.mit.edu:/home/gridsan/saustin/research/3D-CG/cases/777_test/mesh/777_test.msh ./
+  670  gmsh 777_test
+  671  gmsh 777_test.msh
+  672  c
+  673  python
+  674  gmsh 777_test.msh
+  675  htop
+  676  ssh -L 5902:localhost:5902 austinsp@spl2.mit.edu
+  677  ssh -L 5902:localhost:5902 austinsp@spl.mit.edu
+  678  ssh
+  679  ssh spl2.mit.edu
+  680  ssh austinsp@spl2.mit.edu
+  681  ssh -L 5902:localhost:5902 austinsp@spl2.mit.edu
+  682  cd HDG
+  683  mt
+  684  python
+  685  pp
+  686  p
+  687  pp
+  688  d
+  689  dow
+  690  ll
+  691  ls -ltr
+  692  mv statement-202* Export.csv download.csv July\ 2023\ -\ transactions.csv ../Documents/finances
+  693  cd ../Documents/finances
+  694  ll
+  695  open Export.csv
+  696  pp
+  697  mv Export.csv mitfcu.csv
+  698  ll
+  699  mv download.csv mitfcu_visa.csv
+  700  dow
+  701  ltr
+  702  ls -ltr
+  703  mv *2023 - trans* ../Documents/finances
+  704  ll | grep *2023*
+  705  ll | grep *2023
+  706  ll | grep .*2023
+  707  ll | grep *.csv
+  708  ll
+  709  ll | grep zoning
+  710  ll | grep .csv
+  711  mv *.csv ../Documents/finances
+  712  ll
+  713  mkdir paypal-statements
+  714  ll
+  715  open
+  716  open .
+  717  mv paypal-statements paypal
+  718  cd paypal
+  719  mkdir statements
+  720  mv *.csv statements
+  721  mv statements transactions
+  722  mkdir statements
+  723  dow
+  724  ls -ltr
+  725  mv statement-202* ../Documents/finances/paypal/statements
+  726  cd statements
+  727  ll
+  728  d
+  729  excel
+  730  mkdir wellsfargo
+  731  mkdir mitfcu-visa
+  732  ll
+  733  mv mitfcu_visa.csv mitfcu-visa
+  734  ll
+  735  rm -rf September\ 2022\ -\ transactions.csv statement-202*
+  736  ll
+  737  ls
+  738  cd paypal
+  739  ll
+  740  cd statements
+  741  ll
+  742  cd ../transactions
+  743  ll
+  744  ls -ltr
+  745  ll
+  746  ls -ltr
+  747  mv September\ 2022\ -\ transactions.csv ../Documents/finances/paypal/transactions
+  748  ll
+  749  ls -ltr
+  750  mv CreditCard1.csv ../Documents/finances/wellsfargo
+  751  d
+  752  cd ../wellsfargo
+  753  open CreditCard1.csv
+  754  ll
+  755  ls -ltr
+  756  mv https:connect.secure.wellsfargo.com:edocs:documents:retrieve:7baf07c2-cdb9-4b6c-bc8c-dd9c6897bc9c\?_x=_PjbngkGl8Dtqr2YQ5uMq6QMyX-V-0_6.pdf statement_11_2022.pdf
+  757  open statement_11_2022.pdf
+  758  mv https:connect.secure.wellsfargo.com:edocs:documents:retrieve:3884d554-1991-4e27-a9d3-f286c7ebfb0f\?_x=RI2AK1kDKL2-ep55hLNbtHhEcd4XOi6A.pdf statement_12_2022.pdf
+  759  mv https:connect.secure.wellsfargo.com:edocs:documents:retrieve:996b0568-fb71-420b-9429-7526685fc52b\?_x=BIYRHwPbf2h4JAhi6VW_q_FgSu8fkrfK.pdf statement_1_2023.pdf
+  760  mv https:connect.secure.wellsfargo.com:edocs:documents:retrieve:34dc579b-f6b6-4663-9cf7-4932855affda\?_x=B3qzvUXW6jUL9slcmn9jRwMdcCB9Qqqy.pdf statement_2_2023.pdf
+  761  mv https:connect.secure.wellsfargo.com:edocs:documents:retrieve:d94570eb-beaf-40ea-af35-2386a4d61723\?_x=Sx7Blh2E9bzkgLlsGg6TtHf6W30wIoqa.pdf statement_3_2023.pdf
+  762  mv https:connect.secure.wellsfargo.com:edocs:documents:retrieve:b027c262-6cb8-460e-abdd-be8cc5b34ec5\?_x=WvBD6efqrFXLC3JyTOc4NtY5tQVqShxv.pdf statement_4_2023.pdf
+  763  mv https:connect.secure.wellsfargo.com:edocs:documents:retrieve:239da586-46f4-4afb-af2e-750ea7302ff7\?_x=dVvMXQRNWrmxKdctZ-G5td0KgG6g4tQT.pdf statement_5_2023.pdf
+  764  mv https:connect.secure.wellsfargo.com:edocs:documents:retrieve:2e34a99c-e67a-49e3-9fc5-cc7c0263976a\?_x=oW22zHd_24tJ5FU9q72W-jD64blewl-q.pdf statement 6_2023.pdf
+  765  mv https:connect.secure.wellsfargo.com:edocs:documents:retrieve:2e34a99c-e67a-49e3-9fc5-cc7c0263976a\?_x=oW22zHd_24tJ5FU9q72W-jD64blewl-q.pdf statement_6_2023.pdf
+  766  mv https:connect.secure.wellsfargo.com:edocs:documents:retrieve:44be78b2-1a7c-42df-9429-f7ac7ee95352\?_x=1T3fMU72Ou8QIlsoK8ua2Uap1WCUSRPJ.pdf statement_7_2023.pdf
+  767  ll
+  768  open CreditCard1.csv
+  769  rm -rf CreditCard1.csv
+  770  ll
+  771  open statement_11_2022.pdf
+  772  open .
+  773  ls -ltr
+  774  ll | grep statement_
+  775  ll | grep statement[_-]
+  776  ll | grep statement[_,-]
+  777  ll | grep statement-
+  778  mv statement-202* ../Documents/finances/paypal/statements
+  779  mv statement_* ../Documents/finances/wellsfargo/
+  780  ll
+  781  open statement_11_2022.xlsx
+  782  open statement_11_2022.pdf
+  783  open statement_12_2022.pdf
+  784  open statement_12_2022.xlsx
+  785  open statement_12_2022.pdf
+  786  open statement_11_2022.xlsx
+  787  open statement_1_2023.xlsx
+  788  open statement_2_2023.xlsx
+  789  open statement_2_2023.pdf
+  790  open statement_2_2023.xlsx
+  791  open statement_1_2023.pdf
+  792  open statement_3_2023.xlsx
+  793  open statement_4_2023.xlsx
+  794  open statement_4_2023.pdf
+  795  open statement_3_2023.pdf
+  796  open statement_4_2023.pdf
+  797  open statement_5_2023.xlsx
+  798  open statement_5_2023.pdf
+  799  1
+  800  2
+  801  3
+  802  cd ../../wellsfargo
+  803  open statement_6_2023.pdf
+  804  open statement_6_2023.xlsx
+  805  open statement_76_2023.pdf
+  806  open statement_7_2023.pdf
+  807  d
+  808  cd mitfcu-visa
+  809  ll]
+  810  ll
+  811  open mitfcu_visa.csv
+  812  d
+  813  cd paypal/p
+  814  cd paypal
+  815  ll
+  816  cd transactions
+  817  ll
+  818  open August\ 2022\ -\ transactions.csv
+  819  d
+  820  ll
+  821  open mitfcu.csv
+  822  cd paypal/transactions
+  823  open September\ 2022\ -\ transactions.csv
+  824  open October\ 2022\ -\ transactions.csv
+  825  open November\ 2022\ -\ transactions.csv
+  826  open December\ 2022\ -\ transactions.csv
+  827  open January\ 2023\ -\ transactions.csv
+  828  open February\ 2023\ -\ transactions.csv
+  829  open March\ 2023\ -\ transactions.csv
+  830  open April\ 2023\ -\ transactions.csv
+  831  open May\ 2023\ -\ transactions.csv
+  832  open June\ 2023\ -\ transactions.csv
+  833  open July\ 2023\ -\ transactions.csv
+  834  open 
+  835  open .
+  836  pp
+  837  python
+  838  cd ../writeup
+  839  open chen_simulation_setup.pdf
+  840  python
+  841  cd ../electrondensity
+  842  python pie_test.py
+  843  rm -rf pie_test.py
+  844  d
+  845  cd writeup
+  846  open chen_simulation_setup.pdf
+  847  d
+  848  mt
+  849  doc
+  850  rsync -raxvh HDG saustin@txe1-login.mit.edu:/home/gridsan/saustin/
+  851  python
+  852  pp
+  853  python
+  854  cd /Applications/MATLAB_R2023a.app/toolbox/matlab/demos
+  855  ll
+  856  doc
+  857  cd 3D-CG
+  858  ll
+  859  code -r bwb_meshgen.py
+  860  python
+  861  d
+  862  cd HDG
+  863  mt
+  864  python
+  865  cd problem/ionicwind2/writeup
+  866  d
+  867  cd electrondensity
+  868  open .
+  869  doc
+  870  cd HDG
+  871  d
+  872  cd 3D-CG
+  873  c
+  874  python
+  875  pp
+  876  nano ~/.zshrc
+  877  p
+  878  cd /
+  879  ls
+  880  cd dev
+  881  ll
+  882  d
+  883  cd Volumes
+  884  ll
+  885  open .
+  886  doc
+  887  cd HDG
+  888  mt
+  889  python
+  890  d
+  891  cd writeup
+  892  open chen_simulation_setup.pdf
+  893  cd problem/ionicwind2/writeup
+  894  ll
+  895  mkdir fig
+  896  cd fig
+  897  cpw
+  898  doc
+  899  mv swarm_* /Users/saustin/Documents/HDG/problem/ionicwind2/writeup/fig\n
+  900  open chen_simulation_setup.pdf
+  901  open .
+  902  open chen_simulation_setup.pdf
+  903  d
+  904  cd ionicwind2/swarm
+  905  ll
+  906  cd fig
+  907  ll
+  908  open.
+  909  open .
+  910  python
+  911  sc
+  912  d
+  913  mt
+  914  python
+  915  sc
+  916  ython
+  917  python
+  918  pp
+  919  python
+  920  doc
+  921  cd HDG
+  922  cd problem
+  923  cp ionicwind2 ehd_tof
+  924  cp -r ionicwind2 ehd_tof
+  925  cd ehd_tof
+  926  cd mesh
+  927  c
+  928  d
+  929  c
+  930  cd ../
+  931  cd ../ehd_tof/mesh
+  932  code -r tof_meshgen.py
+  933  python tof_meshgen.py
+  934  pp
+  935  python
+  936  d
+  937  dd
+  938  mt
+  939  cd ehd_tof/mesh
+  940  python tof_meshgen.py
+  941  pythno
+  942  p
+  943  python
+  944  p
+  945  code -r ic_nondim_test.py
+  946  python
+  947  d
+  948  cd electrondensity
+  949  python ic_nondim_test.py
+  950  python
+  951  python ic_nondim_test.py
+  952  python
+  953  pp
+  954  python ic_nondim_test.py
+  955  p
+  956  pp
+  957  mkdir old
+  958  mv ic_nondim_test.py grad_initu.m old
+  959  pp
+  960  p
+  961  pp
+  962  mt
+  963  p
+  964  pp
+  965  d
+  966  cd 3D-CG
+  967  c
+  968  p
+  969  c
+  970  d
+  971  cp -r ehd_tof cd_test
+  972  cd cd_test
+  973  cd electrondensity
+  974  mv * ../
+  975  d
+  976  cd -
+  977  cd
+  978  cd Documents/HDG/problem
+  979  cp -r cd_test cd_test_symmetric
+  980  cd cd_test_symmetric
+  981  mv app_electrondensity.m app.m
+  982  mv fbou_electrondensity.m fbou.m
+  983  mv fluxgen_electrondensity.m fluxgen.m
+  984  mv sourcegen_electrondensity.m sourcegen.m
+  985  rm -rf sourcegen_electrondensity.asv
+  986  mv app.m app_cd.m
+  987  mv fhat_electrondensity.m fhat.m
+  988  cd HDG/problem
+  989  mkdir cd_cuong
+  990  cd cd_cuong
+  991  dow
+  992  ll
+  993  lt
+  994  cpw
+  995  mv fbou.m fhat.m flux.m source.m tdepaxissymcd.m /Users/saustin/Documents/HDG/problem/cd_cuong\n
+  996  ll
+  997  d
+  998  mv cd_cuong cd_axis_cuong
+  999  mkdir cd_2d_cuong
+ 1000  cd cd_2d_cuong
+ 1001  lt
+ 1002  cpw
+ 1003  mv tdepcd.m fbou.m fhat.m source.m flux.m /Users/saustin/Documents/HDG/problem/cd_2d_cuong\n
+ 1004  cd ../cd_2d_cuong
+ 1005  cp fbou.m ../cd_test_symmetric/fbou_cuong.m
+ 1006  p
+ 1007  doc
+ 1008  cd HDG/problem
+ 1009  d
+ 1010  mt
+ 1011  p
+ 1012  mt
+ 1013  p
+ 1014  d
+ 1015  cp -r ehd_tof 2d_streamer
+ 1016  cd 2d_streamer
+ 1017  p
+ 1018  ll
+ 1019  cd electrondensity
+ 1020  ll
+ 1021  mv * ../
+ 1022  ll
+ 1023  d
+ 1024  ll
+ 1025  cp initu_func_ions.m initu_func_electrons.m
+ 1026  cp -r ../ionicwind2/poisson .
+ 1027  mkdir discharge_model
+ 1028  mv *.m discharge_model
+ 1029  cp poisson_IC/phys_param.m discharge_model
+ 1030  p
+ 1031  pyenv shell 3.11.4
+ 1032  cd problem/2d_streamer
+ 1033  cp discharge_model/plot_bdry.m poisson_IC
+ 1034  d
+ 1035  cd 3D-CG
+ 1036  c
+ 1037  cp -r poisson_IC ../
+ 1038  d
+ 1039  l
+ 1040  ll
+ 1041  mv poisson_IC poisson_test
+ 1042  cp 2d_streamer/poisson_IC/cwi_data.csv poisson_test
+ 1043  d
+ 1044  mt
+ 1045  cd -
+ 1046  d
+ 1047  grep -Iinr app.tdep
+ 1048  p
+ 1049  cd problem/2d_streamer
+ 1050  cp poisson_IC/plot_bdry_E.m discharge_model
+ 1051  p
+ 1052  mkdir mesh
+ 1053  cd mesh
+ 1054  code -r streamer_mesh.py
+ 1055  lt
+ 1056  cp mesh_square.STEP HDG/problem/2d_streamer/mesh
+ 1057  python mesh_square.STEP
+ 1058  python streamer_mesh.py
+ 1059  mt
+ 1060  python mesh_square.STEP
+ 1061  python streamer_mesh.py
+ 1062  cd problem/2d_streamer
+ 1063  cd mesh
+ 1064  python streamer_mesh.py
+ 1065  p
+ 1066  python streamer_mesh.py
+ 1067  p
+ 1068  python streamer_mesh.py
+ 1069  p
+ 1070  python streamer_mesh.py
+ 1071  d
+ 1072  mr
+ 1073  mt
+ 1074  d
+ 1075  grep -Iinr Old residual
+ 1076  grep -Iinr 'Old residual'
+ 1077  p
+ 1078  cd problem/2d_streamer/mesh
+ 1079  python streamer_mesh.py
+ 1080  d
+ 1081  cd discharge_model
+ 1082  python streamer_mesh.py
+ 1083  d
+ 1084  cd -
+ 1085  grep -Iinr 'hdg_local'
+ 1086  mt
+ 1087  grep -Iinr 'fc_u'
+ 1088  grep -Iinr 'tdep'
+ 1089  p
+ 1090  cd problem/2d_streamer/discharge_model
+ 1091  python streamer_mesh.py
+ 1092  mkdir run_9-13-23
+ 1093  p
+ 1094  doc
+ 1095  cd HDG
+ 1096  mt
+ 1097  cd cwi_data
+ 1098  code -r data_reduction.py
+ 1099  p
+ 1100  python data_reduction.py
+ 1101  d
+ 1102  python streamer_mesh.py
+ 1103  mkdir run_9-16-23
+ 1104  sj
+ 1105  d
+ 1106  sj
+ 1107  rsync -raxvh HDG austinsp@jacobian.mit.edu:/home/austinsp
+ 1108  mkdir streamer_run_archive
+ 1109  doc
+ 1110  cd HDG
+ 1111  cd problem
+ 1112  ll
+ 1113  mv ionicwind2 old poisson_test ../../streamer_run_archive
+ 1114  ll
+ 1115  cd 2d_streamer
+ 1116  ll
+ 1117  cd poisson_IC
+ 1118  ll
+ 1119  cd ../discharge_model
+ 1120  ll
+ 1121  mv unstructured_271* good_run9-13-23.mat UDG_history_9-13-23.mat cwi_data run_9-13-23 ../../../../streamer_run_archive
+ 1122  ll
+ 1123  cd streamer_run_archive
+ 1124  ll
+ 1125  mkdir 2d_streamer
+ 1126  ll
+ 1127  mv cwi_data run_9-13-23/ UDG_history_9-13-23.mat good_run9-13-23.mat unstructured_271* 2d_streamer
+ 1128  ll
+ 1129  d
+ 1130  dd
+ 1131  d
+ 1132  rsync -raxvh HDG austinsp@jacobian.mit.edu:/home/austinsp
+ 1133  sj
+ 1134  sc
+ 1135  cd /Users/saustin/Dropbox (MIT)/HDGv1.0/problem
+ 1136  cd /Users/saustin/Dropbox\ (MIT)/HDGv1.0/problem
+ 1137  cd \Users
+ 1138  ll
+ 1139  cd Dropbox\ \(MIT\)/HDGv1.0/problem
+ 1140  ll
+ 1141  cd HDG/problem/2d_streamer/discharge_model
+ 1142  cpw
+ 1143  cp eulermahcyl7 /Users/saustin/Documents/HDG/problem/2d_streamer/discharge_model\n
+ 1144  cp -r eulermahcyl7 /Users/saustin/Documents/HDG/problem/2d_streamer/discharge_model\n
+ 1145  ll
+ 1146  ssh austinsp@supersonic.mit.edu
+ 1147  gmsh rightdomain.geo
+ 1148  gmsh rightdomain.geo -2
+ 1149  gmsh rightdomain.msh
+ 1150  gmsh rightdomain.geo -2
+ 1151  gmsh rightdomain.msh
+ 1152  gmsh rightdomain.geo -2 -o 'rightdomain.msh3'
+ 1153  gmsh rightdomain.msh
+ 1154  gmsh rightdomain.geo -2 -o 'rightdomain.msh3'
+ 1155  gmsh rightdomain.msh
+ 1156  gmsh rightdomain.geo -2 -o 'rightdomain.msh3'
+ 1157  gmsh rightdomain.msh
+ 1158  gmsh rightdomain.geo -2 -o 'rightdomain.msh3'
+ 1159  gmsh rightdomain.msh
+ 1160  gmsh rightdomain.geo -2 -o 'rightdomain.msh3'
+ 1161  gmsh rightdomain.msh
+ 1162  gmsh rightdomain.geo -2 -o 'rightdomain.msh3'
+ 1163  gmsh rightdomain.msh3
+ 1164  gmsh rightdomain.geo -2 -o 'rightdomain.msh3'
+ 1165  gmsh rightdomain.msh3
+ 1166  gmsh rightdomain.geo -2 -o 'rightdomain.msh3'
+ 1167  gmsh rightdomain.msh3
+ 1168  gmsh rightdomain.geo -2 -o 'rightdomain.msh3'
+ 1169  gmsh rightdomain.msh3
+ 1170  gmsh rightdomain.geo -2 -o 'rightdomain.msh3'
+ 1171  gmsh rightdomain.msh3
+ 1172  gmsh rightdomain.geo -2 -o 'rightdomain.msh3'
+ 1173  gmsh rightdomain.msh3
+ 1174  gmsh rightdomain.geo -2 -o 'rightdomain.msh3'
+ 1175  gmsh rightdomain.msh3
+ 1176  gmsh rightdomain.geo -2 -o 'rightdomain.msh3'
+ 1177  gmsh rightdomain.msh3
+ 1178  python streamer_mesh.py
+ 1179  gmsh rightdomain.geo -2 -o 'rightdomain.msh3'
+ 1180  gmsh rightdomain.msh
+ 1181  gmsh rightdomain.geo -2 -o 'rightdomain.msh3'
+ 1182  gmsh rightdomain.msh
+ 1183  rm test_sq_geo.msh
+ 1184  gmsh test_sq_geo.geo -2 -o 'test_sq_geo.msh3'
+ 1185  gmsh test_sq_geo.msh3
+ 1186  gmsh test_sq_geo.geo -2 -o 'test_sq_geo.msh3'
+ 1187  gmsh test_sq_geo_cw.msh
+ 1188  gmsh test_sq_geo.geo -2 -o 'test_sq_geo.msh3'
+ 1189  gmsh test_sq_geo_ccw.msh
+ 1190  gmsh test_sq_cw.geo -2 -o 'test_sq_cw.msh3'
+ 1191  gmsh test_sq_cw.msh3
+ 1192  gmsh test_sq_ccw.geo -2 -o 'test_sq_ccw.msh3'
+ 1193  gmsh test_sq_ccw.msh3
+ 1194  gmsh test_sq_cw.msh3
+ 1195  gmsh test_sq_ccw.msh3
+ 1196  gmsh test_sq_cw.msh3
+ 1197  open
+ 1198  open .
+ 1199  conda install
+ 1200  brew list
+ 1201  opus
+ 1202  pyenv
+ 1203  pyenv global
+ 1204  pyenv shell
+ 1205  p
+ 1206  pyenv version
+ 1207  pyenv versions
+ 1208  sj
+ 1209  pyenv
+ 1210  sj
+ 1211  gmsh test_sq_cw.msh3
+ 1212  gmsh test_sq_ccw.msh3
+ 1213  pp
+ 1214  python streamer_mesh.py
+ 1215  p
+ 1216  gmsh streamer_95k.msh
+ 1217  d
+ 1218  rsync -raxvh HDG austinsp@jacobian.mit.edu:/home/austinsp
+ 1219  p
+ 1220  pp
+ 1221  p
+ 1222  pyenv
+ 1223  pyenv install --list
+ 1224  pyenv
+ 1225  cd HDG/problem/2d_streamer/discharge_model
+ 1226  gmsh test_sq_ccw.msh3
+ 1227  gmsh test_sq_ccw.geo -2 -o 'test_sq_ccw.msh3'
+ 1228  gmsh test_sq_ccw.geo
+ 1229  gmsh test_sq_cw.geo
+ 1230  mt
+ 1231  cd Documents
+ 1232  mkdir 2.28
+ 1233  cd 2.28/
+ 1234  code -r pset1.py
+ 1235  p
+ 1236  mt
+ 1237  ll
+ 1238  d
+ 1239  cd HDG
+ 1240  mt
+ 1241  cd problem/2d_streamer/discharge_model
+ 1242  c
+ 1243  python streamer_mesh.py
+ 1244  cd poi
+ 1245  d
+ 1246  cd poisson_IC
+ 1247  cp interpolate_sol.m ../../../util
+ 1248  rm -rf interpolate_sol.m
+ 1249  python streamer_mesh.py
+ 1250  p
+ 1251  d
+ 1252  mt
+ 1253  cp streamer_mesh.py streamer_mesh1.py
+ 1254  cp streamer_mesh2.py streamer_mesh3.py
+ 1255  python streamer_mesh3.py
+ 1256  d
+ 1257  c
+ 1258  mt
+ 1259  cd problem/2d_streamer/discharge_model
+ 1260  d
+ 1261  c
+ 1262  cd discharge_model
+ 1263  gmsh rightdomain.geo -2 -o rightdomain.msh3
+ 1264  sc
+ 1265  cd Downloads
+ 1266  scp -r saustin@txe1-login.mit.edu:/home/gridsan/saustin/research/su2_cases/d8 .
+ 1267  cd d8
+ 1268  ll
+ 1269  cd Documents
+ 1270  nano write_tabs.scpt
+ 1271  less write_tabs.scpt
+ 1272  osascript write_tabs.scpt
+ 1273  code write_tabs.scpt
+ 1274  osascript write_tabs.scpt
+ 1275  sc
+ 1276  doc
+ 1277  cd HDG/problem/2d_streamer/discharge_model
+ 1278  d
+ 1279  cd discharge_model
+ 1280  c
+ 1281  d
+ 1282  cd 3D-CG
+ 1283  c
+ 1284  d
+ 1285  py -m venv ct-env
+ 1286  python
+ 1287  python -m venv ct-env
+ 1288  source ct-env/bin/activate
+ 1289  p
+ 1290  python -m pip install cantera
+ 1291  pip install --upgrade pip
+ 1292  python3 -c 'import cantera; gas = cantera.Solution("gri30.yaml"); gas()'
+ 1293  python -c 'import cantera; gas = cantera.Solution("gri30.yaml"); gas()'
+ 1294  killall 'GlobalProtect'
+ 1295  p
+ 1296  doc
+ 1297  cd 2.28
+ 1298  mkdir pset2
+ 1299  cd pset2
+ 1300  c
+ 1301  source ct-env/bin/activate
+ 1302  python3 -m venv ct-env
+ 1303  source ct-env/bin/activate
+ 1304  p
+ 1305  d
+ 1306  cd ct-env
+ 1307  ll
+ 1308  cd lib
+ 1309  ll
+ 1310  cd python3.11
+ 1311  ll
+ 1312  cd site-packages
+ 1313  ll
+ 1314  cd cantera
+ 1315  ll
+ 1316  d
+ 1317  rm -rf ct-env
+ 1318  python3 -m pip install cantera
+ 1319  python -c 'import cantera; gas = cantera.Solution("gri30.yaml"); gas()'
+ 1320  python prob3.py
+ 1321  p
+ 1322  doc
+ 1323  cd 2.28/pset2
+ 1324  p
+ 1325  source ct-env/bin/activate
+ 1326  p
+ 1327  python prob3.py
+ 1328  python prob2.py
+ 1329  p
+ 1330  python prob2.py
+ 1331  p
+ 1332  python prob2.py
+ 1333  p
+ 1334  python prob3.py
+ 1335  python prob2.py
+ 1336  python prob3.py
+ 1337  source ct-env/bin/activate
+ 1338  python prob3.py
+ 1339  p
+ 1340  python prob3.py
+ 1341  python prob2.py
+ 1342  python prob1.py
+ 1343  p
+ 1344  python prob1.py
+ 1345  cpw
+ 1346  d
+ 1347  doc
+ 1348  cd streamer_run_archive
+ 1349  ll
+ 1350  cd ionicwind2/writeup
+ 1351  ll
+ 1352  cp chen_simulation_setup.tex /Users/saustin/Documents/2.28/pset2\n
+ 1353  python prob2.py
+ 1354  python prob3.py
+ 1355  python prob1.py
+ 1356  p
+ 1357  python prob3.py
+ 1358  sc
+ 1359  brew install sshfs
+ 1360  sc
+ 1361  brew install sshfs
+ 1362  sshfs
+ 1363  cd .ssh
+ 1364  ll
+ 1365  pwd
+ 1366  mkdir /mnt/supercloud
+ 1367  d
+ 1368  ll
+ 1369  cd Volumes
+ 1370  ll
+ 1371  d
+ 1372  cd dev
+ 1373  ll
+ 1374  d
+ 1375  cd Volumes
+ 1376  mkdir supercloud
+ 1377  d
+ 1378  cd dev
+ 1379  mkdir supercloud
+ 1380  sudo mkdir supercloud
+ 1381  cd
+ 1382  sudo mkdir /dev/supercloud
+ 1383  sudo mkdir /Volumes/supercloud
+ 1384  cd /Volumes
+ 1385  ll
+ 1386  cd
+ 1387  cd .ssh
+ 1388  cpw
+ 1389  ssh austinsp@txe1.login.mit.edu
+ 1390  ssh austinsp@txe1-login.mit.edu
+ 1391  d
+ 1392  austinsp@txe1-login.mit.edu
+ 1393  ssh austinsp@txe1-login.mit.edu
+ 1394  sc
+ 1395  which sc
+ 1396  ssh saustin@txe1-login.mit.edu
+ 1397  sudo sshfs -o allow_other,IdentityFile=~/.ssh/id_rsa saustin@txe1-login.mit.edu:/home/gridsan/saustin /Volumes/supercloud
+ 1398  ls /Volumes
+ 1399  sudo mkdir /Volumes/supercloud
+ 1400  ls /Volumes
+ 1401  sudo sshfs -o allow_other,IdentityFile=~/.ssh/id_rsa saustin@txe1-login.mit.edu:/home/gridsan/saustin /Volumes/supercloud
+ 1402  sudo mkdir /Volumes/supercloud
+ 1403  sudo sshfs -o allow_other,IdentityFile=~/.ssh/id_rsa saustin@txe1-login.mit.edu:/home/gridsan/saustin /Volumes/supercloud
+ 1404  ls /Volumes/supercloud
+ 1405  ls /Volumes
+ 1406  sudo mkdir /Volumes/supercloud
+ 1407  ls /Volumes
+ 1408  sudo sshfs -o allow_other,IdentityFile=~/.ssh/id_rsa saustin@txe1-login.mit.edu:/home/gridsan/saustin /Volumes/supercloud
+ 1409  cat ~/.ssh/id_rsa.pub
+ 1410  python prob3.py
+ 1411  source ct-env/bin/activate
+ 1412  python prob3.py
+ 1413  python prob1.py
+ 1414  sc
+ 1415  d
+ 1416  ll
+ 1417  cd
+ 1418  ll
+ 1419  cd Dropbox\ \(MIT\)
+ 1420  ll
+ 1421  cd DIGASO
+ 1422  c
+ 1423  ping jacobian.mit.edu
+ 1424  d
+ 1425  cd DIGASO1.0
+ 1426  C
+ 1427  c
+ 1428  cd main
+ 1429  ll
+ 1430  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1431  mpic++ digasopar.cpp -o digasopar -O2 -lblas -llapack -lm -ldl
+ 1432  brew install openmpi
+ 1433  mpic++ digasopar.cpp -o digasopar -O2 -lblas -llapack -lm -ldl
+ 1434  d
+ 1435  cd DIGASO
+ 1436  cd pr
+ 1437  cd problem
+ 1438  ll
+ 1439  ls SM
+ 1440  ll
+ 1441  cp -r Acoutics FM MHD corona poisson ../../DIGASO1.0/problem
+ 1442  cd SM
+ 1443  ll
+ 1444  cp -r elasdyn nacawing nasawing nelas/ poisson ../../../DIGASO1.0/problem/SM
+ 1445  mt
+ 1446  cd problem/SM
+ 1447  ll
+ 1448  cd poisson
+ 1449  mkdir old
+ 1450  ll
+ 1451  mv old cube
+ 1452  cd cube
+ 1453  l
+ 1454  mv *.bin old
+ 1455  d
+ 1456  c
+ 1457  ping jacobian.mit.edu
+ 1458  d
+ 1459  cd Documents
+ 1460  git clone git@github.com:saustinp/HDG_cpp.git
+ 1461  cd HDG_cpp
+ 1462  ll
+ 1463  c
+ 1464  code -r README.md
+ 1465  cd utilities
+ 1466  cpw
+ 1467  cd utilities
+ 1468  cp *.m /Users/saustin/Documents/HDG_cpp/utilities\n
+ 1469  cd ../postprocessing
+ 1470  cp *.m /Users/saustin/Documents/HDG_cpp/postprocessing\n
+ 1471  cd ../mesh
+ 1472  cp *.m /Users/saustin/Documents/HDG_cpp/mesh\n
+ 1473  cd ../preprocessing
+ 1474  cp *.m /Users/saustin/Documents/HDG_cpp/preprocessing\n
+ 1475  cd ../master
+ 1476  cp *.m /Users/saustin/Documents/HDG_cpp/master\n
+ 1477  d
+ 1478  mt
+ 1479  d
+ 1480  cd Dropbox\ \(MIT\)/DIGASO/mesh
+ 1481  ll
+ 1482  cd mkmesh
+ 1483  ll
+ 1484  d
+ 1485  ll
+ 1486  ls cmesh
+ 1487  cd mesh
+ 1488  ll
+ 1489  pwd
+ 1490  cpw
+ 1491  cp -r mkmesh /Users/saustin/Documents/HDG_cpp/mesh\n
+ 1492  d
+ 1493  cd Documents/HDG_cpp
+ 1494  mt
+ 1495  d
+ 1496  cd HDG
+ 1497  c
+ 1498  mt
+ 1499  d
+ 1500  cd HDG_cpp
+ 1501  cd main
+ 1502  ll
+ 1503  pwd
+ 1504  d
+ 1505  cpw
+ 1506  cp -r kernel /Users/saustin/Documents/HDG_cpp\n
+ 1507  cd kernel
+ 1508  cp volint.m ^[[200~/Users/saustin/Documents/HDG_cpp
+ 1509  cp volint.m /Users/saustin/Documents/HDG_cpp/kernel
+ 1510  d
+ 1511  c
+ 1512  p
+ 1513  python hts_pitch_plots.py
+ 1514  cd hts_diagrams
+ 1515  p
+ 1516  python hts_pitch_plots.py
+ 1517  p
+ 1518  python hts_pitch_plots.py
+ 1519  doc
+ 1520  cd HDG_cpp
+ 1521  c
+ 1522  mt
+ 1523  d
+ 1524  cd -
+ 1525  mv HDG_cpp digaso
+ 1526  cd digaso
+ 1527  mt
+ 1528  c
+ 1529  pp
+ 1530  p
+ 1531  d
+ 1532  cd HDG
+ 1533  mt
+ 1534  p
+ 1535  s
+ 1536  d
+ 1537  cd digaso
+ 1538  c
+ 1539  cd application/FM
+ 1540  cp poi axispoi
+ 1541  cp -r poi axispoi
+ 1542  d
+ 1543  cd problem/SM
+ 1544  cd poisson
+ 1545  ll
+ 1546  cp -r cube ../../
+ 1547  d
+ 1548  mt
+ 1549  cd main
+ 1550  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1551  code -r .gitignore
+ 1552  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1553  d
+ 1554  cd problem
+ 1555  cp -r axispoisson poissonIC
+ 1556  d
+ 1557  cd main
+ 1558  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1559  mt
+ 1560  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1561  mpic++ digasopar.cpp -o digasopar -O2 -lblas -llapack -lm -ldl
+ 1562  cd
+ 1563  git clone https://github.com/KarypisLab/METIS.git
+ 1564  sudo apt-get install build-essential
+ 1565  make config shared=1 cc=gcc prefix=~/local
+ 1566  clang
+ 1567  git clone https://github.com/KarypisLab/GKlib.git
+ 1568  cd GKlib
+ 1569  make config
+ 1570  d
+ 1571  cd METIS
+ 1572  make config shared=1 cc=gcc prefix=~/local
+ 1573  brew install install build-essential
+ 1574  brew update
+ 1575  brew install build-essential cmake
+ 1576  brew install cmake
+ 1577  make config shared=1 cc=gcc prefix=~/local
+ 1578  make install
+ 1579  d
+ 1580  cd GKlib
+ 1581  make config
+ 1582  make
+ 1583  d
+ 1584  cd METIS
+ 1585  make install
+ 1586  make config shared=1 cc=gcc prefix=~/local
+ 1587  make install
+ 1588  d
+ 1589  cd GKlib
+ 1590  make
+ 1591  make install
+ 1592  which metis
+ 1593  cd ~/local/bin
+ 1594  ll
+ 1595  cd ../include/
+ 1596  ll
+ 1597  cd ../lib
+ 1598  ll
+ 1599  cd
+ 1600  cd METIS
+ 1601  make install
+ 1602  make config shared=1 cc=gcc prefix=~/local
+ 1603  make install
+ 1604  make install -v
+ 1605  conda
+ 1606  d
+ 1607  mkdir -p ~/miniconda3
+ 1608  curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -o ~/miniconda3/miniconda.sh
+ 1609  bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3\nrm -rf ~/miniconda3/miniconda.sh
+ 1610  ~/miniconda3/bin/conda init zsh
+ 1611  p
+ 1612  pyenv install --list
+ 1613  pyenv -versions
+ 1614  pyenv --versions
+ 1615  pyenv list
+ 1616  pyenv
+ 1617  pyenv global
+ 1618  pyenv versions
+ 1619  conda install -c conda-forge metis
+ 1620  which metis
+ 1621  rm -rf METIS GKlib
+ 1622  doc
+ 1623  cd digaso
+ 1624  mt
+ 1625  d
+ 1626  code -r .gitignore
+ 1627  mt
+ 1628  d
+ 1629  cd Downloads/cantera_additional_examples
+ 1630  c
+ 1631  d
+ 1632  doc
+ 1633  cd 2.28
+ 1634  ll
+ 1635  cd pset2
+ 1636  ll
+ 1637  d
+ 1638  mkdir pset3
+ 1639  cp pset2/prob1.py pset3
+ 1640  cd pset3
+ 1641  c
+ 1642  d
+ 1643  cp pset2/prob2.py pset3
+ 1644  python prob2.py
+ 1645  cp pset2/prob3.py pset3
+ 1646  d
+ 1647  cp pset2/prob3.py pset3
+ 1648  cd --
+ 1649  cd -
+ 1650  cd pset3
+ 1651  python prob3.py
+ 1652  python activate ct-env
+ 1653  d
+ 1654  cd pset2
+ 1655  ll
+ 1656  cp ct-env ../pset3
+ 1657  cd ../pset3
+ 1658  ll
+ 1659  d
+ 1660  cp -r pset2/ct-env pset3
+ 1661  cd pset3
+ 1662  python activate ct-env
+ 1663  source ct-env/bin/activate
+ 1664  python prob3.py
+ 1665  python prob2.py
+ 1666  p
+ 1667  python prob2.py
+ 1668  p
+ 1669  python prob2.py
+ 1670  p
+ 1671  python prob2.py
+ 1672  source ct-env/bin/activate
+ 1673  python prob2.py
+ 1674  source ct-env/bin/activate
+ 1675  python prob2.py
+ 1676  python prob1.py
+ 1677  python prob2.py
+ 1678  p
+ 1679  python prob2.py
+ 1680  p
+ 1681  python prob2.py
+ 1682  p
+ 1683  python prob2.py
+ 1684  pip install matplotlib
+ 1685  python prob2.py
+ 1686  python analysis.py
+ 1687  python prob2.py
+ 1688  python analysis.py
+ 1689  python prob2.py
+ 1690  python analysis.py
+ 1691  python prob2.py
+ 1692  p
+ 1693  python prob2.py
+ 1694  python analysis.py
+ 1695  python prob2.py
+ 1696  d
+ 1697  cp pset2/pset2.tex pset3
+ 1698  d
+ 1699  cd -
+ 1700  cd pset2
+ 1701  code -r pset2.tex
+ 1702  python prob1.py
+ 1703  cd ../pset2
+ 1704  code prob1.py
+ 1705  python prob1.py
+ 1706  cd ../pset3
+ 1707  python prob1.py
+ 1708  python prob2.py
+ 1709  python prob2_ammonia.py
+ 1710  python prob2.py
+ 1711  python prob2_ammonia.py
+ 1712  python prob2.py
+ 1713  python prob2_ammonia.py
+ 1714  python prob2.py
+ 1715  python prob2_ammonia.py
+ 1716  python prob2.py
+ 1717  python plot_wsr_script.py
+ 1718  python prob2.py
+ 1719  python plot_wsr_script.py
+ 1720  python prob2.py
+ 1721  python plot_wsr_script.py
+ 1722  python prob2.py
+ 1723  python plot_wsr_script.py
+ 1724  python prob2.py
+ 1725  python plot_wsr_script.py
+ 1726  python prob2.py
+ 1727  python prob2_ammonia.py
+ 1728  python plot_wsr_script.py
+ 1729  python prob2_ammonia.py
+ 1730  python plot_wsr_script.py
+ 1731  python prob2_ammonia.py
+ 1732  python prob2
+ 1733  python prob2.py
+ 1734  python prob2_ammonia.py
+ 1735  python prob2.py
+ 1736  python prob2_ammonia.py
+ 1737  d
+ 1738  cd pset2
+ 1739  code -r pset2.tex
+ 1740  python plot_wsr_script.py
+ 1741  cd ../pset3
+ 1742  python plot_wsr_script.py
+ 1743  python prob2_ammonia.py
+ 1744  python plot_wsr_script.py
+ 1745  python prob2_ammonia.py
+ 1746  python prob2.py
+ 1747  cd problem
+ 1748  mkdir tof_axisymmetric
+ 1749  cd problem/ehd_tof
+ 1750  ll
+ 1751  cd electrondensity
+ 1752  ll
+ 1753  d
+ 1754  cd application
+ 1755  cp -r axispoi ehd_tof
+ 1756  cd FM
+ 1757  cp -r axispoi ehd_tof
+ 1758  ll
+ 1759  cd ehd_tof
+ 1760  ll
+ 1761  pwd
+ 1762  cpw
+ 1763  cp flux2d.m source2d.m fbou_electrondensity.m fhat_electrondensity.m /Users/saustin/Documents/digaso/application/FM/ehd_tof\n
+ 1764  d
+ 1765  cd problem
+ 1766  mv tof_axisymmetric ehd_tof
+ 1767  cd ehd_tof
+ 1768  cpw
+ 1769  cp app_electrondensity.m /Users/saustin/Documents/digaso/problem/ehd_tof\n
+ 1770  cp data_analysis_tof.m /Users/saustin/Documents/digaso/problem/ehd_tof\n
+ 1771  d
+ 1772  mt
+ 1773  cd main
+ 1774  mpic++ digasopar.cpp -o digasopar -O2 -lblas -llapack -lm -ldl
+ 1775  d
+ 1776  cd util
+ 1777  d
+ 1778  cd problem/ehd_tof
+ 1779  mpirun -np 4 /Users/saustin/Documents/digaso/main/digasopar poipar poiparout
+ 1780  mpirun -np 4 /Users/saustin/Documents/digaso/main/digasopar ehd_tofpar ehd_tofparout
+ 1781  mpirun -np 4 /Users/saustin/Documents/digaso/main/digasopar ehd_tof ehd_tofout
+ 1782  /Users/saustin/Documents/digaso/main/digasoser ehd_tof ehd_tofout
+ 1783  rm -rf *.bin
+ 1784  /Users/saustin/Documents/digaso/main/digasoser ehd_tof ehd_tofout
+ 1785  d
+ 1786  cd mai
+ 1787  cd main
+ 1788  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1789  d
+ 1790  cd problem/ehd_tof
+ 1791  /Users/saustin/Documents/digaso/main/digasoser ehd_tof ehd_tofout
+ 1792  d
+ 1793  cd main
+ 1794  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1795  d
+ 1796  cd problem/ehd_tof
+ 1797  /Users/saustin/Documents/digaso/main/digasoser ehd_tof ehd_tofout
+ 1798  d
+ 1799  cd main
+ 1800  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1801  d
+ 1802  cd problem/ehd_tof
+ 1803  /Users/saustin/Documents/digaso/main/digasoser ehd_tof ehd_tofout
+ 1804  d
+ 1805  cd main
+ 1806  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1807  d
+ 1808  cd problem/ehd_tof
+ 1809  /Users/saustin/Documents/digaso/main/digasoser ehd_tof ehd_tofout
+ 1810  d
+ 1811  cd main
+ 1812  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1813  d
+ 1814  cd problem/ehd_tof
+ 1815  /Users/saustin/Documents/digaso/main/digasoser ehd_tof ehd_tofout
+ 1816  d
+ 1817  cd main
+ 1818  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1819  d
+ 1820  cd problem/ehd_tof
+ 1821  /Users/saustin/Documents/digaso/main/digasoser ehd_tof ehd_tofout
+ 1822  d
+ 1823  cd main
+ 1824  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1825  d
+ 1826  cd problem/ehd_tof
+ 1827  /Users/saustin/Documents/digaso/main/digasoser ehd_tof ehd_tofout
+ 1828  d
+ 1829  cd main
+ 1830  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1831  d
+ 1832  cd problem/ehd_tof
+ 1833  /Users/saustin/Documents/digaso/main/digasoser ehd_tof ehd_tofout
+ 1834  d
+ 1835  cd mainq
+ 1836  cd main
+ 1837  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1838  d
+ 1839  cd problem/ehd_tof
+ 1840  /Users/saustin/Documents/digaso/main/digasoser ehd_tof ehd_tofout
+ 1841  d
+ 1842  cd main
+ 1843  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1844  d
+ 1845  cd problem/ehd_tof
+ 1846  /Users/saustin/Documents/digaso/main/digasoser ehd_tof ehd_tofout
+ 1847  d
+ 1848  cd main
+ 1849  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1850  d
+ 1851  cd problem/ehd_tof
+ 1852  /Users/saustin/Documents/digaso/main/digasoser ehd_tof ehd_tofout
+ 1853  /Users/saustin/Documents/digaso/main/digasoser ehd_tof ehd_tofout > log.txt
+ 1854  code -r log.txt
+ 1855  d
+ 1856  mkdir 2d_streamer
+ 1857  cd 2d_streamer
+ 1858  cpw
+ 1859  d
+ 1860  cd problem/2d_streamer
+ 1861  d
+ 1862  mt
+ 1863  cd problem/2d_streamer/discharge_model/i
+ 1864  cd problem/2d_streamer/discharge_model/
+ 1865  gmsh streamer_16k-4.msh
+ 1866  d
+ 1867  ll
+ 1868  d
+ 1869  rm -rf 2d_streamer
+ 1870  ll
+ 1871  d
+ 1872  cp -r 2d_streamer figure(); scaplot(mesh,normE,[],0,0); axis equal; axis tight; colormap jet;
+ 1873  cpw
+ 1874  cp -r 2d_streamer /Users/saustin/Documents/digaso/problem\n
+ 1875  cp -r 2d_streamer/ /Users/saustin/Documents/digaso/problem\n
+ 1876  cp -r 2d_streamer/ /Users/saustin/Documents/digaso/problem/2d_streamer\n
+ 1877  cd 2d_streamer
+ 1878  rm -rf mongeampere
+ 1879  cd discharge_model
+ 1880  ll
+ 1881  help cp
+ 1882  man cp
+ 1883  cp
+ 1884  man cp
+ 1885  d
+ 1886  cd -
+ 1887  cd util
+ 1888  lt
+ 1889  d
+ 1890  cd utilities
+ 1891  cpw
+ 1892  cp interpolate_sol.m plot_bdry.m /Users/saustin/Documents/digaso/utilities\n
+ 1893  man cp
+ 1894  d
+ 1895  cd -
+ 1896  cd preprocessing
+ 1897  code -r digasopre.m
+ 1898  d
+ 1899  cd digaso
+ 1900  c
+ 1901  d
+ 1902  cd -
+ 1903  cd digaso/problem/ehd_tof
+ 1904  code -r app_electrondensity*
+ 1905  d
+ 1906  cd -
+ 1907  c
+ 1908  d
+ 1909  cd application/FM
+ 1910  mkdir streamer2d
+ 1911  p
+ 1912  d
+ 1913  cd HDG
+ 1914  cd problem/2d_streamer/discharge_model/
+ 1915  d
+ 1916  mt
+ 1917  d
+ 1918  cd problem/2d_streamer/discharge_model/
+ 1919  dd
+ 1920  d
+ 1921  git stash
+ 1922  git log
+ 1923  git status
+ 1924  cd main
+ 1925  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1926  d
+ 1927  cd problem/ehd_tof
+ 1928  diff app_electrondensity_old.m app_electrondensity_digaso.m
+ 1929  d
+ 1930  cd main
+ 1931  mpic++ digasopar.cpp -o digasopar -O2 -lblas -llapack -lm -ldl\n
+ 1932  d
+ 1933  cd 2.28
+ 1934  cp -r pset2 midterm_report
+ 1935  cd midterm_report
+ 1936  c
+ 1937  bibtex midterm_report
+ 1938  d
+ 1939  mkdir test1
+ 1940  cp midterm_report/midterm_report.tex midterm_report/references.bib test1
+ 1941  cd ../test1
+ 1942  c
+ 1943  d
+ 1944  cd midterm_report
+ 1945  c
+ 1946  bibtex midterm_report
+ 1947  brew install aspel
+ 1948  brew install aspell
+ 1949  aspell midterm_report.tex
+ 1950  d
+ 1951  cd pset2
+ 1952  aspell -c -t pset2.tex
+ 1953  nano ~/.zshrc
+ 1954  doc
+ 1955  cd HDG
+ 1956  mt
+ 1957  cp util/limiting.m problem/2d_streamer/discharge_model
+ 1958  d
+ 1959  cd -
+ 1960  cd streamer_run_archive
+ 1961  ll
+ 1962  cd ionicwind2
+ 1963  cd electrondensity
+ 1964  less app_electrondensity.m
+ 1965  d
+ 1966  cd HDG
+ 1967  mr
+ 1968  mt
+ 1969  cd main/
+ 1970  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 1971  d
+ 1972  cd problem/2d_streamer/discharge_model
+ 1973  d
+ 1974  mt
+ 1975  mr
+ 1976  mt
+ 1977  cd problem/2d_streamer/discharge_model
+ 1978  code -r importgmsh.py
+ 1979  python streamer_mesh2.py
+ 1980  python streamer_mesh1.py
+ 1981  python streamer_mesh3.py
+ 1982  python importgmsh.py
+ 1983  p
+ 1984  pyenv shell 3.11.4
+ 1985  gmsh streamer_16k-2.msh3
+ 1986  cd problem/2d_streamer/discharge_model
+ 1987  gmsh streamer_16k-2.msh3
+ 1988  pyenv shell 3.11.4
+ 1989  /Users/saustin/.pyenv/versions/3.11.4/bin/python /Users/saustin/Documents/HDG/problem/2d_streamer/discharge_model/streamer_mesh2.py
+ 1990  cd problem/2d_streamer/discharge_model
+ 1991  /Users/saustin/.pyenv/versions/3.11.4/bin/python /Users/saustin/Documents/HDG/problem/2d_streamer/discharge_model/streamer_mesh2.py
+ 1992  d
+ 1993  /Users/saustin/.pyenv/versions/3.11.4/bin/python /Users/saustin/Documents/HDG/problem/2d_streamer/discharge_model/streamer_mesh2.py
+ 1994  cd -
+ 1995  pyenv shell 3.11.4
+ 1996  cd problem/2d_streamer/discharge_model
+ 1997  pyenv shell 3.11.4
+ 1998  code -r launch.json
+ 1999  cd problem/2d_streamer/discharge_model
+ 2000  pwd
+ 2001  cd problem/2d_streamer/discharge_model
+ 2002  pwd
+ 2003  case_name
+ 2004  print(case_name)
+ 2005  cd problem/2d_streamer/discharge_model
+ 2006  python streamer_mesh2.py
+ 2007  python streamer_mesh3.py
+ 2008  python streamer_mesh2.py
+ 2009  python testPmsh.py
+ 2010  gmsh streamer_tmp.msh
+ 2011  python streamer_mesh2.py
+ 2012  gmsh streamer_tmp.msh
+ 2013  gmsh streamer_tmp.msh3
+ 2014  gmsh streamer_tmp.msh
+ 2015  cd problem/2d_streamer/discharge_model
+ 2016  cd problem/streamer/discharge_model
+ 2017  gmsh streamer_tmp.msh
+ 2018  d
+ 2019  ll
+ 2020  gmsh streamer_tmp.msh
+ 2021  pyenv shell 3.11.4
+ 2022  dow
+ 2023  python example.py
+ 2024  python streamer_mesh2.py
+ 2025  gmsh streamer_tmp.msh
+ 2026  d
+ 2027  ll
+ 2028  cd discharge_model
+ 2029  ll
+ 2030  lt
+ 2031  /Users/saustin/Documents/digaso/main/digasoser streamer streamersol
+ 2032  ll
+ 2033  /Users/saustin/Documents/digaso/main/digasoser streamer streamersol
+ 2034  d
+ 2035  cd main
+ 2036  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 2037  cd ../problem/streamer/discharge_model
+ 2038  /Users/saustin/Documents/digaso/main/digasoser streamer streamersol
+ 2039  d
+ 2040  cd main
+ 2041  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 2042  d
+ 2043  cd problem/streamer/discharge_model
+ 2044  /Users/saustin/Documents/digaso/main/digasoser streamer streamersol
+ 2045  d
+ 2046  cd main
+ 2047  cpw
+ 2048  d
+ 2049  cd main
+ 2050  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 2051  d
+ 2052  cd problem/streamer/discharge_model
+ 2053  /Users/saustin/Documents/digaso/main/digasoser streamer streamersol
+ 2054  d
+ 2055  cd main
+ 2056  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 2057  d
+ 2058  cd problem/streamer/discharge_model
+ 2059  /Users/saustin/Documents/digaso/main/digasoser streamer streamersol
+ 2060  code -r test_ccode.m
+ 2061  xcode
+ 2062  sudo xcodebuild -license accept
+ 2063  sudo xcodebuild -license 
+ 2064  doc
+ 2065  cd HDG
+ 2066  mt
+ 2067  p
+ 2068  d
+ 2069  cd 2.28
+ 2070  cp -r pset3 pset4
+ 2071  cd pset4
+ 2072  c
+ 2073  code -r pset4.py
+ 2074  p
+ 2075  aspell -c -t pset4.tex
+ 2076  p
+ 2077  cd digaso_compare
+ 2078  code -r fbou_digaso_matlab.m fhat_digaso_matlab.m flux_digaso_matlab.m source_digaso_matlab.m
+ 2079  lt
+ 2080  d
+ 2081  lt
+ 2082  cd digaso_compare
+ 2083  code -r fbou_streamer2d.h fhat_streamer2d.h flux_streamer2d.h source_streamer2d.h
+ 2084  cpw
+ 2085  sc
+ 2086  d
+ 2087  doc
+ 2088  dow
+ 2089  cpw
+ 2090  scp -r saustin@txe1-login.mit.edu:/home/gridsan/saustin/SU2 .
+ 2091  cd SU2
+ 2092  ll
+ 2093  d
+ 2094  cd /Users/saustin/Dropbox (MIT)/CAD_PC/space_shot_CAD/rocket/nosecone/flight_nose_cone
+ 2095  cd /Users/saustin/Dropbox\ (MIT)/CAD_PC/space_shot_CAD/rocket/nosecone/flight_nose_cone
+ 2096  d
+ 2097  cd Dropbox\ \(MIT\)/CAD_PC/space_shot_CAD/rocket/nosecone/flight_nose_cone
+ 2098  c
+ 2099  diff nose_cone_geoms_THIN_WALL.py nose_cone_geoms.py
+ 2100  p
+ 2101  python nose_cone_geoms_THIN_WALL.py
+ 2102  lt
+ 2103  python nose_cone_geoms_THIN_WALL.py
+ 2104  p
+ 2105  python nose_cone_geoms_THIN_WALL.py
+ 2106  lt
+ 2107  python nose_cone_geoms_THIN_WALL.py
+ 2108  lt
+ 2109  python nose_cone_geoms_THIN_WALL.py
+ 2110  lt
+ 2111* p
+ 2112* d
+ 2113* cpw
+ 2114* d
+ 2115* mt
+ 2116* doc
+ 2117* cd HDG/problem/2d_streamer/discharge_model/run_9-26-23
+ 2118* cp time501.mat ../
+ 2119* git status
+ 2120* git add kernel/*
+ 2121* git status
+ 2122* cd problem
+ 2123* cd 2d_streamer
+ 2124* git add digaso_compare/
+ 2125* gs
+ 2126* d
+ 2127* cd 2d_streamer/discharge_model
+ 2128* git add limiting2.m
+ 2129* d
+ 2130* cd -
+ 2131* cd poisson_IC
+ 2132* git add streamer_16k_fixed.msh
+ 2133* git add app_poisson.m
+ 2134* gs
+ 2135* d
+ 2136* git add setup.m
+ 2137* d
+ 2138* cd -
+ 2139* cd problem/streamer/discharge_model
+ 2140* gs
+ 2141* doc
+ 2142* cd HDG/problem/2d_streamer/discharge_model/run_9-26-23
+ 2143* d
+ 2144* git add app_electrondensity.m flux2d.m fluxgen_electrondensity.m source2d.m
+ 2145* gs
+ 2146* cd HDG/problem/2d_streamer/discharge_model
+ 2147* cd problem/streamer/discharge_model
+ 2148* cd problem
+ 2149* cd 2d_streamer/discharge_model
+ 2150* git add -f restartSol.mat
+ 2151* ga
+ 2152* gs
+ 2153* gc "Check fhat"
+ 2154* pu
+ 2155* d
+ 2156* doc
+ 2157* cd digaso/problem/streamer
+ 2158* ll
+ 2159* d
+ 2160* cd application/FM/streamer
+ 2161* cpw
+ 2162* cp /Users/saustin/Documents/digaso/application/FM/streamer/writeccode.m .
+ 2163  d
+ 2164  mt
+ 2165  d
+ 2166  cd -
+ 2167  cd application/FM/streamer
+ 2168  ll
+ 2169  lt
+ 2170  d
+ 2171  cd main
+ 2172  g++ digasoser.cpp -o digasoser -O2 -lblas -llapack -lm -ldl
+ 2173  d
+ 2174  cd problem/streamer/discharge_model
+ 2175  lt
+ 2176  less history

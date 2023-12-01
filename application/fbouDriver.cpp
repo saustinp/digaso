@@ -10,6 +10,8 @@
 #include "SM/ledisp/fbou_ledisp.c"
 
 #include "FM/ehd_tof/fbou_ehd_tof.c"
+#include "FM/streamer/fbou_streamer.c"
+
 
 // Written by: C. Nguyen & P. Fernandez
 
@@ -256,6 +258,9 @@ void fbouDriver(double *fh, double *fhn_U, double *fhn_UH, double *pg, double *U
             break;
         case 8:
             fbou_ehd_tof(fh, fhn_u, fhn_uh, pg, udg, uhg, odg, nl, ui, mesh, master, app, sol, temp, ib, ife, ie, quadchoice, computeJacobian, numPoints);
+            break;
+        case 9:
+            fbou_streamer(fh, fhn_u, fhn_uh, pg, udg, uhg, odg, nl, ui, mesh, master, app, sol, temp, ib, ife, ie, quadchoice, computeJacobian, numPoints);
             break;
         default: {
             printf("Application not implemented (appname = %d)\n",app.appname);

@@ -11,22 +11,6 @@ app.torder=torder;
 app.nstage=nstage;
 
 % Physics params
-% De = 0.12; % m^2/s
-% vd = 1.7e5; % m/s
-% normE = 3.55e6; % V/m
-% net_alpha = 5009.5;  % /m
-% r_tip = 5e-4;            % [m] -- changed for this simulation!
-% gamma = 0.001;           % Secondary electron emission coefficient [1/m]
-% E_bd = 3e6;              % Breakdown E field in air [V/m]
-% e = 1.6022e-19;          % Charge on electron [C]
-% epsilon0 = 8.854e-12;    % absolute permittivity of air [C^2/(N*m^2)]
-% n_ref = epsilon0*E_bd/(e*r_tip);  % Yes, this is redundant and could be recomputed from the above variables. But it saves having to recompute it each time in the functions.
-% % ^=7.5357e+17
-% t0 = 2e-9;   % s
-% tau = 1;
-% %        1    2    3         4       5      6     7      8    9    10
-% app.arg = {De, vd, normE, net_alpha, r_tip, gamma, E_bd, n_ref, t0, tau};
-
 app.arg = init_phys_param();     % Physics param loaded in a separate script
 app.arg{end+1} = tau;
 

@@ -1,14 +1,18 @@
 % Data analysis script for the electron time of flight simulation
 
-[unique_pts, bdry_sol1] = plot_bdry(mesh, UDG_history(:,:,:,1), 4, 1);
+[UDG,UH] = getsolfrombinaryfile('ehd_tofout_t1',appser.nproc,master.npv,app.nc,master.npf,app.nch,app.hybrid);
+
+[unique_pts, bdry_sol1] = plot_bdry(mesh, UDG, 4, 1);
 
 y_coord = unique_pts(:,2);
 bdry_sol_all_time = zeros(size(bdry_sol1,1), ntime+1);
 bdry_sol_all_time(:,1) = bdry_sol1;
 
-for j=1:ntime
-    [unique_pts, bdry_sol] = plot_bdry(mesh, UDG_history(:,:,:,j+1), 4, 1);
-    bdry_sol_all_time(:,j+1) = bdry_sol;
+for i=1:ntime
+    fname=sprintf('ehd_tofout_t%d',i);
+    [UDG,UH] = getsolfrombinaryfile(fname,appser.nproc,master.npv,app.nc,master.npf,app.nch,app.hybrid);
+    [unique_pts, bdry_sol] = plot_bdry(mesh, UDG, 4, 1);
+    bdry_sol_all_time(:,i+1) = bdry_sol;
 end
 
 % Rescale to dimensional units
