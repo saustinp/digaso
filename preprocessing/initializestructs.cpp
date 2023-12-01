@@ -106,6 +106,15 @@ void initializeStructs(meshstruct &mesh, vector< masterstruct > &master, appstru
     app.quasiNewton = app.flag[15];    
     app.axisymmetry = app.flag[28];
     
+    if (app.debugmode==1) {
+      for (int i = 0; i < 30; i++){
+        std::shared_ptr<ofstream> out(new std::ofstream);
+        string fileName = "debug" + to_string(i) + ".bin";
+        out->open(fileName.c_str(), ios::out | ios::binary);
+        app.streams.push_back(out);
+      }
+    }
+    
     app.fc_u = app.factor[0];           /* factor when discretizing the time derivative of the U equation */
     app.fc_q = app.factor[1];           /* factor when discretizing the time derivative of the Q equation */
     app.fc_p = app.factor[2];           /* factor when discretizing the time derivative of the P equation */

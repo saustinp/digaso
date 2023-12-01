@@ -364,9 +364,9 @@ void elementint(elemstruct &elem, meshstruct &mesh, masterstruct &master, appstr
      * prob:
      * FLAGS: Array of inteters with different flags.
      * NDIMS: Array of integers with information about the element and mesh.
-     * /*
+    
 
-    /* AT OUTPUT:
+     AT OUTPUT:
      * Ru (npv / ncu): Residual of u.
      * BD (npv / npv / ncu / nc): Jacobian of residual of u w.r.t. to u (D) and q (B).
      * */
@@ -606,6 +606,9 @@ void elementint(elemstruct &elem, meshstruct &mesh, masterstruct &master, appstr
     }
 
     /* Compute the matrix D */
+    // shapvg [npv * ngv] 
+    // wrlshap (ngv*nd1*ncu*npv*ncu);
+    // npv * nc * npv * ncu
     t = clock();
     sz[3] = ncu*npv*ncu;
     sz[0] = ngv*nd1;
@@ -782,10 +785,9 @@ void faceint(elemstruct &elem, meshstruct &mesh, masterstruct &master, appstruct
      * time:
      * prob:
      * FLAGS: Array of inteters with different flags.
-     * NDIMS: Array of integers with information about the element and mesh.
-     * /*
+     * NDIMS: Array of integers with information about the element and mesh.     
 
-    /* AT OUTPUT:
+     AT OUTPUT:
      * Ru (npv / ncu): Residuals of u.
      * BD (npv / ncu / ncu / npv / (1+nd) [uq solver] OR npv / ncu / ncu / npv  [u solver]): Jacobian of residual of u w.r.t. to u (D) and q (B).
      * F (npv / ncu / nch / ndf): Jacobian of residual of u w.r.t. to uh.
@@ -1526,19 +1528,56 @@ void assembleElementMatrixVector(elemstruct &elem, meshstruct &mesh, masterstruc
 {
     clock_t t;
     int computeJacobian = 1;
-    
+        
     t = clock();
     if (app.flag_q==1) 
         qint(elem, mesh, master, app, temp, ie);     // About 10 times faster than elementint for 2D triangles (this result applies for different p's)      
     elemtimes[0] += clock() - t;
     
+    /* Get dimensions */    
+    Int npv, ngv, ncd, nc, ncu, ncq, nch, nd, nd1, ndf;
+    nd = master.nd;        
+    npv = master.npv;    
+    ngv = master.ngv;
+    ndf = master.ndf;
+    Int npf = master.npf[0];
+    Int ngf = master.ngf[0];
+    Int nfe = master.nfe;    
+    ncd = app.ncd;
+    nc  = app.nc;
+    ncu = app.ncu;
+    nch = app.nch;    
+    ncq = app.ncq;
+    nd1 = nd+1;    
+    
+    if (app.debugmode==1) {
+      app.streams[0]->write(reinterpret_cast<char*>(&temp.pg[0] ), sizeof(double) * ngv*nd );
+      app.streams[1]->write(reinterpret_cast<char*>(&elem.M[0] ), sizeof(double) * npv*npv );
+      app.streams[2]->write(reinterpret_cast<char*>(&elem.C[0] ), sizeof(double) * npv*npv*nd );
+      app.streams[3]->write(reinterpret_cast<char*>(&elem.E[0] ), sizeof(double) * npv*ndf*nd );
+    }
+    
     t = clock();
     elementint(elem, mesh, master, app, sol, temp, &elemtimes[0], ie, computeJacobian);
     elemtimes[1] += clock() - t;        
+        
+    if (app.debugmode==1) {
+      app.streams[4]->write(reinterpret_cast<char*>(&temp.f[0] ), sizeof(double) * ngv*ncu*nd );
+      app.streams[5]->write(reinterpret_cast<char*>(&temp.f_udg[0] ), sizeof(double) * ngv*ncu*nd*nc);
+      app.streams[6]->write(reinterpret_cast<char*>(&temp.s[0] ), sizeof(double) * ngv*ncu );
+      app.streams[7]->write(reinterpret_cast<char*>(&temp.s_udg[0] ), sizeof(double) * ngv*ncu*nc);
+    }
     
     t = clock();
     faceint(elem, mesh, master, app, sol, temp, &elemtimes[0], ie, computeJacobian);
     elemtimes[2] += clock() - t;        
+        
+    if (app.debugmode==1) {
+      app.streams[16]->write(reinterpret_cast<char*>(&temp.pgf[0] ), sizeof(double) * ngf*nd );
+      app.streams[17]->write(reinterpret_cast<char*>(&temp.fh[0] ), sizeof(double) * ngf*ncu);
+      app.streams[18]->write(reinterpret_cast<char*>(&temp.fh_u[0] ), sizeof(double) * ngf*ncu*nc );
+      app.streams[19]->write(reinterpret_cast<char*>(&temp.fh_uh[0] ), sizeof(double) * ngf*ncu*ncu);
+    }    
 }
 
 void assembleElementVector(elemstruct &elem, meshstruct &mesh, masterstruct &master, appstruct &app,
