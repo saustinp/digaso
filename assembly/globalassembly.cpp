@@ -495,14 +495,15 @@ void assembleLinearSystem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
             
             /* Compute elemental matrices and vectors */
             t = clock();
+            // Debug arrays 0-17 written in here
             assembleElementMatrixVector(elems[this_thread], mesh, master, app, sol, temps[this_thread], ie, &elemtimes[0]);
             elemtime += clock() - t;
             
             normRuElem = DNRM2(&n1, &elems[this_thread].Ru[0], &inc);
             rNorm += normRuElem*normRuElem;
 
-            DCOPY(&n5,&elems[this_thread].Rh[0],&inc,&elems[this_thread].Rhonly[0],&inc);            
-            
+            DCOPY(&n5,&elems[this_thread].Rh[0],&inc,&elems[this_thread].Rhonly[0],&inc);  
+
             /* Peform Schur complement */
             t = clock();
             schurElementMatrixVector(elems[this_thread], mesh, app, temps[this_thread], sys.schurImplementation, ie, &schurtimes[0], &noFlops);
@@ -514,6 +515,40 @@ void assembleLinearSystem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
             /* Store inv(D)*F into sol structure */
             DCOPY(&n3,&elems[this_thread].F[0],&inc,&sol.DinvF[ie*n3],&inc);
 
+            // std::cout<<npv<<std::endl;
+            // std::cout<<ncu<<std::endl;
+            // std::cout<<nch<<std::endl;
+            // std::cout<<ndf<<std::endl;
+            // exit(-1);
+
+            std::cout<<ie<<std::endl;
+
+            // Write sol.DinvF and sol.DinvRu to debug files
+            if (app.debugmode==1) {
+                /* Get dimensions */    
+                Int npv, ngv, ncd, nc, ncu, ncq, nch, nd, nd1, ndf;
+                nd = master.nd;        
+                npv = master.npv;    
+                ngv = master.ngv;
+                ndf = master.ndf;
+                Int npf = master.npf[0];
+                Int ngf = master.ngf[0];
+                Int nfe = master.nfe;    
+                ncd = app.ncd;
+                nc  = app.nc;
+                ncu = app.ncu;
+                nch = app.nch;    
+                ncq = app.ncq;
+                nd1 = nd+1;    
+                Int npe = mesh.npemax;
+                Int ne = mesh.ne;
+                Int e = mesh.elementtype[0];    // Just picked the first element
+                Int ncf = mesh.ncf[e];       
+
+                app.streams[27]->write(reinterpret_cast<char*>(&sol.DinvRu[0] ), sizeof(double) *  n1);
+                app.streams[28]->write(reinterpret_cast<char*>(&sol.DinvF[0] ), sizeof(double) *  n3);   // If app.hybrid=1
+            }
+
             if (app.quasiNewton == 1) {
                 updateQuasiNewtonStructures(sys, elems[this_thread], mesh, sol, app, temps[this_thread], ie);
             }
@@ -523,6 +558,15 @@ void assembleLinearSystem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
             mapElement2LinearSystem(sys, elems[this_thread], mesh, app, temps[this_thread], &sys.Hg[0], &sys.Rg[0], &sys.r[0], ie);
             maptime += clock() - t;
         }
+
+        if (app.debugmode){
+            for (int i = 0; i < 29; i++){
+                app.streams[i]->close();
+            }
+            std::cout<<"Done writing debug files, exiting"<<std::endl;
+            exit(-1);
+        }            
+
 // // //     }
     elemtime /= sys.noThreads;
     schurtime /= sys.noThreads;

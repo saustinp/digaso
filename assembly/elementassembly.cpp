@@ -1132,6 +1132,7 @@ void faceint(elemstruct &elem, meshstruct &mesh, masterstruct &master, appstruct
     na = npf*npf;
     for (is=0; is<nfe; is++)
         if (bf[is] < 0) {
+            // Extracting face-local quantities for computing fbou
             sz[0] = ngf*nfe;
             for (j=0; j<ncd; j++)
                 for (k=0; k<ngf; k++)
@@ -1157,7 +1158,17 @@ void faceint(elemstruct &elem, meshstruct &mesh, masterstruct &master, appstruct
 
             ib = -bf[is]-1;
             bn = bcm[ib];            
-            bouflux(mesh, master, app, sol, temp, ib, bn, is, ie, 1);            
+            bouflux(mesh, master, app, sol, temp, ib, bn, is, ie, 1);         
+
+            if (app.debugmode){
+                // These data structures store the values of fbou for all faces for eventual output in debug mode
+                for (j=0; j<ngf*nch; j++)
+                    temp.combined_fb[is*ngf*nch + j] = temp.fb[j];
+                for (j=0; j<ngf*nch*nc; j++)
+                    temp.combined_fb_u[is*ngf*nch*nc +j] = temp.fb_u[j];
+                for (j=0; j<ngf*nch*nch; j++)
+                    temp.combined_fb_uh[is*ngf*nch*nch +j] = temp.fb_uh[j];
+            }   
 
             sz[0] = ngf*nfe;
             sz[1] = nch*sz[0];
@@ -1297,6 +1308,19 @@ void faceint(elemstruct &elem, meshstruct &mesh, masterstruct &master, appstruct
                 // fhushapMiEf: ngf // nfe / ncu / ncu / ndf
                 // Df: npf // nfe / ncu / npv / ncu
                 // Ff: npf // nfe / ncu / ncu / ndf
+            }
+        }
+        else {
+            if (app.debugmode){
+                // If face is not a boundary face, zero fbou temp variables for printout
+                // These data structures store the values of fbou for all faces for eventual output in debug mode
+                for (j=0; j<ngf*nch; j++)
+                    temp.combined_fb[is* ngf*nch + j] = 0.0;
+                for (j=0; j<ngf*nch*nc; j++)
+                    temp.combined_fb_u[is*ngf*nch*nc +j] = 0.0;
+                for (j=0; j<ngf*nch*nch; j++)
+                    temp.combined_fb_uh[is*ngf*nch*nch +j] = 0.0;
+
             }
         }
     elemtimes[26] += clock() - t;
@@ -1536,10 +1560,6 @@ void getQ(elemstruct &elem, meshstruct &mesh, masterstruct &master, appstruct &a
 
 void assembleElementMatrixVector(elemstruct &elem, meshstruct &mesh, masterstruct &master, appstruct &app,
                 solstruct &sol, tempstruct &temp, Int ie, double* elemtimes)
-                // ofstream &out1, ofstream &out2, ofstream &out3, ofstream &out4, ofstream &out5, ofstream &out6,
-                // ofstream &out7, ofstream &out8, ofstream &out9, ofstream &out10, ofstream &out11, ofstream &out12,
-                // ofstream &out16, ofstream &out17, ofstream &out18, ofstream &out19, ofstream &out20, ofstream &out21,
-                // ofstream &out22, ofstream &out23, ofstream &out24, ofstream &out25)
 {
     clock_t t;
     int computeJacobian = 1;
@@ -1565,6 +1585,9 @@ void assembleElementMatrixVector(elemstruct &elem, meshstruct &mesh, masterstruc
     ncq = app.ncq;
     nd1 = nd+1;    
     
+    /*
+    Note: for compatibility with Matlab, the matrices M, C, and E are written to file _before_ the elementint function to match the Matlab version. M, C, and E are modified in elementint and do not match the Matlab version after the function
+    */
     if (app.debugmode==1) {
       app.streams[0]->write(reinterpret_cast<char*>(&temp.pg[0] ), sizeof(double) * ngv*nd );
       app.streams[1]->write(reinterpret_cast<char*>(&elem.M[0] ), sizeof(double) * npv*npv );
@@ -1582,37 +1605,21 @@ void assembleElementMatrixVector(elemstruct &elem, meshstruct &mesh, masterstruc
       app.streams[6]->write(reinterpret_cast<char*>(&temp.s[0] ), sizeof(double) * ngv*ncu );
       app.streams[7]->write(reinterpret_cast<char*>(&temp.s_udg[0] ), sizeof(double) * ngv*ncu*nc);
     }
-
-    // /* Get dimensions */    
-    // Int npv, ngv, ncd, nc, ncu, ncq, nch, nd, nd1, ndf;
-    // nd = master.nd;        
-    // npv = master.npv;    
-    // ngv = master.ngv;
-    // ndf = master.ndf;
-    // ncd = app.ncd;
-    // nc  = app.nc;
-    // ncu = app.ncu;
-    // nch = app.nch;    
-    // ncq = app.ncq;
-    // nd1 = nd+1;    
-
-    // writeArrayData2File("mass_mat.bin", elem.M, npv*npv);
-    // writeArrayData2File("C_mat.bin", elem.C, npv*npv*nd);
-    // writeArrayData2File("Ru.bin", elem.Ru, npv*ncu);
-    // writeArrayData2File("Rq.bin", elem.Rq, npv*ncu*nd);
-    // writeArrayData2File("BD_mat.bin", elem.BD, npv*npv*ncu*nc);
-    // writeArrayData2File("dgnodes.bin", &mesh.dgnodes[0], npv*nd);
-    // exit(-1);
-    
     t = clock();
     faceint(elem, mesh, master, app, sol, temp, &elemtimes[0], ie, computeJacobian);
     elemtimes[2] += clock() - t;        
         
     if (app.debugmode==1) {
-      app.streams[16]->write(reinterpret_cast<char*>(&temp.pgf[0] ), sizeof(double) * ngf*nd );
-      app.streams[17]->write(reinterpret_cast<char*>(&temp.fh[0] ), sizeof(double) * ngf*ncu);
-      app.streams[18]->write(reinterpret_cast<char*>(&temp.fh_u[0] ), sizeof(double) * ngf*ncu*nc );
-      app.streams[19]->write(reinterpret_cast<char*>(&temp.fh_uh[0] ), sizeof(double) * ngf*ncu*ncu);
+      app.streams[8]->write(reinterpret_cast<char*>(&temp.uhg[0] ), sizeof(double) * ngf*nfe*nch );
+      app.streams[9]->write(reinterpret_cast<char*>(&temp.ugf[0] ), sizeof(double) * ngf*nfe*nc );
+      app.streams[10]->write(reinterpret_cast<char*>(&temp.nlgf[0] ), sizeof(double) * ngf*nfe*nd );
+      app.streams[11]->write(reinterpret_cast<char*>(&temp.pgf[0] ), sizeof(double) * ngf*nfe*ncd );
+      app.streams[12]->write(reinterpret_cast<char*>(&temp.fh[0] ), sizeof(double) * ngf*nfe*nch);
+      app.streams[13]->write(reinterpret_cast<char*>(&temp.fh_u[0] ), sizeof(double) * ngf*nfe*nch*nc );
+      app.streams[14]->write(reinterpret_cast<char*>(&temp.fh_uh[0] ), sizeof(double) * ngf*nfe*nch*nch);
+      app.streams[15]->write(reinterpret_cast<char*>(&temp.combined_fb[0] ), sizeof(double) * nfe*ngf*nch);
+      app.streams[16]->write(reinterpret_cast<char*>(&temp.combined_fb_u[0] ), sizeof(double) * nfe*ngf*nch*nc);
+      app.streams[17]->write(reinterpret_cast<char*>(&temp.combined_fb_uh[0] ), sizeof(double) * nfe*ngf*nch*nch);
     }    
 }
 

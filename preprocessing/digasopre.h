@@ -538,6 +538,10 @@ struct tempstruct {
     double* fb;
     double* fb_u;
     double* fb_uh;
+    double* combined_fb;
+    double* combined_fb_u;
+    double* combined_fb_uh;
+
     double* uft_ref;
     double* uht_ref;
 // // //     double* avft_p1CG;

@@ -107,13 +107,45 @@ void initializeStructs(meshstruct &mesh, vector< masterstruct > &master, appstru
     app.axisymmetry = app.flag[28];
     
     if (app.debugmode==1) {
-      for (int i = 0; i < 30; i++){
+      for (int i = 0; i < 29; i++){
         std::shared_ptr<ofstream> out(new std::ofstream);
-        string fileName = "debug" + to_string(i) + ".bin";
+        string fileName = "debug/debug" + to_string(i) + ".bin";
         out->open(fileName.c_str(), ios::out | ios::binary);
         app.streams.push_back(out);
       }
+        /* Debug struct index reference
+        0: pg
+        1: M
+        2: C
+        3: E
+        4: f
+        5: f_udg
+        6: s
+        7: s_udg
+        8: uhg
+        9: ugf
+        10: nlgf
+        11: pgf
+        12: fh
+        13: fh_u
+        14: fh_uh
+        15: combined_fb
+        16: combined_fb_u
+        17: combined_fb_uh
+        18: BD
+        19: F
+        20: GK
+        21: H
+        22: Ru
+        23: Rh
+        24: Rhonly
+        25: H (Ae in matlab)
+        26: Rh (Fe in matlab)
+        27: DinvRu (dudg in matlab)
+        28: DinvF (dudg_duh in matlab)
+        */
     }
+
     
     app.fc_u = app.factor[0];           /* factor when discretizing the time derivative of the U equation */
     app.fc_q = app.factor[1];           /* factor when discretizing the time derivative of the Q equation */
@@ -401,7 +433,8 @@ void initializeStructs(meshstruct &mesh, vector< masterstruct > &master, appstru
                 ngf*nch*nc + ngf*nch*nch + ngf*ncd + ngf*nc + ngf*nch + ngf*nd + ngf*nc + ngf*nch + 3*ngf + 
                 npe*ncu + npe*npe*ncu*nc + npe*ncu*ndf*nch + nch*ndf + nch*ndf + 
                 nch*ndf*npe*nc + nch*ndf*nch*ndf + npe * npe * ncu * ncu + npe * npe * ncu * ncu + 
-                max(npe * npe, ncu * ncu) + max(npe * ndf * ncu, ncu * ncu * npf) + max(npe,ncu) + ngf*nco+nge*nco+ndf*nco+ngf*nfe*nco;
+                max(npe * npe, ncu * ncu) + max(npe * ndf * ncu, ncu * ncu * npf) + max(npe,ncu) + ngf*nco+nge*nco+ndf*nco+ngf*nfe*nco+
+                nfe*ngf*nch + nfe*ngf*nch*nc + nfe*ngf*nch*nch; // Last three are for the total fbou arrays
     
 	if (app.flag_q == 1) {
         elemtempLen += npe*ncu*npe*ncu + npe*ncu*ncu*ndf + ncu*ndf*npe*ncu + 
@@ -687,6 +720,14 @@ void initializeStructs(meshstruct &mesh, vector< masterstruct > &master, appstru
     start += ngf*nch*nc;
     temps.fb_uh = &sys.v[start];
     start += ngf*nch*nch;
+
+    temps.combined_fb = &sys.v[start];
+    start += nfe*ngf*nch;
+    temps.combined_fb_u = &sys.v[start];
+    start += nfe*ngf*nch*nc;
+    temps.combined_fb_uh = &sys.v[start];
+    start += nfe*ngf*nch*nch;
+
     temps.pft = &sys.v[start];
     start += ngf*ncd;
     temps.uft = &sys.v[start];

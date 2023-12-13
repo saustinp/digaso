@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{IEEEtrantools}
+\usepackage{chemformula}
+\usepackage{bm}
+\usepackage{float}
+\usepackage{hyperref}
+\DeclareMathOperator*{\argmax}{argmax} % thin space, limits underneath in displays
+\usepackage{subfig}
+
+\setlength{\oddsidemargin}{0in}  % set margins
+\setlength{\evensidemargin}{0in} %
+\setlength{\textwidth}{6.5in}    %
+\setlength{\textheight}{9.0in}   %
+\setlength{\topmargin}{-0.5in}   %
+\parskip=5pt
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+
+The HDG local system can be written as:
+\begin{align} 
+    \left( \begin{array}{ccc} M&C &E \\ B&D&F \\ K&G&H  \end{array} \right) 
+    \left( \begin{array}{c} \delta q \\ \delta u \\ \delta \hat{u}  \end{array} \right) = 
+    \left( \begin{array}{c} Rq \\ Ru  \\ R\hat{u}   \end{array} \right)
+\end{align}
+
+Assuming $Rq=0$, we have:
+\begin{align} 
+    \left( \begin{array}{ccc} M&C &E \\ B&D&F \\ K&G&H  \end{array} \right) 
+    \left( \begin{array}{c} \delta q \\ \delta u \\ \delta \hat{u}  \end{array} \right) = 
+    \left( \begin{array}{c} 0 \\ Ru  \\ R\hat{u}   \end{array} \right)
+\end{align}
+
+To eliminate $\delta q$, we take the first equation:
+\begin{align}
+    M \delta q - C \delta u  + E \delta\hat{u} = 0\\
+    \delta q = M^{-1}(C \delta u  - E \delta\hat{u})
+\end{align}
+
+Substituting into the second equation:
+
+\begin{align}
+    B \delta q + D \delta u  + F \delta\hat{u} = Ru\\
+    BM^{-1}(C \delta u  - E \delta\hat{u}) + D \delta u  + F \delta\hat{u} = Ru\\
+    (BM^{-1}C +D)\delta u +(F-BM^{-1}E) \delta\hat{u} = Ru
+\end{align}
+
+Substituting into the third equation:
+\begin{align}
+    K \delta q + G \delta u  + H \delta\hat{u} = R\hat{u} \\
+    KM^{-1}(C \delta u  - E \delta\hat{u})+ G \delta u  + H \delta\hat{u} = R\hat{u} \\
+    (KM^{-1}C + G)\delta u + (H- KM^{-1}E)\delta\hat{u} = R\hat{u}
+\end{align}
+
+Forming the reduced system
+\begin{align} 
+    \left( \begin{array}{cc} \tilde{D^*} & \tilde{F^*} \\ \tilde{G^*}&\tilde{H^*}  \end{array} \right) 
+    \left( \begin{array}{c} \delta u \\ \delta \hat{u}   \end{array} \right) = 
+    \left( \begin{array}{c} Ru  \\ R\hat{u}   \end{array} \right)
+\end{align}
+
+Where
+\begin{align}
+    \tilde{D^*} = BM^{-1}C +D\\
+    \tilde{F^*} = F-BM^{-1}E\\
+    \tilde{G^*} = KM^{-1}C + G\\
+    \tilde{H^*} = H- KM^{-1}E\\
+\end{align}
+
+
+\end{document}

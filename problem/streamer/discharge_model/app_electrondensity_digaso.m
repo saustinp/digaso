@@ -96,6 +96,9 @@ app.newtontol  = 1e-8; % def 1e-7
 nproc       = 1;
 app.nfile   = nproc;
 
+% Debug mode
+app.debugmode = 1;
+
 delete *.bin
 if nproc>1 % parallel preprocessing
     apppar = digasopre(app,'streamer',mesh.p,mesh.t'-1,mesh.dgnodes,UDG0,UH0,[],elementtype,mesh.bndexpr,[],nproc,0,check,mesh.perm);

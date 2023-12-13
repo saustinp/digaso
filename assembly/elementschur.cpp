@@ -9,7 +9,7 @@ void schur_primal_matrix(elemstruct &elem, meshstruct &mesh, appstruct &app, tem
     double *F = &elem.F[0];         /* (npv*ncu)x(nch*ndf) */
     double *K = &elem.GK[0];        /* (nch*ndf)x(npv*ncu) */
     double *H = &elem.H[0];         /* (nch*ndf)x(nch*ndf) */
-    
+
     Int inc = 1, i, j, k, l, info;
 //     Int nd = ndims[0];
 //     Int nfe = ndims[2];
@@ -333,9 +333,57 @@ void schurElementMatrixVector(elemstruct &elem, meshstruct &mesh, appstruct &app
     // Test case with p=3 hexa: 3, 8 and 9 dominate equally. One order of magnitude below are 7 and then 2. Then, everything else
 
     if (app.adjoint==0) {
+        if (app.debugmode){
+            /* Get dimensions */    
+            Int npv, ngv, ncd, nc, ncu, ncq, nch, nd, nd1, ndf;
+            nd = app.nd;    
+            ndf = mesh.ndfmax;
+            ncd = app.ncd;
+            nc  = app.nc;
+            ncu = app.ncu;
+            nch = app.nch;    
+            ncq = app.ncq;
+            nd1 = nd+1;    
+            Int npe = mesh.npemax;
+            Int ne = mesh.ne;
+            Int e = mesh.elementtype[0];    // Just picked the first element
+            Int ncf = mesh.ncf[e];       
+
+            // Print matrices to file
+            app.streams[18]->write(reinterpret_cast<char*>(elem.BD ), sizeof(double) * npe*npe*ncu*nc);
+            app.streams[19]->write(reinterpret_cast<char*>(elem.F ), sizeof(double) * npe*ncu*ndf*nch);
+            app.streams[20]->write(reinterpret_cast<char*>(elem.GK ), sizeof(double) * nch*ndf*npe*nc);
+            app.streams[21]->write(reinterpret_cast<char*>(elem.H ), sizeof(double) * nch*ndf*nch*ndf);
+            app.streams[22]->write(reinterpret_cast<char*>(elem.Ru ), sizeof(double) * npe*ncu);
+            app.streams[23]->write(reinterpret_cast<char*>(elem.Rh ), sizeof(double) * nch*ndf);
+            app.streams[24]->write(reinterpret_cast<char*>(elem.Rhonly ), sizeof(double) * nch*ndf);
+        }
+        
         // Note: schur_primal_vector vs. schur_primal_matrix is x10 (p=1) and x50 (p=6)
         schur_primal_matrix(elem, mesh, app, temp, schurImplementation, ie, &schurtimes[0], noFlops);
         schur_primal_vector(elem, mesh, app, temp, schurImplementation, ie, &schurtimes[0]);
+
+        if (app.debugmode){
+            /* Get dimensions */    
+            Int npv, ngv, ncd, nc, ncu, ncq, nch, nd, nd1, ndf;
+            nd = app.nd;    
+            ndf = mesh.ndfmax;
+            ncd = app.ncd;
+            nc  = app.nc;
+            ncu = app.ncu;
+            nch = app.nch;    
+            ncq = app.ncq;
+            nd1 = nd+1;    
+            Int npe = mesh.npemax;
+            Int ne = mesh.ne;
+            Int e = mesh.elementtype[0];    // Just picked the first element
+            Int ncf = mesh.ncf[e];       
+
+            // Print matrices to file
+            app.streams[25]->write(reinterpret_cast<char*>(elem.H), sizeof(double) * nch*ndf*nch*ndf);
+            app.streams[26]->write(reinterpret_cast<char*>(elem.Rh), sizeof(double) * nch*ndf);
+        }
+
     }
     else {
         error("Adjoint solver not implemented yet.");
