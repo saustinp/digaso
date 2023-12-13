@@ -547,6 +547,9 @@ void assembleLinearSystem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
 
                 app.streams[27]->write(reinterpret_cast<char*>(&sol.DinvRu[0] ), sizeof(double) *  n1);
                 app.streams[28]->write(reinterpret_cast<char*>(&sol.DinvF[0] ), sizeof(double) *  n3);   // If app.hybrid=1
+                // Write dgnodes
+                double* pn = &mesh.dgnodes[ie*npv*ncd];    
+                app.streams[29]->write(reinterpret_cast<char*>(pn), sizeof(double) * npe*nd );  // If ngpts per element == ndgnodes per element, npe==npv, but not always.
             }
 
             if (app.quasiNewton == 1) {
@@ -560,7 +563,7 @@ void assembleLinearSystem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
         }
 
         if (app.debugmode){
-            for (int i = 0; i < 29; i++){
+            for (int i = 0; i < 30; i++){
                 app.streams[i]->close();
             }
             std::cout<<"Done writing debug files, exiting"<<std::endl;
