@@ -521,7 +521,7 @@ void assembleLinearSystem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
             // std::cout<<ndf<<std::endl;
             // exit(-1);
 
-            std::cout<<ie<<std::endl;
+            // std::cout<<ie<<std::endl;
 
             // Write sol.DinvF and sol.DinvRu to debug files
             if (app.debugmode==1) {
@@ -563,7 +563,7 @@ void assembleLinearSystem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
         }
 
         if (app.debugmode){
-            for (int i = 0; i < 30; i++){
+            for (int i = 0; i < 32; i++){
                 app.streams[i]->close();
             }
             std::cout<<"Done writing debug files, exiting"<<std::endl;

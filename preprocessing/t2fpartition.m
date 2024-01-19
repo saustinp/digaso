@@ -18,7 +18,7 @@ end
 ps=strcat(pwd,sslash);
 is=find(ps==sslash);
 up=0;
-while ~(strcmp(ps(is(end-up-1)+1:is(end-up)-1),'digaso') || strcmp(ps(is(end-up-1)+1:is(end-up)-1),'DIGASO'))
+while ~(strcmp(ps(is(end-up-1)+1:is(end-up)-1),'digaso') || strcmp(ps(is(end-up-1)+1:is(end-up)-1),'DIGASO') || strcmp(ps(is(end-up-1)+1:is(end-up)-1),'DIGASOV2'))
     up = up+1;
 end
 %cd(strcat(ps(1:is(end-up)),'metis'));

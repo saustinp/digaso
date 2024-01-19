@@ -113,7 +113,17 @@ void solveNonlinearProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, 
     /* Newton iteration */
     sys.robustMode = 0;
     Int iter = 0, trueNewtonIter = 0;
-    while (rNorm > sys.NewtonTol && iter < sys.NewtonMaxiter && trueNewtonIter < sys.trueNewtonMaxiter) {
+
+    computeResidualNorm(sys, elems, mesh, master, sol, app, temps);
+    double residualNorm0 = sol.rNorm;
+    double relResidualNorm = 1;
+    double relNewtonTol = 1e-9;
+    // while relResidualNorm > relNewtonTol && it < 16
+    // std::cout<<residualNorm0<<std::endl;
+    // exit(-1);
+
+    while (relResidualNorm > relNewtonTol && iter < sys.NewtonMaxiter && trueNewtonIter < sys.trueNewtonMaxiter) {
+    // while (rNorm > sys.NewtonTol && iter < sys.NewtonMaxiter && trueNewtonIter < sys.trueNewtonMaxiter) {
         iter += 1;
         printf("\nNewton iteration:  %d\n", iter);
         if (app.reuseJacobian == 0)
@@ -162,6 +172,7 @@ void solveNonlinearProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, 
                 printf("\n\n***********************\n");
                 printf("Residual norm in line search of Newton's method is NaN or Inf.\n");
                 printf("\n***********************\n\n");
+                std::cout<<"hi"<<std::endl;
             }
             
             if (isnan(rNorm) || isinf(rNorm) || (rNorm > oldNorm && rNorm > sys.NewtonTol)) {
@@ -191,16 +202,18 @@ void solveNonlinearProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, 
                 break;
         }
         
-        printf("Old residual: %g,   New residual: %g    \n", oldNorm, rNorm);                   
+        printf("Old residual: %g,   New residual: %g    \n", oldNorm, rNorm); 
+        relResidualNorm = rNorm/residualNorm0;
+
     }
     
-    if (rNorm < sys.NewtonTol)
+    if (relResidualNorm < relNewtonTol)
         *convFlag = 1;
     else {
         *convFlag = 0;
         if (app.quasiNewton == 1)
             recomputeJacobian(sys, app);
-        printf("Newton's method did not converge to tolerance %g in %d iterations (%d true Newton iter).\n", sys.NewtonTol, iter, trueNewtonIter);
+        printf("Newton's method did not converge to relative tolerance %g in %d iterations (%d true Newton iter).\n", relNewtonTol, iter, trueNewtonIter);
     }
 }
 
@@ -429,6 +442,52 @@ void solveUnsteadyProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
         }
         
         printf("\n\nTOTAL TIME TO SOLVE TIME-STEP NO. %d: %g ms\n\n", i+1, ((clock() - t1)*1.0e3)/CLOCKS_PER_SEC);
+
+        // Compute the max E field and max ne
+
+        double normEMax = 0;
+        double normETmp = 0;
+        double neTmp = 0;
+        double neMax = 0;
+        int ie = 0;
+        int jpg = 0;
+        int ne = mesh.ne;
+        int npv = master.npv;
+        int nc = app.nc;
+
+        for (ie=0; ie<ne; ie++){
+            for (jpg=0; jpg<npv; jpg++){
+                normETmp = sqrt(sol.UDG[ie*npv*nc + 5*npv + jpg] * sol.UDG[ie*npv*nc + 5*npv + jpg] + sol.UDG[ie*npv*nc + 8*npv + jpg]*sol.UDG[ie*npv*nc + 8*npv + jpg]);
+                if (normETmp > normEMax){
+                    normEMax = normETmp;
+                }
+
+                neTmp = sol.UDG[ie*npv*nc + 0*npv + jpg];
+                if (neTmp > neMax) {
+                    neMax = neTmp;
+                }
+            }
+        }
+
+        std::cout<<"normE max: "<<normEMax*3e6<<std::endl;
+        std::cout<<"ne max: "<<neMax<<"\n"<<std::endl;
+
+        // Write solution to file
+        char fname[30];
+        snprintf(fname, 30, "./run011224_run2/time%04d.bin", i+1);
+        string filename(fname);     // Create a C++ string from the C string for the function call
+        writeArrayData2File(filename, &sol.UDG[0], ne*npv*nc);
+
+        // char fname[30];
+        // snprintf(fname, 25, "./run011124/time%04d.bin", i);
+        // ofstream out(fname, ios::out | ios::binary);
+        // if (!out) {
+        //     cout <<"Unable to open file" << fname << endl;
+        // }
+        // if (out) {
+        //     out.write( reinterpret_cast<char*>( &sol.UDG[0] ), sizeof(double) * ne*npv*nc );
+        // }
+        // out.close();
     }
     
 //     // Report time-steps in which nonlinear solver did not converge:
@@ -461,7 +520,7 @@ void solveProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, masterstr
     sys.linearSolvesClocks = 0;         // Time spent in linear solves since the Jacobian matrix was computed the last time (only applies for quasi-Newton)
     
     // Compute Q to make Rq = 0     This step is not taken in the Matlab code
-    if (app.flag_q == 1) {
+    if ((app.flag_q == 1) && (app.debugmode==0)) {
 // // //         #pragma omp parallel num_threads(sys.noThreads)
 // // //         {
 // // //             int this_thread = omp_get_thread_num();
@@ -473,8 +532,11 @@ void solveProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, masterstr
 // // //         }
     }
     
-    if (app.tdep == 1)    
+    if (app.tdep == 1) {
+        // Write IC to file
+        writeArrayData2File("./run011224_run2/time0000.bin", &sol.UDG[0], ne*npv*nc);
         solveUnsteadyProblem(sys, elems, mesh, master, sol, app, temps, ndims);    
+    }  
     else {
         solveSteadyProblem(sys, elems, mesh, master, sol, app, temps, ndims, convFlag);
         if (*convFlag != 1)

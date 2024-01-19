@@ -14,6 +14,7 @@ app.flux = 'flux2d';
 app.fbou = 'fbou_electrondensity';
 app.fhat = 'fhat_axisymmetric';
 app.localsolve=1;
+app.debugmode=1;
 
 % Boundaries
 % 1 Bottom electrode
@@ -22,9 +23,9 @@ app.localsolve=1;
 % 4 Symmetry
 
 % BC types
-% 1 Symmetry
-% 2 Homogeneous Neumann
-% 3 Homogeneous Dirichlet
+% 1 Electrode
+% 2 Right "farfield"
+% 3 symmetry
 
 l_ref = app.arg{1};
 E_ref = app.arg{3};
@@ -32,7 +33,8 @@ phi0 = app.arg{5};
 phi0_tilde = phi0/(E_ref*l_ref);
 
 app.bcm = [1; 2; 1; 3;];            % Mod for testing the C++ code
-app.bcs = [0;0;phi0_tilde;0];
+%app.bcs = [0;0;phi0_tilde;0];
+app.bcs  = [[0  0 0]; [0 0 0]; [0 0 phi0_tilde]; [0 0 0]];
 app.fcu_vector = [1;1;0];
 % app.bcs = [0;0;0;0];
 
@@ -59,7 +61,7 @@ app.ncu = app.nch;
 % app.check_volint_flg = 1;
 % app.check_fhat_flg = 1;
 % app.check_fbou_flg = 4;
-app.debug_digaso = 1;
+% app.debug_digaso = 1;
 
 ntime  = 2000;
 dt = 5e-3*ones(ntime,1);      % With choice of nondimensionalization, t_tilde=1 => 6.67e-10s
@@ -90,6 +92,9 @@ UDG_poisson = UDG;      % Load in the poisson as UDG
 UDG = initu(mesh,initu_func_set,app.arg);
 UDG(:,[3,6,9],:) = UDG_poisson;
 UH=inituhat(master,mesh.elcon,UDG,app.ncu);
+[QDG, qq, MiCE] = getq(master, mesh, UDG, UH, [], 1);
+UDG(:,app.ncu+1:app.nc,:) = QDG;
+
 itime_restart = 0;
 
 % Restart
@@ -102,6 +107,9 @@ itime_restart = 0;
 % diary on;
 time = itime_restart*dt(1);     % Need to change if non-constant dt
 disp('Starting sim...')
+
+disp('ne max')
+disp(max(max(UDG0(:,1,:))))
 
 % save 'run_11_7_23/time501' UDG;
 % return;

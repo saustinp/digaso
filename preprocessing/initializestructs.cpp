@@ -111,22 +111,22 @@ void initializeStructs(meshstruct &mesh, vector< masterstruct > &master, appstru
     app.axisymmetry = app.flag[28];
     
     if (app.debugmode==1) {
-      for (int i = 0; i < 30; i++){
+      for (int i = 0; i < 32; i++){
         std::shared_ptr<ofstream> out(new std::ofstream);
         string fileName = "debug/debug" + to_string(i) + ".bin";
         out->open(fileName.c_str(), ios::out | ios::binary);
         app.streams.push_back(out);
       }
         /* Debug struct index reference
-        0: pg
-        1: M
-        2: C
-        3: E
-        4: f
-        5: f_udg
-        6: s
-        7: s_udg
-        8: uhg
+        0: pg - DONE
+        1: M - DONE
+        2: C - DONE
+        3: E - 
+        4: f - DONE
+        5: f_udg - DONE
+        6: s - DONE
+        7: s_udg - DONE
+        8: uhg - DONE
         9: ugf
         10: nlgf
         11: pgf
@@ -148,6 +148,7 @@ void initializeStructs(meshstruct &mesh, vector< masterstruct > &master, appstru
         27: DinvRu (dudg in matlab)
         28: DinvF (dudg_duh in matlab)
         29: dgnodes
+        30: uf
         */
     }
 
@@ -678,7 +679,7 @@ void initializeStructs(meshstruct &mesh, vector< masterstruct > &master, appstru
     //start += ndf*nch;
 //     temps.uh_ref.resize(ndf*nch);
     temps.uf = &sys.v[start];
-    start += ndf*nc;
+    start += ndf*nc;    // npf*nfe
     temps.of = &sys.v[start];
     start += ndf*nco;
 //     temps.uf_ref.resize(ndf*nc);

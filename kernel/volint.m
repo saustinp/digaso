@@ -81,8 +81,6 @@ function [Ru, Rq, BD, M, C, L, Q, Ju, Jq, wrl] = volint(master,app,dgnodes,UDG,S
     [f, f_udg] = flux( pg, udgg, arg, time);
     [s, s_udg] = source( pg, udgg, arg, time); 
     
-    
-    
     % Code to test the C->Matlab flux and source functions
     % Flag implemented so we don't have to uncomment it every time
     if isfield(app,'check_volint_flg')
@@ -220,6 +218,25 @@ function [Ru, Rq, BD, M, C, L, Q, Ju, Jq, wrl] = volint(master,app,dgnodes,UDG,S
         end
     end
     
+    if isfield(app, 'debug_digaso')
+        fdig=readbin('./debug/debug4.bin');
+        fudig=readbin('./debug/debug5.bin');
+        sdig=readbin('./debug/debug6.bin');
+        sudig=readbin('./debug/debug7.bin');
+                        
+        fdig = permute(reshape(fdig,[ngv ncu nd ne]),[1 4 2 3]);
+        fudig = permute(reshape(fudig,[ngv ncu nd nc ne]),[1 5 2 4 3]);
+        sdig = permute(reshape(sdig,[ngv ncu ne]),[1 3 2]);
+        sudig = permute(reshape(sudig,[ngv ncu nc ne]),[1 4 2 3]);
+
+        err = zeros(10,1);
+        err(1) = max(abs(f(:)-fdig(:)));
+        err(2) = max(abs(f_udg(:)-fudig(:)));
+        err(3) = max(abs(s(:)-sdig(:)));
+        err(4) = max(abs(s_udg(:)-sudig(:)));
+        fprintf('|f-fdig| = %e,   |fu-fudig| = %e  \n', err(1:2));
+        fprintf('|s-sdig| = %e,   |su-sudig| = %e  \n', err(3:4));
+    end
     
     % Check with the C++ code
     % disp('DIGASO')

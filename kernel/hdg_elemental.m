@@ -48,6 +48,38 @@ function [AE,FE,DUDG,DUDG_DUH] = hdg_elemental(master,app,dgnodes,bf,UDG,UH,SH)
         % compute volume integrals
         %BD = reshape(BD,[npv npv ne ncu nc]);
         [Ru, Rq, BD, M, C, L, Q, Ju, Jq, wrl] = volint(master,app,dgnodes(:,id,:),UDG(:,id,:),SH(:,id,:));
+
+         if isfield(app,'debug_digaso')
+            % Mdig = readbin('./debug/debug1.bin');   % Compare with dudg: first 3 columns: tmp=dudg(:,1:ncu,:); max(tmp(:)-DinvRu)=1.2385. First element matches though
+            % Cdig = readbin('./debug/debug2.bin');   % Compare with dudg: first 3 columns: tmp=dudg(:,1:ncu,:); max(tmp(:)-DinvRu)=1.2385. First element matches though
+            % Edig = readbin('./debug/debug3.bin');   % Compare with dudg: first 3 columns: tmp=dudg(:,1:ncu,:); max(tmp(:)-DinvRu)=1.2385. First element matches though
+
+            % elem_err = [];
+            % for ie = 1:ne
+            %     tmp=M(:,:,ie);
+            %     err = max(tmp(:)-Mdig(1+(ie-1)*36:ie*36));
+            %     if err > 1e-8
+            %         elem_err(end+1) = ie;
+            %     end
+            % end
+            % assignin('base','elem_errM',elem_err);
+            % elem_err
+            % error('Done comparing')
+
+            % elem_err = [];
+            % for ie = 1:ne
+            %     tmp=C(:,:,:,ie);
+            %     err = max(tmp(:)-Cdig(1+(ie-1)*72:ie*72));
+            %     if err > 1e-8
+            %         elem_err(end+1) = ie;
+            %     end
+            % end
+            % assignin('base','elem_errM',elem_err);
+            % elem_err
+            % error('Done comparing')
+
+         end
+    
         %BDt = BD;
     %     squeeze(Ru)
     %     pause

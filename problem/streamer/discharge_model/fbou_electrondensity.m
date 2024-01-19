@@ -37,9 +37,12 @@ switch ib
         fh_uh(:,[1,2],:) = fh_uh_tmp(:,[1,2],:);
 
         % Potential: dirichlet
-        fh(:,3) = r.*tau .*(ui-uh(:,3));
+        fh(:,3) = r.*tau .*(ui(:,3)-uh(:,3));
         fh_uh(:,3,3) = -r.*tau;
 
+%         fh(:,[1,2,3]) = fh_tmp(:,[1,2,3]);
+%         fh_udg(:,[1,2,3],:) = fh_udg_tmp(:,[1,2,3],:);
+%         fh_uh(:,[1,2,3],:) = fh_uh_tmp(:,[1,2,3],:);        
     case 2  % Right "farfield"
         % Species + potential all have homogeneous neumann
         [fh,fh_udg,fh_uh] = fhat_axisymmetric(nl,p,udg,uh,param,time);

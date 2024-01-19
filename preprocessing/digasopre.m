@@ -26,7 +26,7 @@ else
     app.elemtype = unique(elementtype);
     npe = zeros(length(app.elemtype),1);
     for i = 1:length(app.elemtype)
-        master = mkmasterelement(app.nd,app.porder,app.morder,app.pgauss,app.pgaussR,app.elemtype(i),app.nodetype);        
+        master = mkmasterelement(app.nd,app.porder,app.morder,app.pgauss,app.pgaussR,app.elemtype(i),app.nodetype);
         writemaster(master,fileID,endian);        
         npe(i) = master.npv;
     end

@@ -55,18 +55,67 @@ udgn = reshape(UDG(perm,:,:),[npf nfe*ne*nc]);
 udgg = shapft*udgn;
 udgg = reshape(udgg,[ngf*nfe*ne nc]);
 
+% for comparison
+udgn =reshape(udgn, [npf*nfe*ne nc]);
+
 uh  = reshape(UH,[npf nfe*ne*nch]);
 uhg = shapft*uh;
 uhg = reshape(uhg,[ngf*nfe*ne nch]);
 
-% tmp = reshape(uhg,[ngf*nfe ne nch]);
-% squeeze(tmp(:,1,:))
-% tmp = reshape(udgg,[ngf*nfe ne nc]);
-% squeeze(tmp(:,1,:))
-% pause
-
 % Compute numerical fluxes 
 [FH, FH_udg, FH_uh] = fhat(nlg, pg, udgg, uhg, arg, time);     
+
+if isfield(app, 'debug_digaso')
+    uhgdig=readbin('./debug/debug8.bin');  % uhg       
+    ugfdig=readbin('./debug/debug9.bin');  % udgg      
+    nlgfdig=readbin('./debug/debug10.bin'); % nlg      
+    pgfdig=readbin('./debug/debug11.bin');  % pg       
+    fhdig=readbin('./debug/debug12.bin');  % fh
+    fhudig=readbin('./debug/debug13.bin');  % fh_u
+    fhuhdig=readbin('./debug/debug14.bin');  % fh_uh
+    ufdig = readbin('./debug/debug30.bin');
+    udgdig=readbin('./debug/debug31.bin');  
+            
+    err = zeros(10,1);
+    ugfdig = permute(reshape(ugfdig, [ngf nfe nc ne]),[1 2 4 3]);
+    err(1) = max(abs(ugfdig(:)-udgg(:)));    
+    
+    ufdig = permute(reshape(ufdig, [npf nfe nc ne]),[1 2 4 3]);
+    err(2) = max(abs(ufdig(:)-udgn(:)));
+        
+    udgdig = permute(reshape(udgdig, [npv nc ne]),[1 3 2]);        
+    err(3) = max(abs(udgdig(:)-UDG(:)));    
+    
+    fprintf('|ugf-ugfdig| = %e,   |uf-ufdig| = %e,   |udg-udgdig| = %e  \n', err(1:3));     
+    
+    uhgdig = permute(reshape(uhgdig, [ngf nfe nch ne]),[1 2 4 3]);
+    err(4) = max(abs(uhgdig(:)-uhg(:)));    
+    
+    pgfdig = permute(reshape(pgfdig, [ngf nfe nd ne]),[1 2 4 3]);
+    err(5) = max(abs(pgfdig(:)-pg(:)));    
+    
+    nlgfdig = permute(reshape(nlgfdig, [ngf nfe nd ne]),[1 2 4 3]);
+    err(6) = max(abs(nlgfdig(:)-nlg(:)));    
+    
+    fprintf('|uhg-uhgdig| = %e,   |pgf-pgfdig| = %e,   |nlg-nlgdig| = %e  \n', err(4:6));         
+    
+    fhdig = permute(reshape(fhdig, [ngf nfe nch ne]),[1 2 4 3]);
+    tm = fhdig(:)-FH(:);
+    err(7) = max(abs(tm));        
+    
+    fhudig = permute(reshape(fhudig, [ngf nfe nch nc ne]),[1 2 5 3 4]);
+    tm = fhudig(:)-FH_udg(:);
+    err(8) = max(abs(tm));        
+    
+    fhuhdig = permute(reshape(fhuhdig, [ngf nfe nch nch ne]),[1 2 5 3 4]);
+    tm = fhuhdig(:)-FH_uh(:);
+    err(9) = max(abs(tm));        
+    
+    fprintf('|fh-fhdig| = %e,   |fhu-fhudig| = %e,   |fhuh-fhuhdig| = %e  \n', err(7:9));         
+    
+    %error('Done comparing');  
+end
+
 
 % squeeze(pg)
 % squeeze(nlg)
@@ -156,10 +205,10 @@ for i = 1:length(bcm)
         i2 = (J(k)-1)*nfe*npf+(I(k)-1)*npf+1:(J(k)-1)*nfe*npf+I(k)*npf; 
         an(i0) = i2;
         j = j + 1;
-    end  
+    end          
     
     ib = bcm(i);
-    bv = repmat(bcs(i,:),[ngf*nfb 1]);
+    bv = repmat(bcs(i,:),[ngf*nfb 1]);    
     if isempty(im)==0
     [fh, dfh_dudg, dfh_duh] = fbou(ib,bv,nlgb,pgb,udgb,uhgb,arg,time);                                                 
     BH(im,:) = fh;
@@ -174,6 +223,77 @@ for i = 1:length(bcm)
         JUDG(im,:) = djh_dudg;
         JH(im,:) = djh_duh;
     end
+end
+
+if isfield(app, 'debug_digaso')
+    fbdig=readbin('./debug/debug15.bin');  % fb
+    fbudig=readbin('./debug/debug16.bin');  % fb_u
+    fbuhdig=readbin('./debug/debug17.bin');  % fb_uh
+    fbdig = reshape(fbdig,[ngf nch nbf]);
+    fbudig = reshape(fbudig,[ngf nch nc nbf]);
+    fbuhdig = reshape(fbuhdig,[ngf nch nch nbf]);
+    
+    FB     = zeros(ngf,nch,nbf);
+    FB_udg = zeros(ngf,nch,nc,nbf);
+    FB_uh  = zeros(ngf,nch,nch,nbf);    
+    pg = reshape(pg, [ngf nfe ne nd]);
+    nlg = reshape(nlg, [ngf nfe ne nd]);
+    udgg = reshape(udgg, [ngf nfe ne nc]);
+    uhg = reshape(uhg, [ngf nfe ne ncu]);
+    im = 0;
+    for ie = 1:size(bf,2)
+      for j = 1:size(bf,1)
+        if bf(j,ie)<0
+          i = -bf(j,ie);
+          ib = bcm(i);
+          bv = repmat(bcs(i,:),[ngf 1]);
+          pgb  = reshape(pg(:,j,ie,:),[ngf nd]);
+          nlgb = reshape(nlg(:,j,ie,:),[ngf nd]);
+          udgb = reshape(udgg(:,j,ie,:),[ngf nc]);
+          uhgb = reshape(uhg(:,j,ie,:),[ngf ncu]);          
+          
+          if isempty(im)==0
+          [fh, dfh_dudg, dfh_duh] = fbou(ib,bv,nlgb,pgb,udgb,uhgb,arg,time);                                                 
+          im = im + 1;
+          FB(:,:,im) = fh;
+          FB_udg(:,:,:,im) = dfh_dudg;
+          FB_uh(:,:,:,im) = dfh_duh;              
+          e = fh - fbdig(:,:,im);
+          if max(abs(e(:)))>1e-6
+            [ie j i ib]
+%              max(abs(e(:)))
+%             fh
+%             fbdig(:,:,im)
+%             bcs(i,:)
+%             pause
+          end
+          e = dfh_dudg - fbudig(:,:,:,im);
+          if max(abs(e(:)))>1e-6
+            [ie j i ib]
+          end
+          e = dfh_duh - fbuhdig(:,:,:,im);
+          if max(abs(e(:)))>1e-6
+            [ie j i ib]
+          end
+          
+          end
+        end
+      end
+    end
+    
+    err = zeros(10,1);
+    tm = fbdig(:)-FB(:);
+    err(7) = max(abs(tm));        
+        
+    tm = fbudig(:)-FB_udg(:);
+    err(8) = max(abs(tm));        
+    
+    tm = fbuhdig(:)-FB_uh(:);
+    err(9) = max(abs(tm));        
+    
+    fprintf('|fb-fbdig| = %e,   |fbu-fbudig| = %e,   |fbuh-fbuhdig| = %e  \n', err(7:9));         
+    
+    error('Done comparing');  
 end
 
 if adjoint==1

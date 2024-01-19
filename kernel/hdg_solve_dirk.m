@@ -86,8 +86,8 @@ function [Un,Hn,Pn] = hdg_solve_dirk(master,mesh,app,UDG,UH,PDG,time,dt,nstage,t
         % % clf; figure(); scaplot(mesh,AV,[],0,0); xlim([0,6]); ylim([87,100]); axis equal; axis tight; colormap jet; title('Smoothed AV field');
         % disp('Done computing AV')
     
-        [QDG, qq, MiCE] = getq(master, mesh, UDG, UH, [], fc_q);
-        UDG(:,4:9,:) = QDG;
+%         [QDG, qq, MiCE] = getq(master, mesh, UDG, UH, [], fc_q);
+%         UDG(:,app.ncu+1:app.nc,:) = QDG;
         [UDGn,UHn] = hdg_solve(master,mesh,app,UDG,UH,SDG);
         Un = Un + c(istage)*UDGn;
         Hn = Hn + c(istage)*UHn;
