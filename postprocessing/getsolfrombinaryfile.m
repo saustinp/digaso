@@ -53,7 +53,7 @@ else
         fileID = fopen([filename '_np' num2str(i-1) '.bin'],'r');
         ndims = fread(fileID,2,'double');                               
         
-        ne = nelem(i);                        
+        ne = nelem(i);
         UDG(:,:,elempart((n1(i)+1):(n1(i)+ne))) = reshape(fread(fileID,ndims(1),'double'),[npv nc ne]);
         
         nf = nent(i);                

@@ -47,10 +47,12 @@ app.nc   = app.nch*(app.nd+1);    % Number of componeents of UDG
 app.ncu = app.nch;
 
 app.time = 0;
-ntime  = 2000;
+ntime  = 8000;
 app.dt = 5e-3*ones(ntime,1);      % With choice of nondimensionalization, t_tilde=1 => 6.67e-10s
 
-mesh = mkmesh_streamer_gmsh(porder, "streamer_16k_fixed.msh");
+% mesh = mkmesh_streamer_gmsh(porder, "streamer_16k_fixed.msh");
+% mesh = mkmesh_streamer_gmsh(porder, "streamer_57k.msh");
+mesh = mkmesh_streamer_gmsh(porder, "streamer_89k.msh");
 master = mkmaster(mesh,2*porder);
 [master,mesh] = preprocess(master,mesh,app.hybrid);
 
@@ -59,7 +61,7 @@ master = mkmaster(mesh,2*porder);
 %                  ne_0,                     np_0,     phi_0, q_ne_r0,q_np_r0,    Er0, q_ne_z0,q_np_z0,      Ez0
 initu_func_set = {@initu_func_electrons;@initu_func_ions;0;   0;@initq_func_ions_r;0;    0;@initq_func_ions_z;0};
 
-load '../poissonIC.mat';
+load '../poissonIC89k.mat';
 UDG_poisson = UDG;      % Load in the poisson as UDG
 UDG0 = initu(mesh,initu_func_set,app.arg);      % Change to UDG0 and UH0 for digaso
 UDG0(:,[3,6,9],:) = UDG_poisson;
@@ -90,13 +92,16 @@ check = 0;
 app.restart   = 200;
 app.gmrestol  = 1e-12;
 app.gmresiter = 2000;
+% app.restart   = 100;
+% app.gmrestol  = 1e-11;
+% app.gmresiter = 300;
 
 % ------- Newton Parameters ---------- %
 app.newtoniter = 10;  % def 10
 app.newtontol  = 1e-8; % def 1e-7
 
 % ------- Number of processors ------- %
-nproc       = 1;
+nproc       = 256;
 app.nfile   = nproc;
 
 % Debug mode

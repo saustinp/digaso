@@ -24,6 +24,13 @@ using namespace std;
 #include "../gmres/gmresmpi.cpp"
 #include "../solvers/dgsolversmpi.cpp"
 
+// #include "../preprocessing/digasopre.h"
+// #include "../preprocessing/preprocessing.cpp"
+// #include "../preprocessing/dmdser.cpp"
+// #include "../assembly/assembly.cpp"
+// #include "../gmres/gmres.cpp"
+// #include "../solvers/dgsolvers.cpp"
+
 vector<Int> getndimslegacy(meshstruct &mesh, vector< masterstruct > &master, appstruct &app, solstruct &sol, sysstruct &sys);
 
 int main(int argc, char** argv) 

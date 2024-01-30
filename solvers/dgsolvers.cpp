@@ -172,7 +172,6 @@ void solveNonlinearProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, 
                 printf("\n\n***********************\n");
                 printf("Residual norm in line search of Newton's method is NaN or Inf.\n");
                 printf("\n***********************\n\n");
-                std::cout<<"hi"<<std::endl;
             }
             
             if (isnan(rNorm) || isinf(rNorm) || (rNorm > oldNorm && rNorm > sys.NewtonTol)) {
@@ -474,7 +473,7 @@ void solveUnsteadyProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
 
         // Write solution to file
         char fname[30];
-        snprintf(fname, 30, "./run011224_run2/time%04d.bin", i+1);
+        snprintf(fname, 25, "./run011824/time%04d.bin", i+1);
         string filename(fname);     // Create a C++ string from the C string for the function call
         writeArrayData2File(filename, &sol.UDG[0], ne*npv*nc);
 
@@ -534,7 +533,7 @@ void solveProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, masterstr
     
     if (app.tdep == 1) {
         // Write IC to file
-        writeArrayData2File("./run011224_run2/time0000.bin", &sol.UDG[0], ne*npv*nc);
+        writeArrayData2File("./run011824/time0000.bin", &sol.UDG[0], ne*npv*nc);
         solveUnsteadyProblem(sys, elems, mesh, master, sol, app, temps, ndims);    
     }  
     else {

@@ -618,10 +618,10 @@ void gmresmpi(sysstruct &sys, Int *convFlag)
             sys.rev[iter] = res;
             iter = iter + 1;
             
-            //if (sys.print >= 3) {
+            if (sys.print >= 3) {
                 if (sys.my_rank == 0)
                     printf("GMRES Iter No. %d with relative residual %g\n", iter, res/nrmb);
-            //}
+            }
 
             // Set flag=0 if convergence
             if (res/nrmb < GMREStol) {

@@ -1,0 +1,80 @@
+Read data files...
+End reading data files...
+Allocate memory...
+Timestep :  1 ||  Time :   0 ||  dt :   0.005 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing ordering...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(100) did not converge in maximum number of iterations (300). Relative residual 5.87339e-10. Prescribed tolerance 1e-11
+Old residual: 23808,   New residual: 3.93032    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(100) did not converge in maximum number of iterations (300). Relative residual 4.37422e-10. Prescribed tolerance 1e-11
+Old residual: 3.93032,   New residual: 3.24679e-07    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 1: 12434.5 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(100) converges at iteration 230 to a solution with relative residual 9.89042e-12
+Old residual: 57274.1,   New residual: 7.16956e-07    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 1: 5098.05 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 1: 17538.6 ms
+
+normE max: 8.27895e+06
+ne max: 10.8401
+
+Timestep :  2 ||  Time :   0.005 ||  dt :   0.005 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(100) converges at iteration 225 to a solution with relative residual 9.88892e-12
+Old residual: 23722.1,   New residual: 3.52076e-07    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 2: 5130.46 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+
+GMRES(100) converges at iteration 224 to a solution with relative residual 9.94122e-12
+Old residual: 57268.8,   New residual: 7.73188e-07    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 2: 5068.38 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 2: 10207.9 ms
+
+normE max: 8.27895e+06
+ne max: 11.7507
+

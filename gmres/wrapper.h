@@ -7,6 +7,7 @@
 #define __WRAPPER
 
 #define ADD_UNDERSCORE 
+#include <memory>   // Need to include so that the shared_ptr is supported on some compilers
 
 #if defined (__sun) || defined (MSOL2) || defined (ARCH_SOL2)
 #define THIS_SOL2    

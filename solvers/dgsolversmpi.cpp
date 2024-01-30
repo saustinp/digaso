@@ -4,7 +4,7 @@
 #include "pDLAK.cpp"
 #include "DIRKcoeff.cpp"
 #include "solutionupdate.cpp"
-#include "newtoninit.cpp"
+//#include "newtoninit.cpp"
 //#include "../application/FM/getAVfield.cpp"
 //#include "../application/FM/nsNew/computeDynamicSmagConstant.cpp"
 //#include "../utilities/computeForces.cpp"
@@ -136,6 +136,8 @@ void solveLinearProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &mesh, 
 void solveNonlinearProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &mesh, masterstruct &master,
         solstruct &sol, appstruct &app, tempstruct* temps, Int* ndims, Int* convFlag)
 {
+    // sys.NewtonTol = 1e-5;
+
     Int i, j, n, ri, inc = 1;
     Int convLinearFlag[1];
     double alphaMin = 1.0e-4;
@@ -144,7 +146,16 @@ void solveNonlinearProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &mes
     /* Newton iteration */
     sys.robustMode = 0;
     Int iter = 0, trueNewtonIter = 0;
-    while (rNorm > sys.NewtonTol && iter < sys.NewtonMaxiter && trueNewtonIter < sys.trueNewtonMaxiter) {
+
+    computeResidualNormMPI(sys, elems, mesh, master, sol, app, temps, ndims);                
+    MPI_Allreduce(&sol.rNorm, &rNorm, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);                  
+    double residualNorm0 = sqrt(rNorm);
+    // sys.NewtonTol = residualNorm0 * 1e-9;
+    double relResidualNorm = 1;
+    double relNewtonTol = 1e-9;
+
+    // while (rNorm > sys.NewtonTol && iter < sys.NewtonMaxiter && trueNewtonIter < sys.trueNewtonMaxiter) {
+    while (relResidualNorm > relNewtonTol && iter < sys.NewtonMaxiter && trueNewtonIter < sys.trueNewtonMaxiter) {
         iter += 1;
         if (sys.my_rank == 0)
             printf("\nNewton iteration:  %d\n", iter);
@@ -248,9 +259,12 @@ void solveNonlinearProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &mes
         }
         if (sys.my_rank == 0)
             printf("Old residual: %g,   New residual: %g    \n", oldNorm, rNorm);
+
+        relResidualNorm = rNorm/residualNorm0;
     }
 
-    if (rNorm < sys.NewtonTol)
+    // if (rNorm < sys.NewtonTol)
+    if (relResidualNorm < relNewtonTol)
         *convFlag = 1;
     else {
         *convFlag = 0;
@@ -452,7 +466,7 @@ void BDFsolveUnsteadyProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &m
                 a[j] = 0.0;
             a[jstar] = 1.0;
             tNewton = clock();
-            NewtonInitMPI(sys, elems, mesh, master, sol, app, temps, ndims, &UDGpre[0], &UHpre[0], &a[0], sza);
+            // NewtonInitMPI(sys, elems, mesh, master, sol, app, temps, ndims, &UDGpre[0], &UHpre[0], &a[0], sza);
             if (sys.my_rank == 0)
                 printf("Time to compute initial guess with minimal residual algorithm: %g ms\n", ((clock()-tNewton)*1.0e3)/CLOCKS_PER_SEC);
         }
@@ -575,7 +589,8 @@ void DIRKsolveUnsteadyProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &
     sys.C_MR.resize(sza*sza);
     sys.Clocal_MR.resize(sza*sza);
     
-    Int saveSolFreq = 1000;                       // Every how many time-steps the solution is saved to a file
+    Int saveSolFreq = 5;                       // Every how many time-steps the solution is saved to a file
+    //Int saveSolFreq = app.flag[28];
     Int recomputeOrderingFreq = 50;             // Every how many time-steps the ordering is recomputed
     Int writeQflag = 1;                         // 0: Only u is written to a binary file. 1: Both u and q are written to a binary file
     Int writeAvgSolution = 1;                   // 0: The time average solution is NOT saved to a file. 1: The time average solution is saved to a file
@@ -670,7 +685,7 @@ void DIRKsolveUnsteadyProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &
                 for (j=0; j<sza; j++)
                     a[j] = 0.0;
                 a[jstar] = 1.0;
-                NewtonInitMPI(sys, elems, mesh, master, sol, app, temps, ndims, &UDGpre[0], &UHpre[0], &a[0], sza);
+                //NewtonInitMPI(sys, elems, mesh, master, sol, app, temps, ndims, &UDGpre[0], &UHpre[0], &a[0], sza);
                 if (sys.my_rank == 0)
                     printf("Time to compute initial guess with minimal residual algorithm: %g ms\n", ((clock()-tNewton)*1.0e3)/CLOCKS_PER_SEC);
             }
@@ -751,8 +766,18 @@ void DIRKsolveUnsteadyProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &
         
         // Write solution to file:
         if (((i+1) % saveSolFreq) == 0) {
-            string filename = app.fileout + "_t" + NumberToString(i+1) + "_np" + NumberToString(sys.my_rank) + ".bin";
+        // Write timestep to file
+            Int writeQflag = 1; 
+            Int nein = sys.elempartpts[0]+sys.elempartpts[1];
+            Int nfin = sys.entpartpts[0]+sys.entpartpts[1];
+            Int bsz = sys.blkSize;
+            char fname[55];
+            snprintf(fname, 55, "./run0126_mesh89_dt5_tau15/time%04d_np%d.bin", i+1, sys.my_rank);
+            string filename(fname);     // Create a C++ string from the C string for the function call
             sol.writeSol2File(filename, nein, bsz*nfin, ndims, writeQflag);
+
+            // string filename = app.fileout + "_t" + NumberToString(i+1) + "_np" + NumberToString(sys.my_rank) + ".bin";
+            // sol.writeSol2File(filename, nein, bsz*nfin, ndims, writeQflag);
             
             //if ((i+1 >= timeStepToStartAvg) && (writeAvgSolution == 1)) {
             //    string filename_avg = app.fileout + "_avg_np" + NumberToString(sys.my_rank) + ".bin";
@@ -819,8 +844,20 @@ void solveProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &mesh, master
 // // //         }
     }
     
-    if (app.tdep == 1)    
+
+    if (app.tdep == 1) {
+        // Write IC to file
+        Int writeQflag = 1; 
+        Int nein = sys.elempartpts[0]+sys.elempartpts[1];
+        Int nfin = sys.entpartpts[0]+sys.entpartpts[1];
+        Int bsz = sys.blkSize;
+        char fname[55];
+        snprintf(fname, 55, "./run0126_mesh89_dt5_tau15/time0000_np%d.bin", sys.my_rank);
+        string filename(fname);     // Create a C++ string from the C string for the function call
+        sol.writeSol2File(filename, nein, bsz*nfin, ndims, writeQflag);
+
         solveUnsteadyProblemMPI(sys, elems, mesh, master, sol, app, temps, ndims);    
+    }
     else {
         solveSteadyProblemMPI(sys, elems, mesh, master, sol, app, temps, ndims, convFlag);
         if (*convFlag != 1 && sys.my_rank == 0)
