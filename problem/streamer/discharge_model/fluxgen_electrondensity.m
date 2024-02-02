@@ -29,7 +29,6 @@ Ez_tilde = udg(9);
 l_ref = param(1);
 mu_ref = param(2);
 E_ref = param(3);
-e_eps0 = param(4);
 
 % Compute transport coefficients
 normE_tilde = sqrt(Er_tilde^2 + Ez_tilde^2);

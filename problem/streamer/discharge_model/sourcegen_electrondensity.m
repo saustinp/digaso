@@ -25,6 +25,16 @@ dne_dz_tilde = udg(7);
 dni_dz_tilde = udg(8);
 Ez_tilde = udg(9);
 
+% eta_e = udg(1);
+% eta_p = udg(2);
+% phi_tilde = udg(3);
+% detae_dr_tilde = udg(4);
+% detai_dr_tilde = udg(5);
+% Er_tilde = udg(6);
+% deta_dz_tilde = udg(7);
+% detai_dz_tilde = udg(8);
+% Ez_tilde = udg(9);
+
 % Load physics param
 l_ref = param(1);
 mu_ref = param(2);
@@ -48,6 +58,12 @@ se = alpha_bar_tilde*mue_tilde*normE_tilde*ne_tilde;
 sphi = charge_prefactor_tilde*(ni_tilde - ne_tilde);    % Note sign flip in source term because the negative sign is absorbed in the diffusive flux in the LHS
 
 f1 = r_tilde*[se se sphi];
+
+% grad_eta_e = [-detae_dr_tilde, -deta_dz_tilde];
+% sphi = charge_prefactor_tilde*(exp(eta_p) - exp(eta_e));    % Note sign flip in source term because the negative sign is absorbed in the diffusive flux in the LHS
+% se = alpha_bar_tilde*mue_tilde*normE_tilde + De_tilde*dot(grad_eta_e, grad_eta_e) + (1-eta_e)*mue_tilde*sphi;
+% sp = alpha_bar_tilde*mue_tilde*normE_tilde*exp(eta_e-eta_p);  % last term is ne/np = exp(eta_e)/exp(eta_p)
+% f1 = r_tilde*[se sp sphi];
 
 nd = 2;
 ncu = 3;    % num components of U

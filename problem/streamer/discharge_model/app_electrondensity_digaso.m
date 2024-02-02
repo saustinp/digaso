@@ -23,7 +23,7 @@ phi0 = app.arg{5};
 phi0_tilde = phi0/(E_ref*l_ref);
 
 app.bcm = [1; 2; 1; 3;];
-%app.bcs = [0;0;phi0_tilde;0];
+%app.bcs = [0;0;phi0_tilde;0];/Users/saustin/Documents/HDG/problem/2d_streamer/discharge_model/streamer_mesh2.py
 app.bcs  = [[0  0 0]; [0 0 0]; [0 0 phi0_tilde]; [0 0 0]];
 app.fcu_vector = [1;1;0];
 % app.bcs = [0;0;0;0];
@@ -59,12 +59,12 @@ master = mkmaster(mesh,2*porder);
 % Number density initialized to the same gaussian for both electrons and positives, and 0 for negatives.
 % These have to be initialized in the same order that UDG is in
 %                  ne_0,                     np_0,     phi_0, q_ne_r0,q_np_r0,    Er0, q_ne_z0,q_np_z0,      Ez0
-initu_func_set = {@initu_func_electrons;@initu_func_ions;0;   0;@initq_func_ions_r;0;    0;@initq_func_ions_z;0};
+initu_func_set = {@initu_func_electrons;@initu_func_ions;0;   0;0;0;    0;0;0};
 
 load '../poissonIC89k.mat';
 UDG_poisson = UDG;      % Load in the poisson as UDG
 UDG0 = initu(mesh,initu_func_set,app.arg);      % Change to UDG0 and UH0 for digaso
-UDG0(:,[3,6,9],:) = UDG_poisson;
+UDG0(:,3,:) = UDG_poisson(:,1,:);
 UH0=inituhat(master,mesh.elcon,UDG0,app.ncu);
 [QDG, qq, MiCE] = getq(master, mesh, UDG0, UH0, [], 1);
 UDG0(:,app.ncu+1:app.nc,:) = QDG;
