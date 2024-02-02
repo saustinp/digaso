@@ -1,0 +1,177 @@
+\documentclass[11pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 2.25 - Advanced Fluid Mechanics
+%%                                          
+%% Problem Set 6  
+%%                                                         
+%% Fall 2021
+%%                                           
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{IEEEtrantools}
+\usepackage{chemformula}
+\usepackage{bm}
+\usepackage{float}
+\usepackage{hyperref}
+\DeclareMathOperator*{\argmax}{argmax} % thin space, limits underneath in displays
+% \usepackage{fixltx2e}
+% \usepackage[demo]{graphicx}
+\usepackage{subfig}
+
+\graphicspath{{figs/}}
+
+\setlength{\oddsidemargin}{0in}  % set margins
+\setlength{\evensidemargin}{0in} %
+\setlength{\textwidth}{6.5in}    %
+\setlength{\textheight}{9.0in}   %
+\setlength{\topmargin}{-0.5in}   %
+\parskip=5pt
+\setlength{\parindent}{0pt}
+
+\newcommand\mat{{\sf MATLAB}}
+\newcommand{\mb}[1]{\hbox{\textbf{#1}}}
+\usepackage[makeroom]{cancel}
+\renewcommand{\labelenumii}{\alph{enumii}.}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi})}}
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+
+\begin{document}
+
+% \centerline{\textbf{2.28 - Fundamentals and Applications of Combustion}}
+
+% \vspace{2mm}
+
+% \centerline{{Massachusetts Institute of Technology}}
+
+% \vspace{2mm} \hrule \vspace{2mm}
+
+\centerline{ Logarithmic formulation of the streamer equations}
+% \centerline{ Sam Austin}
+
+% \vspace{2mm}
+
+% \hbox to \textwidth { \hfill Due: December 6, 2023}
+
+% \vspace{2mm} \hrule
+
+\noindent
+
+\section{Governing Equations}
+
+The following equations constitute the streamer model, known as the "drift-diffusion" equations, or "fluid-poisson" model. The equations for transport of electrons and ions are solved simultaneously with the Poisson equation for the electric potential for self-consistency. In this model, the flux of positive ions is assumed equal to zero because the mass of the ions is much larger than electrons, so their relative motion can be neglected on the timescales relevant to the problem (~20ns). It is simple to extend this model to three species (electrons, positive and negative ions), or to incorporate additional physics in the source terms, such as photoionization.
+
+\begin{align}
+    &\frac{\partial n_e}{\partial t} + \nabla \cdot (-\mu_e\vec{E}n_e - D_e\nabla n_e) = n_e|\mu_e\vec{E}|(\alpha-\eta)\\
+    &\frac{\partial n_p}{\partial t} = n_e|\mu_e\vec{E}|(\alpha-\eta)\\
+    &\nabla^2\Phi = -\frac{e(n_p-n_e)}{\epsilon_0}
+\end{align}
+
+\begin{align}
+    \vec{E} = -\nabla\Phi
+\end{align}
+
+\section{Nondimensionalization}
+The problem is nondimensionalized using the following reference parameters:
+
+\begin{itemize}
+    \item Length scale: $l^*$
+    \item E field: $E^*$
+    \item Mobility coefficient $\mu^*$
+\end{itemize}
+
+Where
+\begin{itemize}
+    \item $l^*$ is defined to be 1e-4 m
+    \item $E^*$ is defined to be 3e6 V/m, the breakdown field strength in air at standard conditions
+    \item $\mu^*$ is defined to be 0.05 $m^2/(V-s)$, taken at the breakdown E field level
+\end{itemize}
+
+With these fundamental groups, the rest of the quantities in the problem can be nondimensionalized:
+
+\begin{itemize}
+    \item Number density [particles/$m^3$]: $n^* = \left( \frac{1}{l^*} \right)^3$
+    \item Timescale [s]: $t^* = \frac{l^*}{E^*\mu^*}$
+    \item Diffusion coefficient [$m^2$/s]: $D^* = l^*\mu^*E^*$
+    \item Net ionization coefficient [particles/m] $\bar{\alpha}^* = \alpha- \eta= \frac{1}{l^*}$
+\end{itemize}
+
+such that the nondimensional quantities $\tilde{}$ are defined as:
+
+\begin{itemize}
+    \item $[x,r] = [\tilde{x},\tilde{r}]l^*$
+    \item $E = \tilde{E}E^*$
+    \item $n=\tilde{n}n^*$
+    \item $t = \tilde{t}t^*$
+    \item $\mu = \tilde{\mu}\mu^*$
+    \item $D=\tilde{D}D^*$
+    \item $\bar{\alpha} = \tilde{\bar{\alpha}} \bar{\alpha}^*$
+\end{itemize}
+
+With this choice of parameters, the governing equations are nondimensionalized:
+
+\begin{align}
+    &\frac{\partial \tilde{n_e}}{\partial \tilde{t}} + \tilde{\nabla} \cdot (-\tilde{\mu_e}\tilde{\vec{E}}\tilde{n_e} - \tilde{D_e}\tilde{\nabla} \tilde{n_e}) = \tilde{\bar{\alpha}}\tilde{n_e}\tilde{\mu_e}|\tilde{\vec{E}}|\\
+    &\frac{\partial \tilde{n_p}}{\partial \tilde{t}} = \tilde{\bar{\alpha}}\tilde{n_e}\tilde{\mu_e}|\tilde{\vec{E}}|\\
+    &\nabla^2\Phi = -\left( \tilde{n_p}-\tilde{n_e} \right) \frac{e}{\epsilon_0 E^* l^{*2}}
+\end{align}
+
+
+\section{Logarithmic formulation}
+
+To address the wide variation in magnitude of the number density, the drift-diffusion equation is recast to use the log of the number density. Note that the logarithm is applied after nondimensionalizing.
+
+\begin{align}
+    \eta &= \mathrm{log}(\tilde{n})\\
+    \tilde{n} &= \mathrm{exp}(\eta)
+\end{align}
+
+The governing equations are modified in a similar manner to the nondimensionalization, but additional terms arising from applying the differential opereators appear because the transformation is nonlinear.
+
+\begin{align}
+    \frac{\partial \tilde{n}}{\partial t} &= \mathrm{exp}(\eta)\frac{\partial \eta}{\partial t} = \tilde{n}\frac{\partial \eta}{\partial t}\\
+    \nabla \tilde{n} &= \nabla (\mathrm{exp}(\eta)) = \tilde{n} \nabla \eta\\
+    \nabla(nv) &= \tilde{n}\nabla \cdot v + v\cdot\nabla \tilde{n} = \tilde{n}\nabla \cdot v + \tilde{n}v\cdot\nabla \eta = \tilde{n}(\nabla \cdot v + v\cdot \nabla \eta)\\
+    \nabla \cdot (D\nabla(\tilde{n})) &= \nabla \cdot (D\tilde{n}\nabla(\eta)) = \tilde{n}\nabla \cdot (D \nabla \eta) + D\nabla\eta\cdot \nabla\tilde{n} = \tilde{n}(\nabla \cdot (D \nabla \eta) + D\nabla\eta\cdot \nabla\eta)
+\end{align}
+
+Substituting, we have
+
+\begin{align}
+    &\tilde{n_e} \frac{\partial \eta_e}{\partial \tilde{t}} - \tilde{n_e}\left(\nabla \cdot \left( \tilde{\mu_e}\tilde{\vec{E}} \right) + \left( \tilde{\mu_e}\tilde{\vec{E}} \right)\cdot \nabla \eta_e\right) - \tilde{n_e}\left(\nabla \cdot (\tilde{D_e} \nabla \eta_e) + \tilde{D_e}\nabla \eta_e\cdot \nabla\eta_e \right) = \tilde{\bar{\alpha}}\tilde{n_e}\tilde{\mu_e}|\tilde{\vec{E}}|\\
+    &\tilde{n_p} \frac{\partial \eta_p}{\partial \tilde{t}} = \tilde{\bar{\alpha}}\tilde{n_e}\tilde{\mu_e}|\tilde{\vec{E}}|\\
+    &\nabla^2\Phi = -\left( \mathrm{exp}(\eta_p)-\mathrm{exp}(\eta_e) \right) \frac{e}{\epsilon_0 E^* l^{*2}}
+\end{align}
+
+Simplifying, we have:
+\begin{align}
+    & \frac{\partial \eta_e}{\partial \tilde{t}} - \nabla \cdot \left( \tilde{\mu_e}\tilde{\vec{E}} + \tilde{D_e} \nabla \eta_e \right)  = \tilde{\bar{\alpha}}\tilde{\mu_e}|\tilde{\vec{E}}| + \left( \tilde{\mu_e}\tilde{\vec{E}}  +  \tilde{D_e}\nabla \eta_e  \right)\cdot \nabla \eta_e\\
+    &\frac{\partial \eta_p}{\partial \tilde{t}} = \tilde{\bar{\alpha}} \tilde{\mu_e}|\tilde{\vec{E}}| \frac{\mathrm{exp}(\eta_e)}{\mathrm{exp}(\eta_p)}\\
+    &\nabla^2\Phi = -\left( \mathrm{exp}(\eta_p)-\mathrm{exp}(\eta_e) \right) \frac{e}{\epsilon_0 E^* l^{*2}}
+\end{align}
+
+Note the opposite sign on the electron convective velocity. This is due to the negative electron charge, thus electrons will drift opposite the direction of the E field.
+
+The electron density equation must be modified to convert it to the conservative form. This is done with the following:
+
+\begin{align}
+    \tilde{\mu_e}\tilde{\vec{E}} \cdot \nabla \eta_e = \nabla \cdot \left( \eta_e \tilde{\mu_e}\tilde{\vec{E}} \right) - \eta_e \nabla \cdot \left( \tilde{\mu_e}\tilde{\vec{E}} \right)
+\end{align}
+
+The convective flux is now present, which can be moved to the flux term on the LHS. Also, the term $\nabla \cdot \left( \tilde{\mu_e}\tilde{\vec{E}} \right)$ in the LHS can be moved to the source term, and computed as the source term of the Poisson equation per Eqns. 3 and 4. The electron density equation becomes:
+
+\begin{align*}
+    & \frac{\partial \eta_e}{\partial \tilde{t}} - \nabla \cdot \left( \tilde{D_e} \nabla \eta_e \right)  = \tilde{\bar{\alpha}}\tilde{\mu_e}|\tilde{\vec{E}}| + \left( \tilde{D_e}\nabla \eta_e  \right)\cdot \nabla \eta_e + \nabla \cdot \left( \tilde{\mu_e}\tilde{\vec{E}}\right) + \nabla \cdot \left( \eta_e \tilde{\mu_e}\tilde{\vec{E}} \right) - \eta_e \nabla \cdot \left( \tilde{\mu_e}\tilde{\vec{E}} \right) \\
+    & \frac{\partial \eta_e}{\partial \tilde{t}} - \nabla \cdot \left( \eta_e \tilde{\mu_e}\tilde{\vec{E}}   + \tilde{D_e} \nabla \eta_e \right)  = \tilde{\bar{\alpha}}\tilde{\mu_e}|\tilde{\vec{E}}| + \left( \tilde{D_e}\nabla \eta_e  \right)\cdot \nabla \eta_e + \nabla \cdot \left( \tilde{\mu_e}\tilde{\vec{E}}\right) - \eta_e \nabla \cdot \left( \tilde{\mu_e}\tilde{\vec{E}} \right)\\
+    & \frac{\partial \eta_e}{\partial \tilde{t}} - \nabla \cdot \left( \eta_e \tilde{\mu_e}\tilde{\vec{E}}   + \tilde{D_e} \nabla \eta_e \right)  = \tilde{\bar{\alpha}}\tilde{\mu_e}|\tilde{\vec{E}}| + \left( \tilde{D_e}\nabla \eta_e  \right)\cdot \nabla \eta_e + \left( 1- \eta_e \right) \nabla \cdot \left( \tilde{\mu_e}\tilde{\vec{E}}\right)
+\end{align*}
+
+Substituting the source term for the Poisson equation, we arrive at the final expression for the electron number density:
+\begin{align}
+    & \frac{\partial \eta_e}{\partial \tilde{t}} - \nabla \cdot \left( \eta_e \tilde{\mu_e}\tilde{\vec{E}}   + \tilde{D_e} \nabla \eta_e \right)  = \tilde{\bar{\alpha}}\tilde{\mu_e}|\tilde{\vec{E}}| + \left( \tilde{D_e}\nabla \eta_e  \right)\cdot \nabla \eta_e + \left( 1- \eta_e \right)\tilde{\mu_e} \left( \mathrm{exp}(\eta_p)-\mathrm{exp}(\eta_e) \right) \frac{e}{\epsilon_0 E^* l^{*2}}
+\end{align}
+
+\end{document}
