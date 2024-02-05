@@ -124,7 +124,7 @@ for itime = 1:ntime
 
     disp('ne max')
     % disp(exp(max(max(UDG(:,1,:)))))
-    disp(max(max(UDG(:,1,:))))
+    disp(max(max(exp(UDG(:,1,:)))))
     disp('E max');
 
     Er = UDG(:,6,:);
