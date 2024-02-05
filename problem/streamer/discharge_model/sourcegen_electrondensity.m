@@ -17,11 +17,15 @@ r_tilde = p(1);
 % Read in values from the u vector
 ne_tilde = udg(1);
 ni_tilde = udg(2);
+% eta_e = udg(1);
+% eta_p = udg(2);
 phi_tilde = udg(3);
 dne_dr_tilde = udg(4);
+% detae_dr_tilde = udg(4);
 dni_dr_tilde = udg(5);
 Er_tilde = udg(6);
 dne_dz_tilde = udg(7);
+% detae_dz_tilde = udg(7);
 dni_dz_tilde = udg(8);
 Ez_tilde = udg(9);
 
@@ -48,6 +52,12 @@ se = alpha_bar_tilde*mue_tilde*normE_tilde*ne_tilde;
 sphi = charge_prefactor_tilde*(ni_tilde - ne_tilde);    % Note sign flip in source term because the negative sign is absorbed in the diffusive flux in the LHS
 
 f1 = r_tilde*[se se sphi];
+
+% grad_eta_e = [-detae_dr_tilde, -detae_dz_tilde];
+% sphi = charge_prefactor_tilde*(exp(eta_p) - exp(eta_e));    % Note sign flip in source term because the negative sign is absorbed in the diffusive flux in the LHS
+% se = alpha_bar_tilde*mue_tilde*normE_tilde + De_tilde*dot(grad_eta_e, grad_eta_e) + (1-eta_e)*mue_tilde*sphi;
+% sp = alpha_bar_tilde*mue_tilde*normE_tilde*exp(eta_e-eta_p);  % last term is ne/np = exp(eta_e)/exp(eta_p)
+% source = r_tilde*[se sp sphi];
 
 nd = 2;
 ncu = 3;    % num components of U
