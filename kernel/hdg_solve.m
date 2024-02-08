@@ -110,34 +110,111 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                      NEWTON-RAPHSON LOOP                                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-it   = 0;
-duh  = 1e6;
-NewtonTol = 1e-8;
+% it   = 0;
+% duh  = 1e6;
+% NewtonTol = 1e-8;
 
-while duh > NewtonTol && it < NitMax
+% while duh > NewtonTol && it < NitMax
     
-    % Solving for traces increments DUH via the Schurr complement
+%     % Solving for traces increments DUH via the Schurr complement
+%     if app.denseblock==0
+%         %DUH  = sparsesolve(K, F, mesh.f, mesh.f2f, 0, app.hybrid);
+%         %DUH = full(reshape(DUH,ncu,nsiz));
+%         DUH = full(reshape(K\F,ncu,nsiz));
+%     else
+%         DUH = gmres(K, F, f2f);
+%         DUH = full(reshape(DUH,ncu,nsiz));    
+%     end    
+    
+%     % Computing the variables increments DUDGT
+%     if isempty(DUDG)==0
+%         % Reorganize DUH vector using connectivities
+%         DUHE = reshape(full(DUH(:,mesh.elcon(:))),ncu,nfe*npf,ne);
+%         % Update increment DUDG from traces increments
+%         DUDGT = DUDG + reshape(mapContractK(DUDG_DUH,DUHE,[1 2],[3 4],5,[1 2],[],3),[npv nco ne]);
+    
+%     else % compute DUDGT by solving the local problems
+%         DUDGT = hdg_local(master,mesh,app,UDG,UH,SH,DUH);
+%     end
+    
+%     % Linear Flag, currently unused for linear elasticity
+%     if app.linear == 1
+%         UDG(:,1:nco,:)  = UDG(:,1:nco,:) + DUDGT;                     
+%         UH   = UH + DUH;   
+%         if app.getdqdg==0
+%             QDG = getq(master, mesh, UDG, UH, SH, app.fc_q);
+%             UDG(:,ncu+1:end,:)=QDG;
+%         end        
+%         return; 
+%     end        
+    
+%     it = it + 1;    
+%     %fprintf('Newton iteration :  %d\n', it);
+    
+%     % Find stepsize for damped Newton    
+%     UDG0 = UDG;
+%     UH0  = UH;    
+%     duh0 = norm(F(:));   
+%     alfa = 1;
+%     while 1
+%         UDG(:,1:nco,:)  = UDG0(:,1:nco,:) + alfa*DUDGT;                     
+%         UH   = UH0 + alfa*DUH;   
+        
+%         if app.getdqdg==0
+%             QDG = getq(master, mesh, UDG, UH, SH, app.fc_q);
+%             UDG(:,ncu+1:end,:)=QDG;
+%         end        
+        
+%         [K,F,DUDG,DUDG_DUH] = hdg_assemble(master,mesh,app,UDG,UH,SH);        
+%         duh  = norm(F(:));                 
+        
+%         %if it==1
+%         %    break;
+%         %end
+        
+%         if ((duh>duh0) || isnan(duh))
+%             alfa=alfa/2;
+%             %fprintf(' alpha = %f\n',alfa);
+%             if alfa<5e-1, break; end
+%             %if alfa<1e-2, break; end
+%         else
+%             break;
+%         end
+%     end
+       
+%     if duh>1.e3
+%         it = NitMax;
+%     end
+%     if nargout > 2
+%         Nit = it;
+%     end
+%     fprintf('Iteration: %d,   Old residual: %e,   New residual: %e    %e\n', [it duh0 duh alfa]);
+%     %fprintf('Iteration: %d,   New residual: %e,    alpha: %e\n', [it duh alfa]);
+% end
+% fprintf('Newton iterations :  %d\n', it); % a supprimer !!!
+
+it   = 0;
+residualNorm0 = norm(F(:));
+relResidualNorm = 1;
+relNewtonTol = 1e-9;
+while relResidualNorm > relNewtonTol && it < 16
+                
     if app.denseblock==0
-        %DUH  = sparsesolve(K, F, mesh.f, mesh.f2f, 0, app.hybrid);
-        %DUH = full(reshape(DUH,ncu,nsiz));
-        DUH = full(reshape(K\F,ncu,nsiz));
+        DUH = full(reshape(K\F,ncu,nsiz));   
+%         DUH(:,1:3*npf)
+%         pause
     else
         DUH = gmres(K, F, f2f);
         DUH = full(reshape(DUH,ncu,nsiz));    
     end    
-    
-    % Computing the variables increments DUDGT
+                
     if isempty(DUDG)==0
-        % Reorganize DUH vector using connectivities
-        DUHE = reshape(full(DUH(:,mesh.elcon(:))),ncu,nfe*npf,ne);
-        % Update increment DUDG from traces increments
+        DUHE = reshape(full(DUH(:,mesh.elcon(:))),ncu,nfe*npf,ne);    
         DUDGT = DUDG + reshape(mapContractK(DUDG_DUH,DUHE,[1 2],[3 4],5,[1 2],[],3),[npv nco ne]);
-    
     else % compute DUDGT by solving the local problems
         DUDGT = hdg_local(master,mesh,app,UDG,UH,SH,DUH);
     end
     
-    % Linear Flag, currently unused for linear elasticity
     if app.linear == 1
         UDG(:,1:nco,:)  = UDG(:,1:nco,:) + DUDGT;                     
         UH   = UH + DUH;   
@@ -146,17 +223,17 @@ while duh > NewtonTol && it < NitMax
             UDG(:,ncu+1:end,:)=QDG;
         end        
         return; 
-    end        
+    end
     
     it = it + 1;    
-    %fprintf('Newton iteration :  %d\n', it);
+    fprintf('Newton iteration :  %d\n', it);
     
     % Find stepsize for damped Newton    
     UDG0 = UDG;
     UH0  = UH;    
     duh0 = norm(F(:));   
     alfa = 1;
-    while 1
+    while 1        
         UDG(:,1:nco,:)  = UDG0(:,1:nco,:) + alfa*DUDGT;                     
         UH   = UH0 + alfa*DUH;   
         
@@ -168,27 +245,25 @@ while duh > NewtonTol && it < NitMax
         [K,F,DUDG,DUDG_DUH] = hdg_assemble(master,mesh,app,UDG,UH,SH);        
         duh  = norm(F(:));                 
         
-        %if it==1
-        %    break;
-        %end
-        
-        if ((duh>duh0) || isnan(duh))
+        if duh>duh0
             alfa=alfa/2;
-            %fprintf(' alpha = %f\n',alfa);
-            if alfa<5e-1, break; end
-            %if alfa<1e-2, break; end
+            fprintf(' alpha = %f\n',alfa);
+            if alfa<1e-2, break; end
         else
             break;
         end
     end
        
-    if duh>1.e3
-        it = NitMax;
-    end
-    if nargout > 2
-        Nit = it;
-    end
-    fprintf('Iteration: %d,   Old residual: %e,   New residual: %e    %e\n', [it duh0 duh alfa]);
-    %fprintf('Iteration: %d,   New residual: %e,    alpha: %e\n', [it duh alfa]);
+    %save tmp.mat UDG UH;
+    
+%     alpha = 100; beta = 0.1; href = 0.12; hk = 0.001;
+%     div = divergence(UDG, href);
+%     s = ucg2udg(udg2ucg(div, mesh.cgent2dgent, mesh.rowent2elem), mesh.cgelcon);
+%     s = cgpoisson(mesh, master, s, [hk 1.0]);        
+%     a = (s-beta).*(atan(alpha*(s-beta))/pi + 0.5) - atan(alpha)/pi + 0.5;    
+%     a = reshape(a(mesh.t2'), master.npe, 1, mesh.ne);
+%     mesh.dgnodes(:,mesh.nd+1,:) = mesh.av*a;
+        
+    fprintf('Old residual: %e,   New residual: %e    %e\n', [duh0 duh alfa]);       
+    relResidualNorm = duh/residualNorm0;
 end
-fprintf('Newton iterations :  %d\n', it); % a supprimer !!!

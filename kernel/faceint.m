@@ -378,6 +378,3 @@ G  = permute(reshape(G,[npv npf*nfe ne nch nc]),[4 2 1 5 3]);
 H  = permute(reshape(H,[npf*nfe npf*nfe ne nch nch]),[4 1 5 2 3]);
 % t  = reshape(H(:,:,:,:,1),[nch*npf*nfe nch*npf*nfe])
 % pause
-
-
-

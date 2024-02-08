@@ -29,39 +29,55 @@ switch ib
         fh_udg = zeros(ng,nch,nc);
         fh_uh = zeros(ng,nch,nch);
         
-        % Species densities: homogeneous neumann
-        [fh_tmp,fh_udg_tmp,fh_uh_tmp] = fhat_axisymmetric(nl,p,udg,uh,param,time);
+        % ORIGINAL BC: 0 NEUMANN FOR SPECIES
+        % [fh_tmp,fh_udg_tmp,fh_uh_tmp] = fhat_axisymmetric(nl,p,udg,uh,param,time);
 
-        fh(:,[1,2]) = fh_tmp(:,[1,2]);
-        fh_udg(:,[1,2],:) = fh_udg_tmp(:,[1,2],:);
-        fh_uh(:,[1,2],:) = fh_uh_tmp(:,[1,2],:);
+        % fh(:,[1,2]) = fh_tmp(:,[1,2]);
+        % fh_udg(:,[1,2],:) = fh_udg_tmp(:,[1,2],:);
+        % fh_uh(:,[1,2],:) = fh_uh_tmp(:,[1,2],:);
 
-        % Potential: dirichlet
+
+        % NEW BC: INFLOW/OUTFLOW FOR SPECIES
+        Er = udg(:,6);
+        Ez = udg(:,9);
+        E = [Er Ez];
+        Edotn = dot(E,nl, 2);
+
+        % For electrons, (-mue*E)dot(n)<0, or (dphi/dz dot n)<0 corresponds to inflow because the electrons flow in the opposite direction of the potential field.
+        %
+        % NOTE: the inflow/outflow convention doesn't make sense for the positive ions, which are stationary in this model. However, this will be important for future models that include ion drift.
+        % The inflow/outflow will be of the opposite sign for positive ions
+
+        % Determine inflow/outflow nodes. This is general and accounts for nodes on the same boundary being of different inflow/outflow types.
+        nodes_e_in=find(-Edotn < 0);     % Electron inflow
+        nodes_e_out = [find(-Edotn > 0); find(-Edotn == 0)];     % Electron outflow, captures edge case where Edotn == 0 (unlikely)
+
+        % If E pointing out of the domain: electrons flow in -> inflow
+        % Dirichlet condition, ne=ni= 1e13 (nondimensional=>10), same as background density
+        fh(nodes_e_in,1) = r.*tau .*(ui(nodes_e_in,1)-uh(nodes_e_in,1));
+        fh_uh(nodes_e_in,1,1) = -r.*tau;
+
+        fh(nodes_e_out,2) = r.*tau .*(ui(nodes_e_out,2)-uh(nodes_e_out,2));  % The electron outflow nodes are inflow for positive ions. Again, this doesn't really apply for the streamer case, but will in future models.
+        fh_uh(nodes_e_out,2,2) = -r.*tau;
+
+        % If E pointing into the domain: electrons flow out -> outflow
+        % Extrapolate, u=uhat
+        fh(nodes_e_out,1) = r.*tau.*(udg(nodes_e_out,1)-uh(nodes_e_out,1));
+        fh_udg(nodes_e_out,1,1) = r.*tau;
+        fh_uh(nodes_e_out,1,1) = -r.*tau;
+
+        % Opposite for positive ions
+        fh(nodes_e_in,2) = r.*tau.*(udg(nodes_e_in,2)-uh(nodes_e_in,2));
+        fh_udg(nodes_e_in,2,2) = r.*tau;
+        fh_uh(nodes_e_in,2,2) = -r.*tau;
+
+        % Potential: dirichlet (same as original)
         fh(:,3) = r.*tau .*(ui(:,3)-uh(:,3));
         fh_uh(:,3,3) = -r.*tau;
-
-%         fh(:,[1,2,3]) = fh_tmp(:,[1,2,3]);
-%         fh_udg(:,[1,2,3],:) = fh_udg_tmp(:,[1,2,3],:);
-%         fh_uh(:,[1,2,3],:) = fh_uh_tmp(:,[1,2,3],:);        
+        
     case 2  % Right "farfield"
         % Species + potential all have homogeneous neumann
         [fh,fh_udg,fh_uh] = fhat_axisymmetric(nl,p,udg,uh,param,time);
-
-        % fh = zeros(ng,nch);
-        % fh_udg = zeros(ng,nch,nc);
-        % fh_uh = zeros(ng,nch,nch);
-
-        % [fh_tmp,fh_udg_tmp,fh_uh_tmp] = fhat_axisymmetric(nl,p,udg,uh,param,time);
-
-        % fh(:,1) = r.*tau .*(0-uh(:,1));
-        % fh_uh(:,1,1) = -r.*tau;
-
-        % fh(:,2) = r.*tau .*(0-uh(:,2));
-        % fh_uh(:,2,2) = -r.*tau;
-
-        % fh(:,3) = fh_tmp(:,3);
-        % fh_udg(:,3,:) = fh_udg_tmp(:,3,:);
-        % fh_uh(:,3,:) = fh_uh_tmp(:,3,:);
 
     case 3  % Symmetry boundary: extrapolate m=u or u=uhat
         fh = zeros(ng,nch);
