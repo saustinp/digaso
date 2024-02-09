@@ -58,7 +58,7 @@ UH=inituhat(master,mesh.elcon,UDG,1);
 
 [UDG,UH] = hdg_solve(master,mesh,app,UDG,UH,0*UDG);
 
-save '../poissonICdoubleelec.mat' UDG
+save '../poissonICdoubleelec76k.mat' UDG
 
 normE = sqrt(UDG(:,2,:).^2 + UDG(:,3,:).^2);
 figure(); scaplot(mesh,normE,[],0,0); axis equal; axis tight; colormap jet;

@@ -32,9 +32,9 @@ E_ref = app.arg{3};
 phi0 = app.arg{5};
 phi0_tilde = phi0/(E_ref*l_ref);
 
-app.bcm = [1; 2; 1; 3;];            % Mod for testing the C++ code
+app.bcm = [3; 2; 1; 1;];
 %app.bcs = [0;0;phi0_tilde;0];
-app.bcs  = [[0  0 0]; [0 0 0]; [0 0 phi0_tilde]; [0 0 0]];
+app.bcs  = [[0 0 0]; [0 0 0]; [log(10) log(10) phi0_tilde]; [log(10) log(10) 0]];
 app.fcu_vector = [1;1;0];
 % app.bcs = [0;0;0;0];
 
@@ -71,8 +71,9 @@ app.dtfc = [];
 app.alpha = [];
 
 % mesh = mkmesh_rect(41,81,porder,0,[0 125 0 125],0,1);
-mesh = mkmesh_streamer_gmsh(porder, "streamer_16k_fixed.msh");
-linearmesh = mkmesh_streamer_gmsh(1, "streamer_16k_fixed.msh");
+% mesh = mkmesh_streamer_gmsh(porder, "streamer_16k_fixed.msh");
+% linearmesh = mkmesh_streamer_gmsh(1, "streamer_16k_fixed.msh");
+mesh = mkmesh_dual_electrode(porder, "dual_electrode76k.msh");
 
 % mesh = mkmesh_streamer_gmsh(2, "streamer_16k-3.msh");
 master = mkmaster(mesh,2*porder);
@@ -119,11 +120,11 @@ for itime = 1:ntime
 
     [UDG,UH] = hdg_solve_dirk(master,mesh,app,UDG,UH,[],time,dt(itime+itime_restart),nstage,torder,linearmesh);
     time = time + dt(itime+itime_restart);
-    % fname_out = 'run_11_7_23/time' + string(itime+itime_restart);
+    % fname_out = 'run020824/time' + string(itime+itime_restart);
     % save(fname_out, "UDG");
 
     disp('ne max')
-    disp(max(max(UDG(:,1,:))))
+    disp(exp(max(max(UDG(:,1,:)))))
     disp('E max');
 
     Er = UDG(:,6,:);

@@ -772,7 +772,7 @@ void DIRKsolveUnsteadyProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &
             Int nfin = sys.entpartpts[0]+sys.entpartpts[1];
             Int bsz = sys.blkSize;
             char fname[55];
-            snprintf(fname, 55, "./run0126_mesh89_dt5_tau15/time%04d_np%d.bin", i+1, sys.my_rank);
+            snprintf(fname, 55, "./run020824/time%04d_np%d.bin", i+1, sys.my_rank);
             string filename(fname);     // Create a C++ string from the C string for the function call
             sol.writeSol2File(filename, nein, bsz*nfin, ndims, writeQflag);
 
@@ -852,7 +852,7 @@ void solveProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &mesh, master
         Int nfin = sys.entpartpts[0]+sys.entpartpts[1];
         Int bsz = sys.blkSize;
         char fname[55];
-        snprintf(fname, 55, "./run0126_mesh89_dt5_tau15/time0000_np%d.bin", sys.my_rank);
+        snprintf(fname, 55, "./run020824/time0000_np%d.bin", sys.my_rank);
         string filename(fname);     // Create a C++ string from the C string for the function call
         sol.writeSol2File(filename, nein, bsz*nfin, ndims, writeQflag);
 

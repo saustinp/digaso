@@ -440,7 +440,7 @@ void initializeStructs(meshstruct &mesh, vector< masterstruct > &master, appstru
                 npe*ncu + npe*npe*ncu*nc + npe*ncu*ndf*nch + nch*ndf + nch*ndf + 
                 nch*ndf*npe*nc + nch*ndf*nch*ndf + npe * npe * ncu * ncu + npe * npe * ncu * ncu + 
                 max(npe * npe, ncu * ncu) + max(npe * ndf * ncu, ncu * ncu * npf) + max(npe,ncu) + ngf*nco+nge*nco+ndf*nco+ngf*nfe*nco+
-                nfe*ngf*nch + nfe*ngf*nch*nc + nfe*ngf*nch*nch;// + npv*ne; // Last three are for the total fbou arrays
+                nfe*ngf*nch + nfe*ngf*nch*nc + nfe*ngf*nch*nch + ngf;// + npv*ne; // [-4,-1] are for the total fbou arrays, [-1] is for the inflowflag
     
 	if (app.flag_q == 1) {
         elemtempLen += npe*ncu*npe*ncu + npe*ncu*ncu*ndf + ncu*ndf*npe*ncu + 
@@ -733,6 +733,9 @@ void initializeStructs(meshstruct &mesh, vector< masterstruct > &master, appstru
     start += nfe*ngf*nch*nc;
     temps.combined_fb_uh = &sys.v[start];
     start += nfe*ngf*nch*nch;
+
+    temps.inflowflag = &sys.v[start];
+    start += ngf;
 
     temps.pft = &sys.v[start];
     start += ngf*ncd;

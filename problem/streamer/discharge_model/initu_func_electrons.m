@@ -6,5 +6,5 @@ function u0 = initu_func_electrons(dgnodes, param)
 
     n_background_tilde = n_background*(l_ref^3);
 
-    u0 = n_background_tilde;     % Uniform background density
+    u0 = log(n_background_tilde);     % Uniform background density
 end

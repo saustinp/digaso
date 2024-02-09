@@ -469,7 +469,7 @@ void solveUnsteadyProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
         }
 
         std::cout<<"normE max: "<<normEMax*3e6<<std::endl;
-        std::cout<<"ne max: "<<neMax<<"\n"<<std::endl;
+        std::cout<<"ne max: "<<exp(neMax)<<"\n"<<std::endl;
 
         // Write solution to file
         char fname[30];

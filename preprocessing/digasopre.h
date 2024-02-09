@@ -541,6 +541,7 @@ struct tempstruct {
     double* combined_fb;
     double* combined_fb_u;
     double* combined_fb_uh;
+    double* inflowflag;
 
     double* uft_ref;
     double* uht_ref;

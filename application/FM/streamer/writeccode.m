@@ -71,14 +71,29 @@ fhat = [simplify(ff(1)*nl(1) + ff(4)*nl(2) + tau*(ne_tilde-uh(1))),...
 
 % Source
 charge_prefactor_tilde = e_eps0/(E_ref*l_ref^2);
-se = alpha_bar_tilde*mue_tilde*normE_tilde*ne_tilde;
-sphi = charge_prefactor_tilde*(ni_tilde - ne_tilde);    % Note sign flip in source term because the negative sign is absorbed in the diffusive flux in the LHS
+% se = alpha_bar_tilde*mue_tilde*normE_tilde*ne_tilde;
+% sphi = charge_prefactor_tilde*(ni_tilde - ne_tilde);    % Note sign flip in source term because the negative sign is absorbed in the diffusive flux in the LHS
 
-s = r_tilde*[se se sphi];
+% s = r_tilde*[se se sphi];
+eta_e = udg(1);
+eta_p = udg(2);
+phi_tilde = udg(3);
+detae_dr_tilde = udg(4);
+detai_dr_tilde = udg(5);
+Er_tilde = udg(6);
+deta_dz_tilde = udg(7);
+detai_dz_tilde = udg(8);
+Ez_tilde = udg(9);
 
-filename1 = ['fluxG_' appname num2str(nd) 'd' '.c'];
+% grad_eta_e = [-detae_dr_tilde, -deta_dz_tilde];
+sphi = charge_prefactor_tilde*(exp(eta_p) - exp(eta_e));    % Note sign flip in source term because the negative sign is absorbed in the diffusive flux in the LHS
+se = alpha_bar_tilde*mue_tilde*normE_tilde + De_tilde*(detae_dr_tilde^2 + deta_dz_tilde^2) + (1-eta_e)*mue_tilde*sphi;
+sp = alpha_bar_tilde*mue_tilde*normE_tilde*exp(eta_e-eta_p);  % last term is ne/np = exp(eta_e)/exp(eta_p)
+s = r_tilde*[se sp sphi];
+
+filename1 = ['fluxG_' appname num2str(nd) 'd' '.c'];        % G so that the original files aren't overwritten
 filename2 = ['sourceG_' appname num2str(nd) 'd'  '.c'];
-filename3 = ['fhat_' appname num2str(nd) 'd' '.c'];
+filename3 = ['fhatG_' appname num2str(nd) 'd' '.c'];
 
 genccode; % generate source codes
 

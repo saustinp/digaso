@@ -1,4 +1,4 @@
-function hh = boundaryplot(mesh,opts,ib)
+function hh = boundaryplot(mesh,opts,ib, color)
 %MESHPLOT  Plot mesh structure 
 %    MESHPLOT(MESH,[OPTS])
 %

@@ -1,4 +1,4 @@
-function [UDG,UH] = getsolfrombinaryfile(filename,nproc,npv,nc,npf,nch,hybrid)
+function [UDG,UH] = getsolfrombinaryfile(filename,nproc,npv,nc,npf,nch,hybrid, time)
 
 if nproc==1
     fileID = fopen([filename,'.bin'],'r');
@@ -50,7 +50,8 @@ else
     end        
     
     for i = 1:nproc        
-        fileID = fopen([filename '_np' num2str(i-1) '.bin'],'r');
+        fname = filename + sprintf("%04d",time) + '_np' +num2str(i-1) +'.bin';
+        fileID = fopen(fname,'r');
         ndims = fread(fileID,2,'double');                               
         
         ne = nelem(i);
