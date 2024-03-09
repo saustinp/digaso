@@ -6,8 +6,8 @@ void fbou2d(double *fh, double *fh_u, double *fh_uh,
 {            
     
     int    i;                   
-    double tau = param[9];   
-	double r1=1.0;       // Mod for axisymmetric
+    double tau = param[10];   
+    double r1=1.0;       // Mod for axisymmetric
     double EdotN;
     double* inflowflag = &temp.inflowflag[0];
 
@@ -35,7 +35,7 @@ void fbou2d(double *fh, double *fh_u, double *fh_uh,
         }
 
         // fh
-		for (i=0; i<ng; i++)
+		for (i=0; i<ng; i++) {
             if (inflowflag[i] == 1) {
                 fh[0*ng + i] = r1*tau*(ui[0]-uhg[0*ng+i]);         // Electrons inflow
                 fh[1*ng + i] = r1*tau*(udg[1*ng+i]-uhg[1*ng+i]);         // Ions outflow
@@ -46,6 +46,7 @@ void fbou2d(double *fh, double *fh_u, double *fh_uh,
             }
 
 			fh[2*ng + i] = r1*tau*(ui[2]-uhg[2*ng+i]);    // Potential: dirichlet
+        }
 
         // fh_udg
 		for (int k=0; k<nc; k++){
@@ -53,16 +54,19 @@ void fbou2d(double *fh, double *fh_u, double *fh_uh,
 				for (int i=0; i<ng; i++) {
 					if (j == 0 && k == 0){  // Electrons
                         if (inflowflag[i] == 0)
-                            fh_uh[ng*nch*k + ng*j + i] = r1*tau;    // Electrons outflow
+                            fh_u[ng*nch*k + ng*j + i] = r1*tau;    // Electrons outflow
                     }
                     else if (j == 1 && k == 1){     // Ions
                         if (inflowflag[i] == 1)
-                            fh_uh[ng*nch*k + ng*j + i] = r1*tau;    // Ions outflow
+                            fh_u[ng*nch*k + ng*j + i] = r1*tau;    // Ions outflow
                     }
                     // Note that the terms for zeroing the fields corresponding to the potential have been removed since fhat() is no longer called.
 				}
 			}
 		}
+
+        // print3darray(fh_u, 3,3,9);   
+        // exit(-1);     
 
         // fh_uh
 		for (int k=0; k<nch; k++){
@@ -83,7 +87,7 @@ void fbou2d(double *fh, double *fh_u, double *fh_uh,
 	}
 
     else if (ib==2) { // Right farfield -- species + potential all have homogeneous neumann
-        fhat2d(fh, fh_u, fh_uh, pg, udg, uhg, nl, param, time, ng, nch, nc, nd, ncd);    
+        fhat_streamer2d(fh, fh_u, fh_uh, pg, udg, uhg, nl, param, time, ng, nch, nc, nd, ncd);    
 
     }  
 
@@ -96,6 +100,8 @@ void fbou2d(double *fh, double *fh_u, double *fh_uh,
         for (i=0; i<ng*nch*nch; i++)
             fh_uh[i] = 0.0;
 
+        //fb_streamer2d(fh, fh_u, fh_uh, pg, udg, uhg, nl, param, time, ng, nch, nc, nd, ncd);    
+        
         for (i=0; i<ng; i++) {
 
             // fh(:,1), fh(:,2), fh(:,3)
@@ -113,6 +119,6 @@ void fbou2d(double *fh, double *fh_u, double *fh_uh,
             fh_uh[1*ng*nch+1*ng+i] = -r1*tau;
             fh_uh[2*ng*nch+2*ng+i] = -r1*tau;
         }
-	}
+  	}
 
 }

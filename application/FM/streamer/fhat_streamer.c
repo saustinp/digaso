@@ -7,7 +7,7 @@ void fhat_streamer(double *f, double *f_udg, double * f_uh, double *pg, double *
 {    
     switch (nd) {
         case 2:            
-            fhat2d(f, f_udg, f_uh, pg, udg, uh, nl, param, time, ng, nc, ncu, nd, ncd);            
+            fhat_streamer2d(f, f_udg, f_uh, pg, udg, uh, nl, param, time, ng, nc, ncu, nd, ncd);            
             break;
         default:
             exit(-1);

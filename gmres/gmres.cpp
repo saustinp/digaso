@@ -216,6 +216,8 @@ void gmres(sysstruct &sys, Int *convFlag)
     for (i=0; i<sys.Rg.size(); i++)
         sys.Rg_0[i] = sys.Rg[i];
 
+    nrmb = DNRM2(&N, &sys.Rg[0], &inc);
+    std::cout<<"Residual norm before preconditioner: "<<nrmb<<std::endl;
     /* Compute preconditioned RHS (only for left preconditioner) */
     if (preconditionerSide == 0)
         applyPreconditioner(sys, &sys.Rg[0], 0, requestCounter);

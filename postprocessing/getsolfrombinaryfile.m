@@ -1,7 +1,8 @@
-function [UDG,UH] = getsolfrombinaryfile(filename,nproc,npv,nc,npf,nch,hybrid, time)
+function [UDG,UH] = getsolfrombinaryfile(filename, filename1,nproc,npv,nc,npf,nch,hybrid, time)
 
 if nproc==1
-    fileID = fopen([filename,'.bin'],'r');
+    % fileID = fopen([filename,'.bin'],'r');
+    fileID = fopen(filename,'r');
     ndims = fread(fileID,2,'double');
     ne = ndims(1)/(npv*nc);
     UDG = reshape(fread(fileID,ndims(1),'double'),[npv nc ne]);    
@@ -24,13 +25,13 @@ else
     nelem = zeros(nproc,1);
     nent = zeros(nproc,1);
     for i = 1:nproc
-        fileID = fopen([filename 'elempart_np' num2str(i-1) '.bin'],'r');
+        fileID = fopen([filename1 'elempart_np' num2str(i-1) '.bin'],'r');
         elemparti = fread(fileID,'int');
         nelem(i) = length(elemparti);
         elempart = [elempart; elemparti];
         fclose(fileID);
         
-        fileID = fopen([filename 'entpart_np' num2str(i-1) '.bin'],'r');
+        fileID = fopen([filename1 'entpart_np' num2str(i-1) '.bin'],'r');
         entparti = fread(fileID,'int');
         nent(i) = length(entparti);
         entpart = [entpart; entparti];
@@ -56,13 +57,14 @@ else
         
         ne = nelem(i);
         UDG(:,:,elempart((n1(i)+1):(n1(i)+ne))) = reshape(fread(fileID,ndims(1),'double'),[npv nc ne]);
-        
-        nf = nent(i);                
-        if strcmp(hybrid,'hdg')==1                                    
-            UH(:,:,entpart((n2(i)+1):(n2(i)+nf))) = reshape(fread(fileID,ndims(2),'double'),[nch npf nf]);            
-        else            
-            UH(:,entpart((n2(i)+1):(n2(i)+nf))) = reshape(fread(fileID,ndims(2),'double'),[nch nf]);            
-        end
+       
+
+        % nf = nent(i);                
+        % if strcmp(hybrid,'hdg')==1                                    
+        %     UH(:,:,entpart((n2(i)+1):(n2(i)+nf))) = reshape(fread(fileID,ndims(2),'double'),[nch npf nf]);            
+        % else            
+        %     UH(:,entpart((n2(i)+1):(n2(i)+nf))) = reshape(fread(fileID,ndims(2),'double'),[nch nf]);            
+        % end
         
         fclose(fileID);
     end

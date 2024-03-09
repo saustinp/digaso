@@ -65,7 +65,7 @@ void print1darray(double* a, Int m)
 
 void print2darray(double* a, Int m, Int n)
 {
-    //cout.precision(4);
+    cout.precision(15);
     for (Int i=0; i<m; i++) {
         for (Int j=0; j<n; j++)
             cout << scientific << a[j*m+i] << "   ";

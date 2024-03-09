@@ -1,3 +1,5 @@
 data*
-run01*
+run*
 cluster*
+debug*
+problem/streamer/discharge_model/UDG3600_fullion.mat

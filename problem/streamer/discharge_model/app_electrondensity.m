@@ -6,7 +6,10 @@ tau = 1;
 clear app;
 app.axisymmetry = 1;
 
+ne_star = 10^7; % this constant is used to normalize ne and ni
+
 app.arg = phys_param();     % Physics param loaded in a separate script
+app.arg{end+1} = ne_star;
 app.arg{end+1} = tau;
 
 app.source = 'source2d';
@@ -14,7 +17,6 @@ app.flux = 'flux2d';
 app.fbou = 'fbou_electrondensity';
 app.fhat = 'fhat_axisymmetric';
 app.localsolve=1;
-app.debugmode=1;
 
 % Boundaries
 % 1 Bottom electrode
@@ -34,7 +36,7 @@ phi0_tilde = phi0/(E_ref*l_ref);
 
 app.bcm = [1; 2; 1; 3;];            % Mod for testing the C++ code
 %app.bcs = [0;0;phi0_tilde;0];
-app.bcs  = [[log(10) log(10) 0]; [0 0 0]; [log(10) log(10) phi0_tilde]; [0 0 0]];
+app.bcs  = [[10/ne_star 10/ne_star 0]; [0 0 0]; [10/ne_star 10/ne_star phi0_tilde]; [0 0 0]];
 app.fcu_vector = [1;1;0];
 % app.bcs = [0;0;0;0];
 
@@ -90,6 +92,7 @@ initu_func_set = {@initu_func_electrons;@initu_func_ions;0;   0;@initq_func_ions
 load '../poissonIC.mat';
 UDG_poisson = UDG;      % Load in the poisson as UDG
 UDG = initu(mesh,initu_func_set,app.arg);
+UDG(:,[1,2,4,5,7,8],:) = UDG(:,[1,2,4,5,7,8],:)/ne_star;
 UDG(:,[3,6,9],:) = UDG_poisson;
 UH=inituhat(master,mesh.elcon,UDG,app.ncu);
 [QDG, qq, MiCE] = getq(master, mesh, UDG, UH, [], 1);
@@ -104,6 +107,7 @@ itime_restart = 0;
 % UH=inituhat(master,mesh.elcon,UDG,app.ncu);
 
 % diary run_11_7_23/run_11_7_23.txt;
+% diary run022524_mat/run022524_mat.txt
 % diary on;
 time = itime_restart*dt(1);     % Need to change if non-constant dt
 disp('Starting sim...')
@@ -111,19 +115,24 @@ disp('Starting sim...')
 % disp('ne max')
 % disp(max(max(UDG0(:,1,:))))
 
+%app.debug_digaso = 1;
+
 % save 'run_11_7_23/time501' UDG;
 % return;
 for itime = 1:ntime
-    diary on;
+    % diary on;
     fprintf('Timestep :  %d\n', itime+itime_restart);
 
-    [UDG,UH] = hdg_solve_dirk(master,mesh,app,UDG,UH,[],time,dt(itime+itime_restart),nstage,torder,linearmesh);
+    [UDG,UH] = hdg_solve_dirk(master,mesh,app,UDG,UH,[],time,dt(itime+itime_restart),nstage,torder);
     time = time + dt(itime+itime_restart);
-    % fname_out = 'run020824/time' + string(itime+itime_restart);
-    % save(fname_out, "UDG");
-
+    
+    if rem(itime,10) == 0
+      fname_out = 'run030724_mat/time' + string(itime+itime_restart);
+      save(fname_out, "UDG");
+    end
+    
     disp('ne max')
-    disp(exp(max(max(UDG(:,1,:)))))
+    disp(max(max(UDG(:,1,:))))
     disp('E max');
 
     Er = UDG(:,6,:);
@@ -134,3 +143,4 @@ for itime = 1:ntime
     % diary off;
 
 end
+

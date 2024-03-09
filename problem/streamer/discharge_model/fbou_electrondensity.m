@@ -74,6 +74,8 @@ switch ib
         % Potential: dirichlet (same as original)
         fh(:,3) = r.*tau .*(ui(:,3)-uh(:,3));
         fh_uh(:,3,3) = -r.*tau;
+
+        % error;
         
     case 2  % Right "farfield"
         % Species + potential all have homogeneous neumann

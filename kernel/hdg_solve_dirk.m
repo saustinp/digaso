@@ -1,4 +1,4 @@
-function [Un,Hn,Pn] = hdg_solve_dirk(master,mesh,app,UDG,UH,PDG,time,dt,nstage,torder, linearmesh)
+function [Un,Hn,Pn] = hdg_solve_dirk(master,mesh,app,UDG,UH,PDG,time,dt,nstage,torder)
     %HDG_SOLVE_DIRK Solve using the HDG method and Newton's iteraion - DIRK timestepping
     %   [UH,QH,UHAT] = HDG_SOLVE_DIRK(MASTER,MESH,UH,QH,UHAT,APP,TIME,DT,NSTAGE,TORDER)
     %
@@ -56,6 +56,23 @@ function [Un,Hn,Pn] = hdg_solve_dirk(master,mesh,app,UDG,UH,PDG,time,dt,nstage,t
                   (d(3,1)/d(2,1))*((d(2,1)+d(2,2))*UDG-SDG) - d(3,2)*UDGn;    
         end        
         
+        if isfield(app,"ode")
+          if app.ode
+            if istage==1
+                ODG = d(1,1)*PDG; 
+            elseif istage == 2
+                ODG = (d(2,1)+d(2,2))*PDG - d(2,1)*PDGn;
+            elseif istage == 3
+                ODG = (d(3,1)+d(3,2)+d(3,3))*PDG - ...
+                      (d(3,1)/d(2,1))*((d(2,1)+d(2,2))*PDG-ODG) - d(3,2)*PDGn;    
+            end                  
+          else
+            ODG = [];
+          end        
+        else
+          ODG = [];
+        end
+        
         app.time = time+dt*t(istage);
         app.fc_u = fc_u;
         app.fc_q = fc_q;
@@ -88,10 +105,23 @@ function [Un,Hn,Pn] = hdg_solve_dirk(master,mesh,app,UDG,UH,PDG,time,dt,nstage,t
     
 %         [QDG, qq, MiCE] = getq(master, mesh, UDG, UH, [], fc_q);
 %         UDG(:,app.ncu+1:app.nc,:) = QDG;
-        [UDGn,UHn] = hdg_solve(master,mesh,app,UDG,UH,SDG);
+        [UDGn,UHn] = hdg_solve(master,mesh,app,UDG,UH,SDG,ODG);
         Un = Un + c(istage)*UDGn;
         Hn = Hn + c(istage)*UHn;
         
+        if isfield(app,"ode")
+          if app.ode
+            npv = master.npv; ne = mesh.ne; nd = mesh.nd; nc = app.nc;
+            sourceode = str2func(app.sourceode);
+            src = sourceode(reshape(permute(mesh.dgnodes(:,1:nd,:),[1 3 2]), [npv*ne nd]), reshape(permute(UDGn,[1 3 2]), [npv*ne nc]), app.arg);
+            nco = size(tm,2);
+            % update ni_tilde which is PDG
+            PDGn = (1/d(istage,istage))*(permute(reshape(src,[npv ne nco]),[1 3 2]) + ODG);
+            % PDGn = (1/d(istage,istage))*(alpha_bar_tilde*mu_tilde * normE * ne_tilde  + ODG);
+            Pn = Pn + c(istage)*PDGn;         
+          end
+        end
+            
         if app.wave        
             if istage==1
                 SPG = d(1,1)*PDG; 

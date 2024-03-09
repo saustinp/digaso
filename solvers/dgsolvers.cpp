@@ -114,10 +114,15 @@ void solveNonlinearProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, 
     sys.robustMode = 0;
     Int iter = 0, trueNewtonIter = 0;
 
-    computeResidualNorm(sys, elems, mesh, master, sol, app, temps);
+    if (app.debugmode==1){  // Don't compute the residual if in debug mode because it will print out the arrays twice during the assembly step.
+        ;   // "pass"
+    } else {
+        computeResidualNorm(sys, elems, mesh, master, sol, app, temps); 
+    }
+    
     double residualNorm0 = sol.rNorm;
     double relResidualNorm = 1;
-    double relNewtonTol = 1e-9;
+    double relNewtonTol = 1e-6;
     // while relResidualNorm > relNewtonTol && it < 16
     // std::cout<<residualNorm0<<std::endl;
     // exit(-1);
@@ -364,7 +369,7 @@ void solveUnsteadyProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
             /* Solve the steady problem corresponding to the istage stage */
             *convFlag = 0;
             numSolvesAttemped = 0;
-            while (*convFlag != 1) {
+            //while (*convFlag != 1) {
                 solveSteadyProblem(sys, elems, mesh, master, sol, app, temps, ndims, convFlag);
                 if (*convFlag != 1) {
 //                     numSolvesAttemped ++;
@@ -372,7 +377,7 @@ void solveUnsteadyProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
 //                         app.DIRKnotConverged[ii-1] = 1;
                         
                         printf("\n\nWARNING: Unsteady solve at time step %d, DIRK stage %d did not converge.\n",i+1,istage+1);
-                        error("\n");
+                        //error("\n");
                         
 // //                         /////////// HACK START ///////////
 // //                         for (j=0; j<szu; j++)
@@ -395,7 +400,7 @@ void solveUnsteadyProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
 //                     for (j=0; j<szh; j++)
 //                         sol.UH[j] = UHpre[jstar*szh+j];
                 }
-            }
+            //}
                         
             if (app.wave)   {
                 switch (istage) {
@@ -430,15 +435,15 @@ void solveUnsteadyProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
         //    computeAvgSolution(sol, (i+1)-(timeStepToStartAvg-1));
         
         // Write solution to file:
-        if (((i+1) % saveSolFreq) == 0) {
-            string filename = app.fileout + "_t" + NumberToString(i+1) + ".bin";
-            sol.writeSol2File(filename, ne, bsz*numEntities, ndims, writeQflag);
-            
-            //if ((i+1 >= timeStepToStartAvg) && (writeAvgSolution == 1)) {
-            //    string filename_avg = app.fileout + "_avg.bin";
-            //    sol.writeAvgSol2File(filename_avg, ne, bsz*numEntities, ndims, writeQflag);
-            //}
-        }
+//         if (((i+1) % saveSolFreq) == 0) {
+//             string filename = app.fileout + "_t" + NumberToString(i+1) + ".bin";
+//             sol.writeSol2File(filename, ne, bsz*numEntities, ndims, writeQflag);
+//             
+//             //if ((i+1 >= timeStepToStartAvg) && (writeAvgSolution == 1)) {
+//             //    string filename_avg = app.fileout + "_avg.bin";
+//             //    sol.writeAvgSol2File(filename_avg, ne, bsz*numEntities, ndims, writeQflag);
+//             //}
+//         }
         
         printf("\n\nTOTAL TIME TO SOLVE TIME-STEP NO. %d: %g ms\n\n", i+1, ((clock() - t1)*1.0e3)/CLOCKS_PER_SEC);
 
@@ -469,14 +474,16 @@ void solveUnsteadyProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
         }
 
         std::cout<<"normE max: "<<normEMax*3e6<<std::endl;
-        std::cout<<"ne max: "<<exp(neMax)<<"\n"<<std::endl;
+        std::cout<<"ne max: "<<neMax<<"\n"<<std::endl;
 
         // Write solution to file
-        char fname[30];
-        snprintf(fname, 25, "./run011824/time%04d.bin", i+1);
-        string filename(fname);     // Create a C++ string from the C string for the function call
-        writeArrayData2File(filename, &sol.UDG[0], ne*npv*nc);
-
+        if (((i+1) % 10) == 0) {
+          char fname[35];
+          snprintf(fname, 35, "./run022224_dig/time%04d.bin", i+1);
+          string filename(fname);     // Create a C++ string from the C string for the function call
+          writeArrayData2File(filename, &sol.UDG[0], ne*npv*nc);
+        }
+        
         // char fname[30];
         // snprintf(fname, 25, "./run011124/time%04d.bin", i);
         // ofstream out(fname, ios::out | ios::binary);
@@ -533,7 +540,7 @@ void solveProblem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, masterstr
     
     if (app.tdep == 1) {
         // Write IC to file
-        writeArrayData2File("./run011824/time0000.bin", &sol.UDG[0], ne*npv*nc);
+        writeArrayData2File("./run022224_dig/time0000.bin", &sol.UDG[0], ne*npv*nc);
         solveUnsteadyProblem(sys, elems, mesh, master, sol, app, temps, ndims);    
     }  
     else {

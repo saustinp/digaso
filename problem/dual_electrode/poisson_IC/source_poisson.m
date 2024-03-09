@@ -13,12 +13,16 @@ e_eps0 = param{5};
 N0 = param{7};
 z0 = param{8};
 sigma0 = param{9};
+z0e = param{10};
 
 N0_tilde = N0*(l_ref^3);
 z0_tilde = z0/l_ref;
+z0e_tilde = z0e/l_ref;
 sigma0_tilde = sigma0/l_ref;
 
-sr = r_tilde.*(e_eps0/(E_ref*l_ref^2)).*N0_tilde.*exp(-((z_tilde - z0_tilde).^2 + r_tilde.^2)/(sigma0_tilde^2));
+
+sr = r_tilde.*(e_eps0/(E_ref*l_ref^2)).*N0_tilde.*(exp(-((z_tilde - z0_tilde).^2 + r_tilde.^2)/(sigma0_tilde^2)) - exp(-((z_tilde - z0e_tilde).^2 + r_tilde.^2)/(sigma0_tilde^2)));
+% sr = r_tilde.*0;
 
 % ni_discharge = p(:,3);
 % ne_discharge = p(:,4);

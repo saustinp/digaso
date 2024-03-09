@@ -1,4 +1,4 @@
-function [Ru, Rq, Rh, BD, F, E, G, H, Ju, Jq, Jh, wrb] = faceint(master,app,bf,dgnodes,UDG,UH,Ru,Rq,BD,Ju,Jq)
+function [Ru, Rq, Rh, BD, F, E, G, H, Ju, Jq, Jh, wrb] = faceint(master,app,bf,dgnodes,UDG,ODG,UH,Ru,Rq,BD,Ju,Jq)
 % FACEINTND compute face integrals 
 
 % Obtain dgnodes, Jacobian matrix and determinant at Gauss points
@@ -55,6 +55,15 @@ udgn = reshape(UDG(perm,:,:),[npf nfe*ne*nc]);
 udgg = shapft*udgn;
 udgg = reshape(udgg,[ngf*nfe*ne nc]);
 
+% DG solution at Gauss points
+nco = 0;
+if isempty(ODG)==0
+  nco = size(ODG,3);
+  odgn = reshape(ODG(perm,:,:),[npf nfe*ne*nco]);
+  odgg = shapft*odgn;
+  odgg = reshape(odgg,[ngf*nfe*ne nco]);
+end
+
 % for comparison
 udgn =reshape(udgn, [npf*nfe*ne nc]);
 
@@ -63,7 +72,11 @@ uhg = shapft*uh;
 uhg = reshape(uhg,[ngf*nfe*ne nch]);
 
 % Compute numerical fluxes 
-[FH, FH_udg, FH_uh] = fhat(nlg, pg, udgg, uhg, arg, time);     
+if isempty(ODG)==0
+  [FH, FH_udg, FH_uh] = fhat(nlg, pg, udgg, odgg, uhg, arg, app.fc_u, time);     
+else
+  [FH, FH_udg, FH_uh] = fhat(nlg, pg, udgg, uhg, arg, time);     
+end
 
 if isfield(app, 'debug_digaso')
     uhgdig=readbin('./debug/debug8.bin');  % uhg       
@@ -75,45 +88,70 @@ if isfield(app, 'debug_digaso')
     fhuhdig=readbin('./debug/debug14.bin');  % fh_uh
     ufdig = readbin('./debug/debug30.bin');
     udgdig=readbin('./debug/debug31.bin');  
-            
+
     err = zeros(10,1);
     ugfdig = permute(reshape(ugfdig, [ngf nfe nc ne]),[1 2 4 3]);
     err(1) = max(abs(ugfdig(:)-udgg(:)));    
-    
+
     ufdig = permute(reshape(ufdig, [npf nfe nc ne]),[1 2 4 3]);
     err(2) = max(abs(ufdig(:)-udgn(:)));
-        
-    udgdig = permute(reshape(udgdig, [npv nc ne]),[1 3 2]);        
+
+    udgdig = permute(reshape(udgdig, [npv nc ne]),[1 3 2]);
     err(3) = max(abs(udgdig(:)-UDG(:)));    
-    
+
     fprintf('|ugf-ugfdig| = %e,   |uf-ufdig| = %e,   |udg-udgdig| = %e  \n', err(1:3));     
-    
+
     uhgdig = permute(reshape(uhgdig, [ngf nfe nch ne]),[1 2 4 3]);
     err(4) = max(abs(uhgdig(:)-uhg(:)));    
-    
+
     pgfdig = permute(reshape(pgfdig, [ngf nfe nd ne]),[1 2 4 3]);
     err(5) = max(abs(pgfdig(:)-pg(:)));    
-    
+
     nlgfdig = permute(reshape(nlgfdig, [ngf nfe nd ne]),[1 2 4 3]);
     err(6) = max(abs(nlgfdig(:)-nlg(:)));    
-    
+
     fprintf('|uhg-uhgdig| = %e,   |pgf-pgfdig| = %e,   |nlg-nlgdig| = %e  \n', err(4:6));         
+
+%     reshape(ugfdig(:,:,1,1:nch), [ngf*nfe nch])
+%     reshape(udgg(1:ngf*nfe,1:nch),[ngf*nfe nch])
+%     
+%     reshape(uhgdig(:,:,1,1:nch), [ngf*nfe nch])
+%     reshape(uhg(1:ngf*nfe,:),[ngf*nfe nch])    
+%    
+%     reshape(fhdig(1:ngf*nfe*nch),[ngf*nfe nch])
+%     reshape(FH(1:ngf*nfe,:),[ngf*nfe nch])    
     
     fhdig = permute(reshape(fhdig, [ngf nfe nch ne]),[1 2 4 3]);
     tm = fhdig(:)-FH(:);
     err(7) = max(abs(tm));        
-    
+
     fhudig = permute(reshape(fhudig, [ngf nfe nch nc ne]),[1 2 5 3 4]);
     tm = fhudig(:)-FH_udg(:);
     err(8) = max(abs(tm));        
-    
+
     fhuhdig = permute(reshape(fhuhdig, [ngf nfe nch nch ne]),[1 2 5 3 4]);
     tm = fhuhdig(:)-FH_uh(:);
     err(9) = max(abs(tm));        
-    
+
     fprintf('|fh-fhdig| = %e,   |fhu-fhudig| = %e,   |fhuh-fhuhdig| = %e  \n', err(7:9));         
     
-    %error('Done comparing');  
+    % FH = reshape(FH,[ngf nfe ne nch]);
+    % fhat_indicator = zeros(size(UDG));
+    % fhat_indicator = permute(fhat_indicator, [1,3,2]);
+    % for ie=1:ne
+    %   e = FH(:,:,ie,:) - fhdig(:,:,ie,:);
+    %   if max(abs(e(:)))>1e-6
+    %     % ie
+    %     % dgnodes(:,ie,:)
+    %     fhat_indicator(:,:,ie) = 1;
+    %   end
+    % end
+    % porder=2;
+    % mesh = mkmesh_streamer_gmsh(porder, "streamer_16k_fixed.msh");
+    % scaplot(mesh,fhat_indicator(:,1,:),[],0,0); axis equal; axis tight; colormap jet; title('fhat error > 1e-6');
+    % pause;
+    % 
+    % FH = reshape(FH,[], nch);       % reshape fhat back for later use
 end
 
 
@@ -189,6 +227,7 @@ for i = 1:length(bcm)
     pgb  = zeros(ngf*nfb, size(pg,2));
     nlgb = zeros(ngf*nfb, nd);
     udgb = zeros(ngf*nfb, nc);
+    odgb = zeros(ngf*nfb, nco);
     uhgb = zeros(ngf*nfb, ncu);
     im = zeros(ngf*nfb,1);
     for k = 1:nfb
@@ -200,6 +239,9 @@ for i = 1:length(bcm)
         pgb(i1,:)  = pg(i2,:);
         nlgb(i1,:) = nlg(i2,:);
         udgb(i1,:) = udgg(i2,:);
+        if nco>0
+          odgb(i1,:) = odgg(i2,:);
+        end
         uhgb(i1,:) = uhg(i2,:);
         i0 = (j-1)*npf+1:j*npf;
         i2 = (J(k)-1)*nfe*npf+(I(k)-1)*npf+1:(J(k)-1)*nfe*npf+I(k)*npf; 
@@ -210,10 +252,14 @@ for i = 1:length(bcm)
     ib = bcm(i);
     bv = repmat(bcs(i,:),[ngf*nfb 1]);    
     if isempty(im)==0
-    [fh, dfh_dudg, dfh_duh] = fbou(ib,bv,nlgb,pgb,udgb,uhgb,arg,time);                                                 
-    BH(im,:) = fh;
-    BH_udg(im,:,:) = dfh_dudg;
-    BH_uh(im,:,:) = dfh_duh;              
+      if isempty(ODG)==0  
+        [fh, dfh_dudg, dfh_duh] = fbou(ib,bv,nlgb,pgb,udgb,odgb,uhgb,arg,app.fc_u,time);            
+      else
+        [fh, dfh_dudg, dfh_duh] = fbou(ib,bv,nlgb,pgb,udgb,uhgb,arg,time);    
+      end
+      BH(im,:) = fh;
+      BH_udg(im,:,:) = dfh_dudg;
+      BH_uh(im,:,:) = dfh_duh;              
     end
     
     if adjoint==1
@@ -224,11 +270,12 @@ for i = 1:length(bcm)
         JH(im,:) = djh_duh;
     end
 end
-
+% 
 if isfield(app, 'debug_digaso')
     fbdig=readbin('./debug/debug15.bin');  % fb
     fbudig=readbin('./debug/debug16.bin');  % fb_u
     fbuhdig=readbin('./debug/debug17.bin');  % fb_uh
+    % fbdig = fbdig(1:3069);
     fbdig = reshape(fbdig,[ngf nch nbf]);
     fbudig = reshape(fbudig,[ngf nch nc nbf]);
     fbuhdig = reshape(fbuhdig,[ngf nch nch nbf]);
@@ -253,7 +300,12 @@ if isfield(app, 'debug_digaso')
           uhgb = reshape(uhg(:,j,ie,:),[ngf ncu]);          
           
           if isempty(im)==0
-          [fh, dfh_dudg, dfh_duh] = fbou(ib,bv,nlgb,pgb,udgb,uhgb,arg,time);                                                 
+            if isempty(ODG)==0
+              odgb = reshape(odgg(:,j,ie,:),[ngf nco]);
+              [fh, dfh_dudg, dfh_duh] = fbou(ib,bv,nlgb,pgb,udgb,odgb,uhgb,arg,app.fc_u,time);                                                 
+            else
+              [fh, dfh_dudg, dfh_duh] = fbou(ib,bv,nlgb,pgb,udgb,uhgb,arg,time);                                                 
+            end
           im = im + 1;
           FB(:,:,im) = fh;
           FB_udg(:,:,:,im) = dfh_dudg;
@@ -261,21 +313,23 @@ if isfield(app, 'debug_digaso')
           e = fh - fbdig(:,:,im);
           if max(abs(e(:)))>1e-6
             [ie j i ib]
-%              max(abs(e(:)))
-%             fh
-%             fbdig(:,:,im)
-%             bcs(i,:)
+             max(abs(e(:)))
+            fh
+            fbdig(:,:,im)
+            bcs(i,:)
+            pause
+          end
+%           e = dfh_dudg - fbudig(:,:,:,im);
+%           if max(abs(e(:)))>1e-6
+%             [ie j i ib]
+%             pgb
 %             pause
-          end
-          e = dfh_dudg - fbudig(:,:,:,im);
-          if max(abs(e(:)))>1e-6
-            [ie j i ib]
-          end
-          e = dfh_duh - fbuhdig(:,:,:,im);
-          if max(abs(e(:)))>1e-6
-            [ie j i ib]
-          end
-          
+%           end
+%           e = dfh_duh - fbuhdig(:,:,:,im);
+          % if max(abs(e(:)))>1e-6
+          %   [ie j i ib]
+          % end
+          % 
           end
         end
       end
@@ -291,9 +345,8 @@ if isfield(app, 'debug_digaso')
     tm = fbuhdig(:)-FB_uh(:);
     err(9) = max(abs(tm));        
     
-    fprintf('|fb-fbdig| = %e,   |fbu-fbudig| = %e,   |fbuh-fbuhdig| = %e  \n', err(7:9));         
-    
-    error('Done comparing');  
+    fprintf('|fb-fbdig| = %e,   |fbu-fbudig| = %e,   |fbuh-fbuhdig| = %e  \n', err(7:9));
+    pause
 end
 
 if adjoint==1

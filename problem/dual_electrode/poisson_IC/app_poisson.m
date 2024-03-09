@@ -48,7 +48,8 @@ app.alpha = [];
 
 % Initializing data structures
 % mesh = mkmesh_dual_electrode(porder, "dual_electrode59k.msh");
-mesh = mkmesh_dual_electrode(porder, "dual_electrode76k.msh");
+% mesh = mkmesh_dual_electrode(porder, "delec_174k.msh");
+mesh = mkmesh_dual_electrode(porder, "delec40k.msh");
 
 master = mkmaster(mesh,2*porder);
 [master,mesh] = preprocess(master,mesh,hybrid);
@@ -58,7 +59,7 @@ UH=inituhat(master,mesh.elcon,UDG,1);
 
 [UDG,UH] = hdg_solve(master,mesh,app,UDG,UH,0*UDG);
 
-save '../poissonICdoubleelec76k.mat' UDG
+save '../poissonICdelec40k.mat' UDG
 
 normE = sqrt(UDG(:,2,:).^2 + UDG(:,3,:).^2);
 figure(); scaplot(mesh,normE,[],0,0); axis equal; axis tight; colormap jet;

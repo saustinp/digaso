@@ -7,7 +7,7 @@ void flux_streamer(double *f, double *f_udg, double *pg, double *udg, double *od
 {     
     switch (nd) {
         case 2:            
-            flux2d(f, f_udg, pg, udg, param, time, ng, nc, ncu, nd, ncd);            
+            flux_streamer2d(f, f_udg, pg, udg, param, time, ng, nc, ncu, nd, ncd);            
             break;
         default:
             exit(-1);

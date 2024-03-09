@@ -497,6 +497,16 @@ void assembleLinearSystem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
             t = clock();
             // Debug arrays 0-17 written in here
             assembleElementMatrixVector(elems[this_thread], mesh, master, app, sol, temps[this_thread], ie, &elemtimes[0]);
+
+            // if (app.debugmode){     // Just for debugging fbou
+            //     for (int i = 0; i < 32; i++){
+            //         app.streams[i]->close();
+            //     }
+            //     std::cout<<"Done writing debug files, exiting"<<std::endl;
+            //     exit(-1);
+            // }            
+
+
             elemtime += clock() - t;
             
             normRuElem = DNRM2(&n1, &elems[this_thread].Ru[0], &inc);
@@ -545,8 +555,6 @@ void assembleLinearSystem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
                 Int e = mesh.elementtype[0];    // Just picked the first element
                 Int ncf = mesh.ncf[e];       
 
-                app.streams[27]->write(reinterpret_cast<char*>(&sol.DinvRu[0] ), sizeof(double) *  n1);
-                app.streams[28]->write(reinterpret_cast<char*>(&sol.DinvF[0] ), sizeof(double) *  n3);   // If app.hybrid=1
                 // Write dgnodes
                 double* pn = &mesh.dgnodes[ie*npv*ncd];    
                 app.streams[29]->write(reinterpret_cast<char*>(pn), sizeof(double) * npe*nd );  // If ngpts per element == ndgnodes per element, npe==npv, but not always.
@@ -563,6 +571,25 @@ void assembleLinearSystem(sysstruct &sys, elemstruct* elems, meshstruct &mesh, m
         }
 
         if (app.debugmode){
+            // Int inc = 1, i, e, npv, ndf, ncf, ncu, nch, n1, n2, n3, n5;
+            // npv = mesh.npes[e];            
+            // ndf = mesh.ndf[e];    
+            // ncf = mesh.ncf[e];       
+            // nch = app.nch;    
+            // ncu = app.ncu;      
+            // n1 = npv*ncu;
+            // n2 = n1*n1;
+            // n5 = nch*ndf;
+            // if (app.hybrid == 0 || app.hybrid == 2) {          // HDG, IEDG and HEDG
+            //     n3 = npv*ncu*nch*ndf;
+            // }
+            // else if (app.hybrid == 1) {     // EDG
+            //     n3 = npv*ncu*nch*ncf;
+            // }
+            // Int ne = mesh.ne;
+
+            app.streams[27]->write(reinterpret_cast<char*>(&sol.DinvRu[0] ), sizeof(double) *  sol.DinvRu.size());     // Write the entire array at once for all elements
+            app.streams[28]->write(reinterpret_cast<char*>(&sol.DinvF[0] ), sizeof(double) *  sol.DinvF.size());   // If app.hybrid=1
             for (int i = 0; i < 32; i++){
                 app.streams[i]->close();
             }

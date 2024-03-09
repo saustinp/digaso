@@ -152,7 +152,7 @@ void solveNonlinearProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &mes
     double residualNorm0 = sqrt(rNorm);
     // sys.NewtonTol = residualNorm0 * 1e-9;
     double relResidualNorm = 1;
-    double relNewtonTol = 1e-9;
+    double relNewtonTol = 1e-6;
 
     // while (rNorm > sys.NewtonTol && iter < sys.NewtonMaxiter && trueNewtonIter < sys.trueNewtonMaxiter) {
     while (relResidualNorm > relNewtonTol && iter < sys.NewtonMaxiter && trueNewtonIter < sys.trueNewtonMaxiter) {
@@ -322,7 +322,7 @@ void BDFsolveUnsteadyProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &m
     clock_t t1, tNewton;
     
     Int sza = 3;                                // Number of snapshots for Minimal Residual algorithm
-    Int saveSolFreq = 1000;                       // Every how many time-steps the solution is saved to a file
+    Int saveSolFreq = 10;                       // Every how many time-steps the solution is saved to a file
     Int recomputeOrderingFreq = 50;             // Every how many time-steps the ordering is recomputed
     Int writeQflag = 1;                         // 0: Only u is written to a binary file. 1: Both u and q are written to a binary file
     Int writeAvgSolution = 0;                   // 0: The time average solution is NOT saved to a file. 1: The time average solution is saved to a file
@@ -474,36 +474,36 @@ void BDFsolveUnsteadyProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &m
         /* Solve the steady problem */
         *convFlag = 0;
         numSolvesAttemped = 0;
-        while (*convFlag != 1) {
+        //while (*convFlag != 1) {
             solveSteadyProblemMPI(sys, elems, mesh, master, sol, app, temps, ndims, convFlag);
-            if (*convFlag != 1) {
-                numSolvesAttemped ++;
-                if (i+1 < sza || numSolvesAttemped >= 2) {
-                    app.BDFnotConverged[i] = 1;
-
-                    if (sys.my_rank == 0)
-                        printf("\n\nWARNING: Unsteady solve at time step %d did not converge.\nThe time-step size will be reduced by half.\n",i+1);
-//                         error("\n");
-
-                    /////////// HACK START ///////////
-                    for (j=0; j<szu; j++)
-                        sol.UDG[j] = UDGpre[jstar*szu+j];
-                    for (j=0; j<szh; j++)
-                        sol.UH[j] = UHpre[jstar*szh+j];
-
-                    app.dt[i+1] = app.dt[i+1] / 2.0;
-                    break;
-                    /////////// HACK END ///////////
-                }
-                // Try without minimal residual algorithm for initial guess:
-                if (sys.my_rank == 0)
-                    printf("\n\nAttemping nonlinear solve without Minimal Resigual algorithm for initial guess.\n");
-                for (j=0; j<szu; j++)
-                    sol.UDG[j] = UDGpre[jstar*szu+j];
-                for (j=0; j<szh; j++)
-                    sol.UH[j] = UHpre[jstar*szh+j];
-            }
-        }
+//             if (*convFlag != 1) {
+//                 numSolvesAttemped ++;
+//                 if (i+1 < sza || numSolvesAttemped >= 2) {
+//                     app.BDFnotConverged[i] = 1;
+// 
+//                     if (sys.my_rank == 0)
+//                         printf("\n\nWARNING: Unsteady solve at time step %d did not converge.\nThe time-step size will be reduced by half.\n",i+1);
+// //                         error("\n");
+// 
+//                     /////////// HACK START ///////////
+//                     for (j=0; j<szu; j++)
+//                         sol.UDG[j] = UDGpre[jstar*szu+j];
+//                     for (j=0; j<szh; j++)
+//                         sol.UH[j] = UHpre[jstar*szh+j];
+// 
+//                     app.dt[i+1] = app.dt[i+1] / 2.0;
+//                     break;
+//                     /////////// HACK END ///////////
+//                 }
+//                 // Try without minimal residual algorithm for initial guess:
+//                 if (sys.my_rank == 0)
+//                     printf("\n\nAttemping nonlinear solve without Minimal Resigual algorithm for initial guess.\n");
+//                 for (j=0; j<szu; j++)
+//                     sol.UDG[j] = UDGpre[jstar*szu+j];
+//                 for (j=0; j<szh; j++)
+//                     sol.UH[j] = UHpre[jstar*szh+j];
+//             }
+        //}
         
         if (app.wave == 1)
             error("BDF schemes not implemented for wave problems.\n");
@@ -589,7 +589,7 @@ void DIRKsolveUnsteadyProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &
     sys.C_MR.resize(sza*sza);
     sys.Clocal_MR.resize(sza*sza);
     
-    Int saveSolFreq = 5;                       // Every how many time-steps the solution is saved to a file
+    Int saveSolFreq = 10;                       // Every how many time-steps the solution is saved to a file
     //Int saveSolFreq = app.flag[28];
     Int recomputeOrderingFreq = 50;             // Every how many time-steps the ordering is recomputed
     Int writeQflag = 1;                         // 0: Only u is written to a binary file. 1: Both u and q are written to a binary file
@@ -693,41 +693,41 @@ void DIRKsolveUnsteadyProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &
             /* Solve the steady problem corresponding to the istage stage */
             *convFlag = 0;
             numSolvesAttemped = 0;
-            while (*convFlag != 1) {
+            //while (*convFlag != 1) {
                 solveSteadyProblemMPI(sys, elems, mesh, master, sol, app, temps, ndims, convFlag);
-                if (*convFlag != 1) {
-                    numSolvesAttemped ++;
-                    if (ii < sza || numSolvesAttemped >= 2) {
-                        app.DIRKnotConverged[ii-1] = 1;
-                        
-                        if (sys.my_rank == 0)
-                            printf("\n\nWARNING: Unsteady solve at time step %d, DIRK stage %d did not converge.\nThe time-step size will be reduced by half.\n",i+1,istage+1);
-//                         error("\n");
-                        
-                        /////////// HACK START ///////////
-                        for (j=0; j<szu; j++)
-                            sol.UDG[j] = UDGpre[jstar*szu+j];
-                        for (j=0; j<szh; j++)
-                            sol.UH[j] = UHpre[jstar*szh+j];
-                        
-                        if (istage == app.dirkStage - 1)
-                            app.dt[i+1] = app.dt[i+1] / 2;
-                        else {
-                            app.dt[i] = app.dt[i] / 2;
-                            dt = app.dt[i];
-                        }
-                        break;
-                        /////////// HACK END ///////////
-                    }
-                    // Try without minimal residual algorithm for initial guess:
-                    if (sys.my_rank == 0)
-                        printf("\n\nAttemping nonlinear solve without Minimal Resigual algorithm for initial guess.\n");
-                    for (j=0; j<szu; j++)
-                        sol.UDG[j] = UDGpre[jstar*szu+j];
-                    for (j=0; j<szh; j++)
-                        sol.UH[j] = UHpre[jstar*szh+j];
-                }
-            }
+//                 if (*convFlag != 1) {
+//                     numSolvesAttemped ++;
+//                     if (ii < sza || numSolvesAttemped >= 2) {
+//                         app.DIRKnotConverged[ii-1] = 1;
+//                         
+//                         if (sys.my_rank == 0)
+//                             printf("\n\nWARNING: Unsteady solve at time step %d, DIRK stage %d did not converge.\nThe time-step size will be reduced by half.\n",i+1,istage+1);
+// //                         error("\n");
+//                         
+//                         /////////// HACK START ///////////
+//                         for (j=0; j<szu; j++)
+//                             sol.UDG[j] = UDGpre[jstar*szu+j];
+//                         for (j=0; j<szh; j++)
+//                             sol.UH[j] = UHpre[jstar*szh+j];
+//                         
+//                         if (istage == app.dirkStage - 1)
+//                             app.dt[i+1] = app.dt[i+1] / 2;
+//                         else {
+//                             app.dt[i] = app.dt[i] / 2;
+//                             dt = app.dt[i];
+//                         }
+//                         break;
+//                         /////////// HACK END ///////////
+//                     }
+//                     // Try without minimal residual algorithm for initial guess:
+//                     if (sys.my_rank == 0)
+//                         printf("\n\nAttemping nonlinear solve without Minimal Resigual algorithm for initial guess.\n");
+//                     for (j=0; j<szu; j++)
+//                         sol.UDG[j] = UDGpre[jstar*szu+j];
+//                     for (j=0; j<szh; j++)
+//                         sol.UH[j] = UHpre[jstar*szh+j];
+//                 }
+            //}
             
             if (app.wave) {
                 switch (istage) {
@@ -772,7 +772,7 @@ void DIRKsolveUnsteadyProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &
             Int nfin = sys.entpartpts[0]+sys.entpartpts[1];
             Int bsz = sys.blkSize;
             char fname[55];
-            snprintf(fname, 55, "./run020824/time%04d_np%d.bin", i+1, sys.my_rank);
+            snprintf(fname, 55, "./run022724_d1/soltime%04d_np%d.bin", i+1, sys.my_rank);
             string filename(fname);     // Create a C++ string from the C string for the function call
             sol.writeSol2File(filename, nein, bsz*nfin, ndims, writeQflag);
 
@@ -852,7 +852,7 @@ void solveProblemMPI(sysstruct &sys, elemstruct* elems, meshstruct &mesh, master
         Int nfin = sys.entpartpts[0]+sys.entpartpts[1];
         Int bsz = sys.blkSize;
         char fname[55];
-        snprintf(fname, 55, "./run020824/time0000_np%d.bin", sys.my_rank);
+        snprintf(fname, 55, "./run022724_d1/time0000_np%d.bin", sys.my_rank);
         string filename(fname);     // Create a C++ string from the C string for the function call
         sol.writeSol2File(filename, nein, bsz*nfin, ndims, writeQflag);
 

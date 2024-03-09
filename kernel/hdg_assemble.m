@@ -1,4 +1,4 @@
-function [AE,FE,DUDG,DUDG_DUH] = hdg_assemble(master,mesh,app,UDG,UH,SH)
+function [AE,FE,DUDG,DUDG_DUH] = hdg_assemble(master,mesh,app,UDG,UH,SH,ODG)
 
 
 ne = mesh.ne;
@@ -30,17 +30,45 @@ for i = 1:np
     appp{i} = app;                  
     udg{i} = UDG(:,:,ind);
     sh{i}  = SH(:,:,ind);
+    if isempty(ODG)      
+      odg{i} = [];
+    else
+      odg{i} = ODG(:,:,ind);
+    end
     uh{i}  = reshape(UH(:,mesh.elcon(:,ind)),[ncu npf*nfe length(ind)]);
     dgnodes{i} = mesh.dgnodes(:,:,ind);
     bf{i} = mesh.bf(:,ind);
 end
-clear UDG SH UH 
+clear UDG SH UH ODG 
 
 % compute elemental matrices in parallel
 for i = 1:np 
-    [ae{i},fe{i},dudg{i},dudg_duh{i}] = hdg_elemental(masterp{i},appp{i},dgnodes{i},bf{i},udg{i},uh{i},sh{i});
+    [ae{i},fe{i},dudg{i},dudg_duh{i}] = hdg_elemental(masterp{i},appp{i},dgnodes{i},bf{i},udg{i},uh{i},sh{i},odg{i});
 end
 
+if isfield(app, 'debug_digaso')
+    AEdig = readbin('./debug/debug25.bin');
+    FEdig = readbin('./debug/debug26.bin');
+    DUDGdig = readbin('./debug/debug27.bin');
+    DUDG_DUHdig = readbin('./debug/debug28.bin');
+
+    dudg = dudg{1};
+    dudg = dudg(:,1:ncu,:);
+
+    dudg_duh = dudg_duh{1}; % matlab
+    DUDG_DUHdig = readbin('./debug/debug28.bin');
+    tmp = -dudg_duh(:,1:3,:,:,:);  % note sign change
+
+    ae = ae{1};
+    fe = fe{1};
+    err = zeros(10,1);
+    err(1) = max(abs(AEdig-ae(:)));
+    err(2) = max(abs(FEdig-fe(:)));
+    err(3) = max(abs(DUDGdig -dudg(:)));
+    err(4) = max(abs(DUDG_DUHdig -tmp(:)));
+    fprintf('|Ae-Ae_dig| = %e,   |Fe-Fe_dig| = %e,   |dudg-dudg_dig| = %e,   |dudg_duh-dudg_duh_dig| = %e  \n', err(1:4));
+    error('Done comparing')
+end
 
 if app.getdqdg == 1
     nco = nc;

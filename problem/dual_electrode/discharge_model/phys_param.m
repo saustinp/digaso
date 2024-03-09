@@ -5,12 +5,13 @@ function param = phys_param()
     mu_ref = 0.05;  % m^2/(V-s)
     E_ref = 3e6;    % V/m
     e_eps0 = 1.80955e-8;    % Quantity e/epsilon0
-    phi0 = 18.75e3;     % V
-    N0 = 5e18; % 1/m^3
-    z0 = 1e-2; % m
+    phi0 = 5e3;     % V
+    N0 = 3e18; % 1/m^3
+    z0 = -3.58*l_ref; % m
     sigma0 = 4e-4;  % m
     n_background = 1e13;    % 1/m^3
-
+    z0e = -53.585*l_ref; % m
+    
     %          1       2      3       4      5   6    7     8       9
     param = {l_ref, mu_ref, E_ref, e_eps0, phi0, N0, z0, sigma0, n_background};
 end

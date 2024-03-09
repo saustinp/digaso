@@ -1,4 +1,4 @@
-function [UDG,UH,Nit]=hdg_solve(master,mesh,app,UDG,UH,SH,NitMax)
+function [UDG,UH]=hdg_solve(master,mesh,app,UDG,UH,SH,ODG)
 %HDG_SOLVE Solve using the HDG method and Newton iteration
 %   [UH,QH,PH,UHAT] = HDG_SOLVE(MASTER,MESH,UDG,UH,SH,APP)
 %
@@ -62,6 +62,10 @@ else
     nco = nc;
 end
 
+if nargin<7
+    ODG = [];
+end
+
 % Imposing the source Term SH
 if isempty(SH)
     SH = zeros(npv,nc,ne);
@@ -86,7 +90,7 @@ if min(master.permgeom(:))==0
 end
 
 tic
-[K,F,DUDG,DUDG_DUH] = hdg_assemble(master,mesh,app,UDG,UH,SH);  
+[K,F,DUDG,DUDG_DUH] = hdg_assemble(master,mesh,app,UDG,UH,SH,ODG);  
 toc
 
 % For Adjoint problems only
@@ -196,8 +200,8 @@ end
 it   = 0;
 residualNorm0 = norm(F(:));
 relResidualNorm = 1;
-relNewtonTol = 1e-9;
-while relResidualNorm > relNewtonTol && it < 16
+relNewtonTol = 1e-7;
+while relResidualNorm > relNewtonTol && it < 3
                 
     if app.denseblock==0
         DUH = full(reshape(K\F,ncu,nsiz));   
@@ -242,7 +246,7 @@ while relResidualNorm > relNewtonTol && it < 16
             UDG(:,ncu+1:end,:)=QDG;
         end        
         
-        [K,F,DUDG,DUDG_DUH] = hdg_assemble(master,mesh,app,UDG,UH,SH);        
+        [K,F,DUDG,DUDG_DUH] = hdg_assemble(master,mesh,app,UDG,UH,SH,ODG);        
         duh  = norm(F(:));                 
         
         if duh>duh0
@@ -266,4 +270,7 @@ while relResidualNorm > relNewtonTol && it < 16
         
     fprintf('Old residual: %e,   New residual: %e    %e\n', [duh0 duh alfa]);       
     relResidualNorm = duh/residualNorm0;
+    if duh <= 1e-10
+      break;
+    end
 end

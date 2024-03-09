@@ -15,5 +15,6 @@ function u0 = initu_func_ions(dgnodes, param)
     sigma0_tilde = sigma0/l_ref;
 
     u0 = n_background_tilde + N0_tilde * exp(-((z_tilde - z0_tilde).^2 + r_tilde.^2)/(sigma0_tilde^2));
-    u0 = log(u0);
+    % u0 = n_background_tilde;
+
 end

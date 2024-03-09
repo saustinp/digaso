@@ -36,34 +36,17 @@ gmsh.model.occ.dilate(dimtags, 0,0,0, size_scale_factor, size_scale_factor, size
 # gmsh.model.occ.rotate(dimtags, 0,0,0, 1, 0, 0, np.pi/2)
 xmin, ymin, zmin, xmax, ymax, zmax = gm.occ.getBoundingBox(2, 1)    # Need to over-write the BBox values so that we can generate an accurate length scale later
 
-# internal_tags = []
-# internal_tags.append(gmsh.model.occ.addPoint(0, 98, 0, tag=10))      # 10 set arbitrarily
-# internal_tags.append(gmsh.model.occ.addPoint(0, 96, 0, tag=11))      # 10 set arbitrarily
-# internal_tags.append(gmsh.model.occ.addPoint(0, 94, 0, tag=12))      # 10 set arbitrarily
-# internal_tags.append(gmsh.model.occ.addPoint(0, 92, 0, tag=13))      # 10 set arbitrarily
-# internal_tags.append(gmsh.model.occ.addPoint(0, 90, 0, tag=14))      # 10 set arbitrarily
-# internal_tags.append(gmsh.model.occ.addPoint(0, 88, 0, tag=15))      # 10 set arbitrarily
-# internal_tags.append(gmsh.model.occ.addPoint(0, 86, 0, tag=16))      # 10 set arbitrarily
-# internal_tags.append(gmsh.model.occ.addPoint(0, 84, 0, tag=17))      # 10 set arbitrarily
-# internal_tags.append(gmsh.model.occ.addPoint(0, 82, 0, tag=18))      # 10 set arbitrarily
-# internal_tags.append(gmsh.model.occ.addPoint(0, 80, 0, tag=19))      # 10 set arbitrarily
-# internal_tags.append(gmsh.model.occ.addPoint(0, 78, 0, tag=20))      # 10 set arbitrarily
-# # gmsh.model.mesh.embed(0, internal_tags,1, 2)       DON'T USE THIS
-# for tag in internal_tags:
-#     gmsh.model.occ.fragment([(0,tag)], gmsh.model.occ.getEntities())
-
 gm.occ.synchronize()    # This is important!
 # gmsh.fltk.run()
-# gmsh.finalize()
 # exit()
 
 # Refinement
 gm.mesh.field.add("Distance", 4)
-# gm.mesh.field.setNumbers(4, "PointsList", [2,3])
 gm.mesh.field.setNumbers(4, "CurvesList", [   2  ])
 gm.mesh.field.setNumber(4, "Sampling", 300)
 gmsh.model.mesh.field.add("MathEval", 12)
-gmsh.model.mesh.field.setString(12, "F", "(.1+.5*(F4/10)^1.5)*.8")
+# gmsh.model.mesh.field.setString(12, "F", ".12+.25*(x-10)*(Atan(1000*(x-10))/Pi + 0.5) - Atan(1000)/Pi + 0.5")   # For 174k
+gmsh.model.mesh.field.setString(12, "F", ".4+.5*(x-5)*(Atan(1000*(x-5))/Pi + 0.5) - Atan(1000)/Pi + 0.5")   # For 
 
 gm.mesh.field.add("Distance", 5)
 gm.mesh.field.setNumbers(5, "PointsList", [2,3])
@@ -86,5 +69,3 @@ gmsh.write('streamer_tmp.msh3')
 gmsh.fltk.run()
 gmsh.finalize()
 exit()
-
-# %%

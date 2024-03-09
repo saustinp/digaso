@@ -5,7 +5,7 @@ void source_streamer(double *s, double *s_udg, double *pg, double *udg, double *
 {
     switch (nd) {
         case 2:
-            source2d(s, s_udg, pg, udg, param, time, ng, nc, ncu, nd, ncd);
+            source_streamer2d(s, s_udg, pg, udg, param, time, ng, nc, ncu, nd, ncd);
             break;
         default:
             exit(-1);

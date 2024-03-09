@@ -4,10 +4,10 @@
 syms x1 x2  % Variables stored in the p vector
 syms u1 u2 u3 u4 u5 u6 u7 u8 u9     % Components of UDG
 syms time
-syms param1 param2 param3 param4 param5 param6 param7 param8 param9 param10    % Components of the physics parameters
+syms param1 param2 param3 param4 param5 param6 param7 param8 param9 param10 param11    % Components of the physics parameters
 syms zero one
 
-param = [param1 param2 param3 param4 param5 param6 param7 param8 param9 param10];
+param = [param1 param2 param3 param4 param5 param6 param7 param8 param9 param10 param11];
 udg = [u1 u2 u3 u4 u5 u6 u7 u8 u9];
 p = [x1 x2];
 
@@ -24,6 +24,10 @@ Er_tilde = udg(6);
 dne_dz_tilde = udg(7);
 dni_dz_tilde = udg(8);
 Ez_tilde = udg(9);
+
+% alpha=1000;
+% ne_tilde = ne_tilde.*(atan(alpha*ne_tilde)/pi + 0.5) - atan(alpha)/pi + 0.5;
+% ni_tilde = ni_tilde.*(atan(alpha*ni_tilde)/pi + 0.5) - atan(alpha)/pi + 0.5;
 
 % Load physics param
 l_ref = param(1);

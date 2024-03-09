@@ -293,8 +293,7 @@ void elementflux(meshstruct &mesh, masterstruct &master, appstruct &app, solstru
                 
 //     cout<<"tdep: "<<app.tdep<<endl;
 //     cout<<"axis symmetric: "<<app.axisymmetry<<endl;
-//     print2darray(&app.fcu_vector[0], 1, ncu);
-//     exit(-1);
+//     print2darray(&app.fcu_vector[0], 1, ncu);    
 
     if (app.tdep==1) {
         /* Compute time source at Gauss points */
@@ -341,8 +340,12 @@ void elementflux(meshstruct &mesh, masterstruct &master, appstruct &app, solstru
             }
         }
 
-//    cout<<"fc_u: "<<app.fc_u<<endl;    
+//     cout<<"fc_u: "<<app.fc_u<<endl;    
 //     print2darray(s, ngv, ncu);
+//     print2darray(sh, npv, ncu);
+//     print2darray(stg, ngv, ncu);
+//     print2darray(udgg, ngv, ncu);
+//     print2darray(pg, ngv, 1);
 //     exit(-1);
         
     }  
@@ -1171,6 +1174,8 @@ void faceint(elemstruct &elem, meshstruct &mesh, masterstruct &master, appstruct
             bouflux(mesh, master, app, sol, temp, ib, bn, is, ie, 1);         
 
             if (app.debugmode){
+            //   std::cout<<bf[is]<<std::endl;
+            //   std::cout<<bn<<std::endl;
               app.streams[15]->write(reinterpret_cast<char*>(&temp.fb[0] ), sizeof(double) * ngf*nch);
               app.streams[16]->write(reinterpret_cast<char*>(&temp.fb_u[0] ), sizeof(double) * ngf*nch*nc );
               app.streams[17]->write(reinterpret_cast<char*>(&temp.fb_uh[0] ), sizeof(double) * ngf*nch*nch);              
@@ -1600,7 +1605,7 @@ void assembleElementMatrixVector(elemstruct &elem, meshstruct &mesh, masterstruc
     
     /*
     Note: for compatibility with Matlab, the matrices M, C, and E are written to file _before_ the elementint function to match the Matlab version. M, C, and E are modified in elementint and do not match the Matlab version after the function
-    */
+    */   
     if (app.debugmode==1) {
       app.streams[0]->write(reinterpret_cast<char*>(&temp.pg[0] ), sizeof(double) * ngv*nd );
       app.streams[1]->write(reinterpret_cast<char*>(&elem.M[0] ), sizeof(double) * npv*npv );

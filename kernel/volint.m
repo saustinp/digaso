@@ -1,4 +1,4 @@
-function [Ru, Rq, BD, M, C, L, Q, Ju, Jq, wrl] = volint(master,app,dgnodes,UDG,SH)
+function [Ru, Rq, BD, M, C, L, Q, Ju, Jq, wrl] = volint(master,app,dgnodes,UDG,SH,ODG)
     % VOLINTND compute volume integrals 
     
     % Obtain dgnodes, Jacobian matrix and determinant at Gauss points
@@ -31,6 +31,13 @@ function [Ru, Rq, BD, M, C, L, Q, Ju, Jq, wrl] = volint(master,app,dgnodes,UDG,S
     udgg = reshape(UDG,[npv ne*nc]);
     udgg = shapvt(:,:,1)*udgg;
     udgg = reshape(udgg,[ngv*ne nc]);
+    
+    if isempty(ODG)==0
+      nco   = size(ODG,3);
+      odgg = reshape(ODG,[npv ne*nco]);
+      odgg = shapvt(:,:,1)*odgg;
+      odgg = reshape(odgg,[ngv*ne nco]);
+    end
     
     if localsolve == 0    
         M  = [];
@@ -77,9 +84,19 @@ function [Ru, Rq, BD, M, C, L, Q, Ju, Jq, wrl] = volint(master,app,dgnodes,UDG,S
     % udgg(1:ngv,:)
     % pause
     
-    % Fluxes and source at Gauss points
-    [f, f_udg] = flux( pg, udgg, arg, time);
-    [s, s_udg] = source( pg, udgg, arg, time); 
+    % d ni/ nt = s_e -> (fc_u * ni - odg) = s_e -> ni = (1/fc_u) * (odg + s_e) 
+    % Laplacian (phi) = (ni - ne)
+    % Laplacian (phi) = ((1/fc_u) * (odg + s_e(ne, E)) - ne)
+    
+    
+    % Fluxes and source at Gauss points   
+    if isempty(ODG)==0
+      [f, f_udg] = flux( pg, udgg, odgg, arg, fc_u, time);
+      [s, s_udg] = source( pg, udgg, odgg, arg, fc_u, time); 
+    else
+      [f, f_udg] = flux( pg, udgg, arg, time);
+      [s, s_udg] = source( pg, udgg, arg, time);       
+    end
     
     % Code to test the C->Matlab flux and source functions
     % Flag implemented so we don't have to uncomment it every time
@@ -138,24 +155,15 @@ function [Ru, Rq, BD, M, C, L, Q, Ju, Jq, wrl] = volint(master,app,dgnodes,UDG,S
     
     end
     
-    % Check with the C++ code
+    % Check FLUX with the C++ code
     % disp('DIGASO')
-    % f_dig = readbin('/Users/saustin/Documents/digaso/problem/streamer/discharge_model/f.bin');
-    % f_udg_dig = readbin('/Users/saustin/Documents/digaso/problem/streamer/discharge_model/f_udg.bin');
+    % f_dig = readbin('/Users/saustin/Dropbox (MIT)/DIGASOV2/problem/streamer/discharge_model/debug/debug4.bin');
+    % f_udg_dig = readbin('/Users/saustin/Dropbox (MIT)/DIGASOV2/problem/streamer/discharge_model/debug/debug5.bin');
     % 
-    % f_mat = f(1:6,:,:,:);
-    % f_udg_mat = f_udg(1:6,:,:,:);
-    % 
-    % % f_udg_dig = reshape(f_udg_dig, [ngv,ncu,nd,nc]);
-    % % f_udg_dig = permute(f_udg_dig, [1,3,2,4]);
-    % 
-    % % [f_udg_mat(:), f_udg_dig]
-    % 
-    % disp('f')
-    % max(abs(f_mat(:) - f_dig))
-    % disp('f_udg')
-    % max(abs(f_udg_mat(:) - f_udg_dig(:)))
-    
+    % a=sort([f(:) f_dig],1);
+    % max(abs(a(:,1)-a(:,2)))
+    % a=sort([f_udg(:) f_udg_dig],1);
+    % max(abs(a(:,1)-a(:,2)))
     
     f     = reshape(f,[ngv ne ncu nd]);
     f_udg = permute(reshape(f_udg,[ngv ne ncu nd nc]),[1 2 3 5 4]); 
@@ -196,7 +204,7 @@ function [Ru, Rq, BD, M, C, L, Q, Ju, Jq, wrl] = volint(master,app,dgnodes,UDG,S
         else
             dtcoef = ones(ncu,1);
         end
-        
+
     %    s = s + bsxfun(@times,xr,Stg-udgg(:,1:ncu)*fc_u);
     %     s = s + Stg - udgg(:,1:ncu)*fc_u;    
         % axis symmetry
@@ -216,19 +224,19 @@ function [Ru, Rq, BD, M, C, L, Q, Ju, Jq, wrl] = volint(master,app,dgnodes,UDG,S
         %         s_udg(:,i,i) = s_udg(:,i,i) - fc_u;
             end    
         end
-    end
+    end    
     
     if isfield(app, 'debug_digaso')
         fdig=readbin('./debug/debug4.bin');
         fudig=readbin('./debug/debug5.bin');
         sdig=readbin('./debug/debug6.bin');
         sudig=readbin('./debug/debug7.bin');
-                        
+
         fdig = permute(reshape(fdig,[ngv ncu nd ne]),[1 4 2 3]);
         fudig = permute(reshape(fudig,[ngv ncu nd nc ne]),[1 5 2 4 3]);
         sdig = permute(reshape(sdig,[ngv ncu ne]),[1 3 2]);
         sudig = permute(reshape(sudig,[ngv ncu nc ne]),[1 4 2 3]);
-
+                
         err = zeros(10,1);
         err(1) = max(abs(f(:)-fdig(:)));
         err(2) = max(abs(f_udg(:)-fudig(:)));
@@ -237,22 +245,6 @@ function [Ru, Rq, BD, M, C, L, Q, Ju, Jq, wrl] = volint(master,app,dgnodes,UDG,S
         fprintf('|f-fdig| = %e,   |fu-fudig| = %e  \n', err(1:2));
         fprintf('|s-sdig| = %e,   |su-sudig| = %e  \n', err(3:4));
     end
-    
-    % Check with the C++ code
-    % disp('DIGASO')
-    % s_dig = readbin('/Users/saustin/Documents/digaso/problem/streamer/discharge_model/s.bin');
-    % s_udg_dig = readbin('/Users/saustin/Documents/digaso/problem/streamer/discharge_model/s_udg.bin');
-    % 
-    % s_mat = s(1:6,:);
-    % s_udg_mat = s_udg(1:6,:,:);
-    % 
-    % disp('s')
-    % max(abs(s_mat(:) - s_dig))
-    % disp('s_udg')
-    % max(abs(s_udg_mat(:) - s_udg_dig))
-    % 
-    % error('Done')
-    
     
     % compute wrk and wrl to time with shape functions
     wrk = zeros(ngv*(nd+1),ne*ncu);
@@ -279,61 +271,54 @@ function [Ru, Rq, BD, M, C, L, Q, Ju, Jq, wrl] = volint(master,app,dgnodes,UDG,S
     BD = reshape(shapvgdotshapvl,[npv*npv ngv*(nd+1)])*wrl;
     BD = reshape(BD,[npv npv ne ncu nc]);
     
-    % Check digaso
-    % BD_digaso = readbin('/Users/saustin/Documents/digaso/problem/streamer/discharge_model/BD_mat.bin');
-    % BD1 = permute(reshape(BD(:,:,1,:,:), [npv npv ncu nc]), [1 3 2 4]);
-    % B = reshape(BD1(:,:,:,ncu+1:end), [npv ncu npv ncu nd]);
-    % D = reshape(BD1(:,:,:,1:ncu), [npv ncu npv ncu]);
-    % MiC = zeros(npv,npv,nd);
-    % Mi = inv(M(:,:,1));
-    % for d = 1:nd
-    %     MiC(:,:,d) = Mi*C(:,:,d,1);
-    % end
-    % BMiC = mapContractK(B, MiC,[1 2 4],[3 5],[],[1 3],2,[]);
-    % 
-    % BMiC = permute(BMiC,[1,2,4,3]);
-    % D = D + BMiC;
-    % BD_digaso = BD_digaso(1:npv*ncu*npv*ncu);
-    % max(abs(D(:) - BD_digaso(:)))
-    % 
-    % error('Done...')
-    
-    
-    % Read in arrays from digaso
-    % disp('DIGASO')
-    % M_dig = readbin('/Users/saustin/Documents/digaso/problem/streamer/discharge_model/mass_mat.bin');
-    % M_dig = reshape(M_dig,[npv,npv]);
-    % C_dig = readbin('/Users/saustin/Documents/digaso/problem/streamer/discharge_model/C_mat.bin');
-    % Rq_dig = readbin('/Users/saustin/Documents/digaso/problem/streamer/discharge_model/Rq.bin');
-    % Ru_dig = readbin('/Users/saustin/Documents/digaso/problem/streamer/discharge_model/Ru.bin');
-    % BD_dig = readbin('/Users/saustin/Documents/digaso/problem/streamer/discharge_model/BD_mat.bin');
-    % dgnodes_dig = readbin('/Users/saustin/Documents/digaso/problem/streamer/discharge_model/dgnodes.bin');
-    % 
-    % BD_dig = permute(BD_dig,[1,3,4,2]);
-    % % npv npv ne ncu nc
-    % 
-    % M_matlab = M(:,:,1);
-    % disp('MATLAB')
-    % M_matlab = chol(M_matlab);
-    % C_matlab = C(:,:,:,1);
-    % Rq_mat = Rq(:,:,:,1);
-    % Ru_mat = Ru(:,1,:);
-    % BD_mat = BD(:,:,1,:,:);
-    % 
-    % disp('M')
-    % max(abs(M_dig(:) - M_matlab(:)))
-    % disp('C')
-    % max(abs(C_dig(:) - C_matlab(:)))
-    % disp('Rq')
-    % max(abs(Rq_dig(:) - Rq_mat(:)))
-    % disp('Ru')
-    % max(abs(Ru_dig(:) - Ru_mat(:)))
-    % disp('BD')
-    % max(abs(BD_dig(:) - BD_mat(:)))
-    % disp('dgnodes')
-    % dgnodes = dgnodes(:,1,:);
-    % max(abs(dgnodes_dig(:) - dgnodes(:)))
-    % error('Done...')
+
+    if isfield(app, 'debug_digaso')
+        Mdig=readbin('./debug/debug1.bin');
+        Cdig=readbin('./debug/debug2.bin');
+        BDdig=readbin('./debug/debug18.bin');
+
+        BD1 = permute(reshape(BD(:,:,1,:,:), [npv npv ncu nc]), [1 3 2 4]);
+        B = reshape(BD1(:,:,:,ncu+1:end), [npv ncu npv ncu nd]);
+        D = reshape(BD1(:,:,:,1:ncu), [npv ncu npv ncu]);
+        MiC = zeros(npv,npv,nd);
+        Mi = inv(M(:,:,1));
+        for d = 1:nd
+            MiC(:,:,d) = Mi*C(:,:,d,1);
+        end
+        BMiC = mapContractK(B, MiC,[1 2 4],[3 5],[],[1 3],2,[]);
+        
+        BMiC = permute(BMiC,[1,2,4,3]);
+        D = D + BMiC;
+        BDdig = BDdig(1:npv*ncu*npv*ncu);
+        max(abs(D(:) - BDdig(:)));
+        
+
+        % BD_dig = permute(BD_dig,[1,3,4,2]);
+        % npv npv ne ncu nc
+        
+        % M_matlab = M(:,:,1);
+        % disp('MATLAB')
+        % M_matlab = chol(M_matlab);
+        % Rq_mat = Rq(:,:,:,1);
+        % Ru_mat = Ru(:,1,:);
+        % BD_mat = BD(:,:,1,:,:);
+        % 
+        % disp('Rq')
+        % max(abs(Rq_dig(:) - Rq_mat(:)))
+        % disp('Ru')
+        % max(abs(Ru_dig(:) - Ru_mat(:)))
+        % disp('BD')
+        % max(abs(BD_dig(:) - BD_mat(:)))
+        % disp('dgnodes')
+        % dgnodes = dgnodes(:,1,:);
+        % max(abs(dgnodes_dig(:) - dgnodes(:)))
+        % 
+        err = zeros(10,1);
+        err(1) = max(abs(Mdig-M(:)));
+        err(2) = max(abs(Cdig-C(:)));
+        % err(2) = max(abs(dig-(:)));
+        fprintf('|M-Mdig| = %e,   |C-Cdig| = %e,   |BD-BDdig| = %e  \n', err(1:3));
+    end
     
     
     

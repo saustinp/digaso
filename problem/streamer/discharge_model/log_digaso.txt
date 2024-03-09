@@ -1,0 +1,1013 @@
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00752339
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0506861. Prescribed tolerance 1e-06
+Old residual: 0.00754594,   New residual: 0.00404953    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00404956
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.516464. Prescribed tolerance 1e-06
+Old residual: 0.00404953,   New residual: 0.00304053    
+
+Newton iteration:  4
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00304053
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.622575. Prescribed tolerance 1e-06
+Old residual: 0.00304053,   New residual: 0.00250896    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 84: 9684.42 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 3606.66
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.85481e-07
+Old residual: 71477.9,   New residual: 0.0112454    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0109745
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0317457. Prescribed tolerance 1e-06
+Old residual: 0.0112454,   New residual: 0.00596707    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 84: 5202.7 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 84: 14904.9 ms
+
+normE max: 8.2779e+06
+ne max: inf
+
+Timestep :  85 ||  Time :   0.42 ||  dt :   0.005 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 1568.88
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.83679e-07
+Old residual: 30602.3,   New residual: 0.00836701    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00834212
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0530505. Prescribed tolerance 1e-06
+Old residual: 0.00836701,   New residual: 0.00469199    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00469202
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.539611. Prescribed tolerance 1e-06
+Old residual: 0.00469199,   New residual: 0.00342306    
+
+Newton iteration:  4
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00342307
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.642962. Prescribed tolerance 1e-06
+Old residual: 0.00342306,   New residual: 0.00274349    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 85: 9683.28 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 3866.29
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.84031e-07
+Old residual: 74925.8,   New residual: 0.0128688    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0125608
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0343341. Prescribed tolerance 1e-06
+Old residual: 0.0128688,   New residual: 0.00679389    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 85: 5246.34 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 85: 14947.8 ms
+
+normE max: 8.27782e+06
+ne max: inf
+
+Timestep :  86 ||  Time :   0.425 ||  dt :   0.005 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 1681.83
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.82007e-07
+Old residual: 32107,   New residual: 0.00956521    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00953634
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0583114. Prescribed tolerance 1e-06
+Old residual: 0.00956521,   New residual: 0.0052461    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00524614
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.524394. Prescribed tolerance 1e-06
+Old residual: 0.0052461,   New residual: 0.0038707    
+
+Newton iteration:  4
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0038707
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.636789. Prescribed tolerance 1e-06
+Old residual: 0.0038707,   New residual: 0.0030685    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 86: 9685.41 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 4144.64
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.82556e-07
+Old residual: 78638.2,   New residual: 0.0148266    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0144723
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0372086. Prescribed tolerance 1e-06
+Old residual: 0.0148266,   New residual: 0.00776341    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 86: 5380.6 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 86: 15083.2 ms
+
+normE max: 8.27773e+06
+ne max: inf
+
+Timestep :  87 ||  Time :   0.43 ||  dt :   0.005 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 1802.92
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.80426e-07
+Old residual: 33725.9,   New residual: 0.0109923    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.010959
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.06235. Prescribed tolerance 1e-06
+Old residual: 0.0109923,   New residual: 0.00593023    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00593028
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.517231. Prescribed tolerance 1e-06
+Old residual: 0.00593023,   New residual: 0.00436225    
+
+Newton iteration:  4
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00436225
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.638977. Prescribed tolerance 1e-06
+Old residual: 0.00436225,   New residual: 0.00345045    
+
+Newton iteration:  5
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00345045
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.764454. Prescribed tolerance 1e-06
+Old residual: 0.00345045,   New residual: 0.00287469    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 87: 11908.6 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 4443.04
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.80921e-07
+Old residual: 82631.4,   New residual: 0.0166834    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0162723
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0387831. Prescribed tolerance 1e-06
+Old residual: 0.0166834,   New residual: 0.00851326    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00851329
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.541712. Prescribed tolerance 1e-06
+Old residual: 0.00851326,   New residual: 0.00637925    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 87: 7479.61 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 87: 19404.2 ms
+
+normE max: 8.27761e+06
+ne max: inf
+
+Timestep :  88 ||  Time :   0.435 ||  dt :   0.005 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 1932.72
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.80024e-07
+Old residual: 35466.1,   New residual: 0.0118258    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0117691
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0608565. Prescribed tolerance 1e-06
+Old residual: 0.0118258,   New residual: 0.00661561    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00661562
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.694875. Prescribed tolerance 1e-06
+Old residual: 0.00661561,   New residual: 0.00511445    
+
+Newton iteration:  4
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00511446
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.627141. Prescribed tolerance 1e-06
+Old residual: 0.00511445,   New residual: 0.00376367    
+
+Newton iteration:  5
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00376367
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.685437. Prescribed tolerance 1e-06
+Old residual: 0.00376367,   New residual: 0.00296983    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 88: 11910.7 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 4762.93
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.79542e-07
+Old residual: 86922.5,   New residual: 0.0193281    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0188411
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0428066. Prescribed tolerance 1e-06
+Old residual: 0.0193281,   New residual: 0.00967244    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00967247
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.553899. Prescribed tolerance 1e-06
+Old residual: 0.00967244,   New residual: 0.00696137    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 88: 7439.1 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 88: 19365.5 ms
+
+normE max: 8.27751e+06
+ne max: inf
+
+Timestep :  89 ||  Time :   0.44 ||  dt :   0.005 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 2071.87
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.78653e-07
+Old residual: 37334.9,   New residual: 0.0133145    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0132511
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0664454. Prescribed tolerance 1e-06
+Old residual: 0.0133145,   New residual: 0.00742365    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00742367
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.685823. Prescribed tolerance 1e-06
+Old residual: 0.00742365,   New residual: 0.00573351    
+
+Newton iteration:  4
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00573351
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.6344. Prescribed tolerance 1e-06
+Old residual: 0.00573351,   New residual: 0.00423751    
+
+Newton iteration:  5
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00423751
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.6628. Prescribed tolerance 1e-06
+Old residual: 0.00423751,   New residual: 0.00324977    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 89: 11908.8 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 5105.85
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.77962e-07
+Old residual: 91529.4,   New residual: 0.0222309    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0216702
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0462868. Prescribed tolerance 1e-06
+Old residual: 0.0222309,   New residual: 0.0110069    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.011007
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.561329. Prescribed tolerance 1e-06
+Old residual: 0.0110069,   New residual: 0.00802204    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 89: 7469.57 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 89: 19394.8 ms
+
+normE max: 8.27741e+06
+ne max: inf
+
+Timestep :  90 ||  Time :   0.445 ||  dt :   0.005 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 2221.04
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.77017e-07
+Old residual: 39340.1,   New residual: 0.0153588    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.015285
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0722511. Prescribed tolerance 1e-06
+Old residual: 0.0153588,   New residual: 0.00848495    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00848497
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.672526. Prescribed tolerance 1e-06
+Old residual: 0.00848495,   New residual: 0.00645819    
+
+Newton iteration:  4
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0064582
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.621563. Prescribed tolerance 1e-06
+Old residual: 0.00645819,   New residual: 0.00469786    
+
+Newton iteration:  5
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00469786
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.659602. Prescribed tolerance 1e-06
+Old residual: 0.00469786,   New residual: 0.00357521    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 90: 11906.5 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 5473.45
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.76351e-07
+Old residual: 96471.5,   New residual: 0.0255698    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.024925
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0497536. Prescribed tolerance 1e-06
+Old residual: 0.0255698,   New residual: 0.0124886    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0124886
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.571547. Prescribed tolerance 1e-06
+Old residual: 0.0124886,   New residual: 0.00935039    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 90: 7501.94 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 90: 19424.2 ms
+
+normE max: 8.27729e+06
+ne max: inf
+
+Timestep :  91 ||  Time :   0.45 ||  dt :   0.005 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 2380.94
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.75518e-07
+Old residual: 41490.1,   New residual: 0.0178237    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0177382
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0789482. Prescribed tolerance 1e-06
+Old residual: 0.0178237,   New residual: 0.00979972    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00979974
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.661355. Prescribed tolerance 1e-06
+Old residual: 0.00979972,   New residual: 0.00737362    
+
+Newton iteration:  4
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00737363
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.612983. Prescribed tolerance 1e-06
+Old residual: 0.00737362,   New residual: 0.00533035    
+
+Newton iteration:  5
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00533035
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.679869. Prescribed tolerance 1e-06
+Old residual: 0.00533035,   New residual: 0.00408313    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 91: 11855 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 5867.49
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.747e-07
+Old residual: 101769,   New residual: 0.0295163    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0287762
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0540055. Prescribed tolerance 1e-06
+Old residual: 0.0295163,   New residual: 0.0143704    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0143705
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.566959. Prescribed tolerance 1e-06
+Old residual: 0.0143704,   New residual: 0.0106733    
+
+Newton iteration:  4
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0106733
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.597982. Prescribed tolerance 1e-06
+Old residual: 0.0106733,   New residual: 0.00683314    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 91: 9638.42 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 91: 21509.2 ms
+
+normE max: 8.27716e+06
+ne max: inf
+
+Timestep :  92 ||  Time :   0.455 ||  dt :   0.005 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 2552.33
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.72219e-07
+Old residual: 43793.4,   New residual: 0.0163335    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0162557
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0702263. Prescribed tolerance 1e-06
+Old residual: 0.0163335,   New residual: 0.00897569    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00897572
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.541831. Prescribed tolerance 1e-06
+Old residual: 0.00897569,   New residual: 0.00726913    
+
+Newton iteration:  4
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00726914
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.609064. Prescribed tolerance 1e-06
+Old residual: 0.00726913,   New residual: 0.00462953    
+
+Newton iteration:  5
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00462953
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.771312. Prescribed tolerance 1e-06
+Old residual: 0.00462953,   New residual: 0.00392794    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 92: 11939.3 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 6289.85
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.72876e-07
+Old residual: 107444,   New residual: 0.033461    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0326159
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0570425. Prescribed tolerance 1e-06
+Old residual: 0.033461,   New residual: 0.016001    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.016001
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.562913. Prescribed tolerance 1e-06
+Old residual: 0.016001,   New residual: 0.0120711    
+
+Newton iteration:  4
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0120711
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.603429. Prescribed tolerance 1e-06
+Old residual: 0.0120711,   New residual: 0.00754291    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 92: 9677.18 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 92: 21632.5 ms
+
+normE max: 8.27702e+06
+ne max: inf
+
+Timestep :  93 ||  Time :   0.46 ||  dt :   0.005 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 2736.04
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.70583e-07
+Old residual: 46259.7,   New residual: 0.0186683    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0185785
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0752717. Prescribed tolerance 1e-06
+Old residual: 0.0186683,   New residual: 0.0100911    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0100912
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.537517. Prescribed tolerance 1e-06
+Old residual: 0.0100911,   New residual: 0.00818768    
+
+Newton iteration:  4
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00818769
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.606355. Prescribed tolerance 1e-06
+Old residual: 0.00818768,   New residual: 0.00510596    
+
+Newton iteration:  5
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00510596
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.766527. Prescribed tolerance 1e-06
+Old residual: 0.00510596,   New residual: 0.00431709    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 93: 11861.3 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 6742.56
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.71199e-07
+Old residual: 113519,   New residual: 0.0385451    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0375717
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0615688. Prescribed tolerance 1e-06
+Old residual: 0.0385451,   New residual: 0.0182177    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0182178
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.558196. Prescribed tolerance 1e-06
+Old residual: 0.0182177,   New residual: 0.0136734    
+
+Newton iteration:  4
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0136735
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.596418. Prescribed tolerance 1e-06
+Old residual: 0.0136734,   New residual: 0.00845342    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 93: 9682.97 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 93: 21561.1 ms
+
+normE max: 8.27688e+06
+ne max: inf
+
+Timestep :  94 ||  Time :   0.465 ||  dt :   0.005 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 2932.95
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.68704e-07
+Old residual: 48898.9,   New residual: 0.0213232    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0212193
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0807681. Prescribed tolerance 1e-06
+Old residual: 0.0213232,   New residual: 0.0114746    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0114747
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.533649. Prescribed tolerance 1e-06
+Old residual: 0.0114746,   New residual: 0.0093303    
+
+Newton iteration:  4
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0093303
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.606631. Prescribed tolerance 1e-06
+Old residual: 0.0093303,   New residual: 0.0057309    
+
+Newton iteration:  5
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00573091
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.764087. Prescribed tolerance 1e-06
+Old residual: 0.0057309,   New residual: 0.00484182    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 1 IN TIME-STEP NO. 94: 11967.5 ms
+
+DIRK stage :  2
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 7227.78
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.69501e-07
+Old residual: 120019,   New residual: 0.0444318    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0433116
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0664828. Prescribed tolerance 1e-06
+Old residual: 0.0444318,   New residual: 0.020817    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0208171
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.552285. Prescribed tolerance 1e-06
+Old residual: 0.020817,   New residual: 0.015566    
+
+Newton iteration:  4
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.015566
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.587065. Prescribed tolerance 1e-06
+Old residual: 0.015566,   New residual: 0.0095046    
+
+
+TOTAL TIME TO SOLVE TIME STAGE NO. 2 IN TIME-STEP NO. 94: 9644.34 ms
+
+
+
+TOTAL TIME TO SOLVE TIME-STEP NO. 94: 21627 ms
+
+normE max: 8.27673e+06
+ne max: inf
+
+Timestep :  95 ||  Time :   0.47 ||  dt :   0.005 
+DIRK stage :  1
+
+Newton iteration:  1
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 3143.99
+
+GMRES(25) converges at iteration 9 to a solution with relative residual 9.66908e-07
+Old residual: 51721.6,   New residual: 0.0244417    
+
+Newton iteration:  2
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0243222
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.0865642. Prescribed tolerance 1e-06
+Old residual: 0.0244417,   New residual: 0.0130551    
+
+Newton iteration:  3
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0130551
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.528944. Prescribed tolerance 1e-06
+Old residual: 0.0130551,   New residual: 0.0106358    
+
+Newton iteration:  4
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.0106358
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.609083. Prescribed tolerance 1e-06
+Old residual: 0.0106358,   New residual: 0.00647074    
+
+Newton iteration:  5
+Assembling linear system...
+Computing preconditioner...
+Solving linear system...
+Residual norm before preconditioner: 0.00647074
+
+GMRES(25) did not converge in maximum number of iterations (10). Relative residual 0.760168. Prescribed tolerance 1e-06
+Old residual: 0.00647074,   New residual: 0.00544161    
+Newton's method did not converge to relative tolerance 1e-07 in 5 iterations (5 true Newton iter).
+
+
+WARNING: Unsteady solve at time step 95, DIRK stage 1 did not converge.
+Error: 
+
+    ~/Dr/DIGASOV2/pro/s/discharge_model    test-matlab-version = *2 !57 ?11  ../../../main/digasoser streamer streamersol                                            1 ✘  14m 0s     10:32:10 AM  

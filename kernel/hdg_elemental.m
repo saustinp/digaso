@@ -1,4 +1,4 @@
-function [AE,FE,DUDG,DUDG_DUH] = hdg_elemental(master,app,dgnodes,bf,UDG,UH,SH)
+function [AE,FE,DUDG,DUDG_DUH] = hdg_elemental(master,app,dgnodes,bf,UDG,UH,SH,ODG)
 
     npv = size(UDG,1);                
     ne  = size(dgnodes,3);
@@ -16,6 +16,10 @@ function [AE,FE,DUDG,DUDG_DUH] = hdg_elemental(master,app,dgnodes,bf,UDG,UH,SH)
     SH  = permute(SH,[1 3 2]);
     dgnodes = permute(dgnodes,[1 3 2]);
     UH = permute(UH,[2 3 1]);
+    
+    if isempty(ODG)==0
+      ODG = permute(ODG,[1 3 2]);
+    end
     
     if app.getdqdg == 1
         nco = nc;
@@ -47,7 +51,11 @@ function [AE,FE,DUDG,DUDG_DUH] = hdg_elemental(master,app,dgnodes,bf,UDG,UH,SH)
         
         % compute volume integrals
         %BD = reshape(BD,[npv npv ne ncu nc]);
-        [Ru, Rq, BD, M, C, L, Q, Ju, Jq, wrl] = volint(master,app,dgnodes(:,id,:),UDG(:,id,:),SH(:,id,:));
+        if isempty(ODG)==0
+          [Ru, Rq, BD, M, C, L, Q, Ju, Jq, wrl] = volint(master,app,dgnodes(:,id,:),UDG(:,id,:),SH(:,id,:),ODG(:,id,:));
+        else
+          [Ru, Rq, BD, M, C, L, Q, Ju, Jq, wrl] = volint(master,app,dgnodes(:,id,:),UDG(:,id,:),SH(:,id,:),[]);
+        end
 
          if isfield(app,'debug_digaso')
             % Mdig = readbin('./debug/debug1.bin');   % Compare with dudg: first 3 columns: tmp=dudg(:,1:ncu,:); max(tmp(:)-DinvRu)=1.2385. First element matches though
@@ -99,7 +107,11 @@ function [AE,FE,DUDG,DUDG_DUH] = hdg_elemental(master,app,dgnodes,bf,UDG,UH,SH)
     %     
     
         % compute face integrals        
-        [Ru, Rq, Rh, BD, F, E, GK, H, Ju, Jq, Jh] = faceint(master,app,bf(:,id),dgnodes(:,id,:),UDG(:,id,:),UH(:,id,:),Ru,Rq,BD,Ju,Jq);            
+        if isempty(ODG)==0
+          [Ru, Rq, Rh, BD, F, E, GK, H, Ju, Jq, Jh] = faceint(master,app,bf(:,id),dgnodes(:,id,:),UDG(:,id,:),ODG(:,id,:),UH(:,id,:),Ru,Rq,BD,Ju,Jq);            
+        else
+          [Ru, Rq, Rh, BD, F, E, GK, H, Ju, Jq, Jh] = faceint(master,app,bf(:,id),dgnodes(:,id,:),UDG(:,id,:),[],UH(:,id,:),Ru,Rq,BD,Ju,Jq);            
+        end
     %     squeeze(Rh)
     %     pause
     %    [BMiC,BMiE] = BMiCvol(master,app,BDt,M,C,E,wrl);
